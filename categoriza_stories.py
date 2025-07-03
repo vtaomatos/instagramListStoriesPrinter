@@ -31,26 +31,20 @@ def encode_image_base64(image_path):
         return base64.b64encode(f.read()).decode("utf-8")
 
 def enviar_para_chatgpt(imagens):
+    mapa, imagens_base64 = construir_mapa_de_imagens(imagens)
+
     prompt = (
         "Você agora vai ler e descrever eventos muito bem.\n"
-        "Quero que você receba essa lista de imagens, retiradas de stories de casas de eventos e semelhantes. "
-        "Leia essas imagens e determine se a imagem se trata claramente de um flyer de evento, com informações mínimas sobre eventos e programação ou não (se for qualquer outra coisa).\n"
-        "Gere um retorno vinculando imagens com um booleano onde true é flyer de divulgação de evento e false não, ponha nesse objeto também uma descrição bem breve do que encontrou na imagem.\n"
-        "ex: {data:[{imagem: 'story_1.extensao', isFlyer: true, descricao: '...'}]}\n"
-        "O retorno deve ser um JSON válido com a seguinte estrutura:\n"
-        "Não retorne nada além disso, apenas o JSON com as informações.\n"
-        "Se não encontrar nada, retorne equivalente a null ou vazio no campo que for necessário\n")
+        "Você receberá imagens com nomes fictícios como 'story_1', 'story_2' etc. "
+        "Considere esses nomes ao retornar os resultados.\n"
+        "Gere um JSON com a estrutura:\n"
+        "{data:[{imagem: 'story_1', isFlyer: true, descricao: '...'}]}"
+        "Somente isso, não adicione nada fora do JSON."
+    )
 
     mensagens = [
         {"role": "system", "content": "Você é um assistente que analisa imagens de eventos para identificar se são flyers."},
-        {"role": "user", "content": [{"type": "text", "text": prompt}] + [
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": f"data:image/jpeg;base64,{encode_image_base64(img)}"
-                }
-            } for img in imagens
-        ]}
+        {"role": "user", "content": [{"type": "text", "text": prompt}] + imagens_base64}
     ]
 
     resposta = client.chat.completions.create(
@@ -60,22 +54,62 @@ def enviar_para_chatgpt(imagens):
     )
 
     conteudo = resposta.choices[0].message.content.strip()
-
     try:
         conteudo_limpo = re.sub(r"^```(?:json)?\n|\n```$", "", conteudo.strip())
-        return json.loads(conteudo_limpo)
+        dados = json.loads(conteudo_limpo)
+        return dados, mapa
     except json.JSONDecodeError:
         print("⚠️ Falha ao interpretar o JSON. Retorno recebido:")
         print(conteudo)
-        return []
+        return {}, mapa
+
 
 def mover_arquivo(caminho, destino):
+
     os.makedirs(destino, exist_ok=True)
-    destino_path = os.path.join(destino, os.path.basename(caminho))
+
+    # Lista arquivos que começam com "story_" e terminam com .png (ou .jpg etc.)
+    arquivos_existentes = [
+        f for f in os.listdir(destino)
+        if f.startswith("story_") and os.path.splitext(f)[1].lower() in [".png", ".jpg", ".jpeg", ".webp"]
+    ]
+
+    # Extrai os números dos arquivos existentes
+    numeros = []
+    for nome in arquivos_existentes:
+        try:
+            numero = int(nome.split("_")[1].split(".")[0])
+            numeros.append(numero)
+        except:
+            continue
+
+    proximo_numero = max(numeros) + 1 if numeros else 1
+    extensao = os.path.splitext(caminho)[1].lower()
+    novo_nome = f"story_{proximo_numero}{extensao}"
+    destino_path = os.path.join(destino, novo_nome)
+
     shutil.move(caminho, destino_path)
+    print(f"✅ Arquivo movido como {novo_nome}")
+
+def construir_mapa_de_imagens(imagens):
+    mapa = {}
+    partes = []
+    for i, caminho in enumerate(imagens, start=1):
+        nome_temp = f"story_{i}"
+        base64_img = encode_image_base64(caminho)
+        extensao = os.path.splitext(caminho)[1].lower().replace(".", "")
+        mapa[nome_temp] = caminho
+        partes.append({
+            "type": "image_url",
+            "image_url": {
+                "url": f"data:image/{extensao};base64,{base64_img}"
+            }
+        })
+    return mapa, partes
+
 
 def processar_lote(imagens, flyer_dir, lixo_dir):
-    resultados = enviar_para_chatgpt(imagens)
+    resultados, mapa = enviar_para_chatgpt(imagens)
     if not resultados:
         print("❌ Nenhum resultado retornado. Pulando lote.")
         return
@@ -86,21 +120,19 @@ def processar_lote(imagens, flyer_dir, lixo_dir):
         return
 
     for r in dados:
-        nome = r.get("imagem")
+        nome_temp = r.get("imagem")
         is_flyer = r.get("isFlyer", False)
         descricao = r.get("descricao", "")
-        caminho_original = next(
-            (img for img in imagens if os.path.basename(os.path.normpath(img)).lower() == nome.lower()),
-            None
-        )
+        caminho_original = mapa.get(nome_temp)
 
         if not caminho_original:
-            print(f"⚠️ Imagem '{nome}' não encontrada no lote.")
+            print(f"⚠️ Nome temporário '{nome_temp}' não encontrado no mapa.")
             continue
 
         destino = flyer_dir if is_flyer else lixo_dir
         mover_arquivo(caminho_original, destino)
-        print(f"{'✅ FLYER' if is_flyer else '🗑️ LIXO'} - {nome} | {descricao}")
+        print(f"{'✅ FLYER' if is_flyer else '🗑️ LIXO'} - {os.path.basename(caminho_original)} | {descricao}")
+
 
 def main():
     imagens = listar_imagens(ROOT_DIR)

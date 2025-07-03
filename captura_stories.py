@@ -15,10 +15,16 @@ load_dotenv()
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
 CONTAS = [
-    # "meulugar.bar", 
-    # "mobydicksantos", 
-    # "donnag.santos",
-    "donnaguilherminabar"
+    "meulugar.bar", 
+    "mobydicksantos", 
+    "donnag.santos",
+    "donnaguilherminabar",
+    "ativahouse",
+    "toatoabarc7",
+    "bartusantos",
+    "x9_pioneira",
+    "cristoearesposta",
+    "cemporcentovida"
     ]
 TEMPO_POR_STORY = 1
 
