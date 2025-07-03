@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import re
 
+
 # Carrega variáveis de ambiente
 load_dotenv()
 

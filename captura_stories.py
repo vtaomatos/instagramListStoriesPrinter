@@ -60,7 +60,9 @@ def verificar_se_story_abriu(conta):
     try:
         sections = driver.find_elements(By.XPATH, "//section")
         if len(sections) == 1:
+            print(f"\n ✅ Acessado stories @{conta}...")
             return True
+        
         else:
             print(f"⚠️ Nenhum story encontrado para @{conta}.")
         
@@ -68,9 +70,6 @@ def verificar_se_story_abriu(conta):
         print(f"⚠️ Nenhum story encontrado para @{conta}.")
         
     return False
-
-
-    print(f"\n ✅ Acessado stories @{conta}...")
 
 
 def ver_story():

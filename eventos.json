@@ -1,0 +1,1421 @@
+
+
+-- Inserção em 2025-07-03 15:19:38 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Doce Veneno",
+            "data_evento": "2023-07-18 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Prepare-se para uma noite inesquecível ao som de DJ CIA, DJ Campbell e DJ Boturão! A festa promete muita música boa e uma atmosfera incrível. Venha curtir com a galera e aproveite o melhor do hip-hop e rap. A casa abre às 22h, então chegue cedo!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": -23.9431,
+            "longitude": -46.3358
+        },
+        {
+            "id": 2,
+            "titulo": "Antes Que o Baile Comece",
+            "data_evento": "2023-07-20 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Venha experimentar uma roda de brasilidades com Diego Alencikas Sexteto! Aproveite a promoção de balde com 5 long necks e entrada free até 22h. Uma noite cheia de ritmos brasileiros para você dançar e se divertir!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": -23.9431,
+            "longitude": -46.3358
+        },
+        {
+            "id": 3,
+            "titulo": "Sextou BB",
+            "data_evento": "2023-07-21 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Sextou com Maralto Mastrobriso! Curta desde o rock até o funk, com promoções incríveis como 2x caipirinha de limão até 22h. Se você é aniversariante da semana, ganhe 3 drinks. A festa começa às 20h e vai até as 2h. Entrada free até 22h!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": -23.9431,
+            "longitude": -46.3358
+        },
+        {
+            "id": 4,
+            "titulo": "Sábado Hip-Hop ao Funk",
+            "data_evento": "2023-07-22 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Do hip-hop ao funk, a noite de sábado será comandada por Akula, BE Amarante e DJ Matt. Anote na agenda: entrada free até 21h e flash tattoo com @saracastro.ink. Começa às 20h e vai até as 3h.",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": -23.9431,
+            "longitude": -46.3358
+        },
+        {
+            "id": 5,
+            "titulo": "Domingo com Banda Suzan",
+            "data_evento": "2023-07-23 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Domingo especial com a Banda Suzan tocando ao vivo! Não perca a promoção: comprando 4 cervejas por mais 4 reais, leve a quinta. Entrada free a noite toda, das 20h às 1h.",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": -23.9431,
+            "longitude": -46.3358
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:20:14 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Ativa House - Agenda Semana",
+            "data_evento": "2025-07-03 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Prepare-se para uma semana incrível na Ativa House! Na quinta, 03/07, curta o som brasileiro de Diego Alencikas Sexteto com entrada free até as 22h. Sexta, 04/07, a mistura de rock e funk com Maralto + Mastrobiso promete agitar a noite. Sábado, 05/07, é dia de hip-hop e funk com DJ Akila, Be Amarante e DJ Matt, também com entrada free até as 21h. E no domingo, 06/07, curta um domingo de rock com Emanuel Original e Banda Suzan com entrada free a noite toda. Venha se divertir em um ambiente vibrante e cheio de energia!",
+            "endereco": "Almeida de Moraes, 31, Santos - SP",
+            "latitude": -23.9618,
+            "longitude": -46.3321
+        },
+        {
+            "id": 2,
+            "titulo": "Bar TU - Chopp Brahma",
+            "data_evento": "2025-07-09 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_7.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://instagram.com/bartusantos",
+            "descricao": "Toda quarta, aproveite a promoção de Chopp Brahma por apenas R$8,00 no Bar TU! Uma noite de descontração para curtir com os amigos no melhor estilo happy hour, saboreando um chopp gelado a noite toda!",
+            "endereco": "Santos - SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Donna G - Happy G",
+            "data_evento": "2025-07-11 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_8.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://instagram.com/donnag.santos",
+            "descricao": "Venha para o Happy G da Donna G, toda terça e quarta das 17h às 20h30! Um happy hour imperdível com promoções incríveis: balde na promoção com 7 latas por apenas R$36,90 e 50% de desconto em porções e drinks com bebidas nacionais. Um ambiente descontraído e animado no centro de Santos!",
+            "endereco": "Rua Tuiuti, 26, Centro, Santos - SP",
+            "latitude": -23.961943,
+            "longitude": -46.332962
+        },
+        {
+            "id": 4,
+            "titulo": "Donna Guilhermina - Quarta Original",
+            "data_evento": "2025-07-02 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_9.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://instagram.com/donnaguilherminabar",
+            "descricao": "A Donna Guilhermina convida você para a Quarta Original, um evento com entrada gratuita e cerveja Original 2un de 300ml por apenas R$11,90, das 17h às 00h! Curta um happy hour em um ambiente descontraído com 50% off em drinks com bebidas nacionais!",
+            "endereco": "Guilhermina, Praia Grande - SP",
+            "latitude": -24.0071,
+            "longitude": -46.4123
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:20:52 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Quinta Sunset",
+            "data_evento": "2023-10-05 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar",
+            "descricao": "Venha curtir o clima descontraído do 'Quinta Sunset' com shows incríveis de Leo Zinho e Vou Ali E Já Volto. Aproveite a promoção de open Corona das 18h às 22h por apenas R$ 55 por pessoa. Um happy hour inesquecível na melhor vibe da Praia Grande.",
+            "endereco": "Avenida Guilhermina, Praia Grande, SP, Brasil",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Quarta Original",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar",
+            "descricao": "O evento 'Quarta Original' foi cancelado, mas o bar permanece aberto com suas atrações habituais e descontraídas promoções de drinks.",
+            "endereco": "Avenida Guilhermina, Praia Grande, SP, Brasil",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Rock no Meu Lugar",
+            "data_evento": "2023-10-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_13.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Prepare-se para uma noite inesquecível no 'Rock no Meu Lugar'! Curta as apresentações das bandas DZRock e Daniel Rato com abertura de Rackatanga e participação de Paula Chagas e Anderson Botega. Aproveite as promoções de double gin e caipirinha, e não perca o 'Mulher VIP' até às 21h.",
+            "endereco": "Avenida Almirante Tamandaré, 284, Santos, SP, Brasil",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2023-10-08 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Venha sambar muito com o grupo Só Resenha. Participação especial de Trinidah e DJ Sete. Curta o 'Open Breja' na varanda das 18h às 19h e aproveite o 'Mulher VIP' até as 19h!",
+            "endereco": "Avenida Almirante Tamandaré, 284, Santos, SP, Brasil",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Evento Fechado",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_15.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "O Churrasquinho do Meu Lugar Bar estará fechado no dia 06 de julho. Aguardamos você em nossos próximos eventos.",
+            "endereco": "Avenida Almirante Tamandaré, 284, Santos, SP, Brasil",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:21:13 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Agito com DZRock",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_19.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Prepare-se para a festa com muito rock ao vivo da banda DZRock agitando a galera. Aproveite a promoção 'open bar' de Amstel por R$39,90 até as 21h e beba em dobro seu gin e caipirinha favoritos. A vibe é animada e descontraída, com promoções de 50% de desconto em porções e 'mulher VIP'.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Vem curtir 3 horas de muito pagode com o Caldeirão do Leozinho, cantando Sorriso Maroto. Abertura especial com Rogerinho e entrada free até as 20h. Aproveite todo o cardápio com 50% de desconto e garanta seu lugar na festa do ano!",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:21:45 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Resenha em Casa",
+            "data_evento": "2023-07-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Venha curtir a Resenha em Casa com muita música boa, com estilos variando de pagode a funk, incluindo shows de Renanzin77 e DJ Babu. Aproveite a promoção de 50% off e Mulher VIP até as 21h. O clima será de alegria e descontração, perfeito para um público jovem e animado.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "O Caldeirão do Leozinho apresenta uma noite de muito pagode com Rogerinho Mello e um especial de 3 horas de Sorriso Maroto. Entrada gratuita até as 20h e promoções no cardápio com 50% de desconto.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Transmissão Palmeiras x Chelsea",
+            "data_evento": "2023-07-04 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_23.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Assista ao vivo a transmissão do jogo entre Palmeiras e Chelsea em nosso telão. Venha vibrar e torcer com os amigos em uma atmosfera esportiva e animada.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Feijuca do Consa",
+            "data_evento": "2023-07-05 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_24.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Feijuca do Consa é um evento especial com uma deliciosa feijoada. Infelizmente, o evento deste sábado está fechado, mas fique atento para as próximas edições. Aproveite um ambiente acolhedor e familiar.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:27:24 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Doce Veneno com DJ CIA",
+            "data_evento": "2023-07-18 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Entre no clima com DJ CIA, DJ Campbell e DJ Boturão na pista. Uma festa envolvente com o melhor do Hip-Hop na Ativa House! Não perca a vibe exclusiva deste evento incrível!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Antes Que o Baile Comece",
+            "data_evento": "2023-07-20 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Roda de Brasilidades com Diego Alencikas Sexteto. Com entrada gratuita até as 22h, aproveite a promoção de balde com 5 long necks. Uma noite de pura brasilidade na Ativa House!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Sextou BB",
+            "data_evento": "2023-07-21 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Maralto e MastroBiso agitam a noite do Rock ao Funk. Aniversariante da semana ganha 3 drinks, e tem promoção de caipirinha de limão em dobro até as 22h. Vibe única na Ativa House!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Sábado Hip-Hop ao Funk",
+            "data_evento": "2023-07-22 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Uma noite incrível com Akula, Be Amarante e DJ Matt. Do hip-hop ao funk, com entrada gratuita até as 21h e flash tattoo na @saracastro.ink, só na Ativa House!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Domingo com Banda Suzan",
+            "data_evento": "2023-07-23 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Curta a Banda Suzan no domingo, com entrada gratuita a noite toda, das 20h à 1h. Promoção especial: comprando 4 cervejas + 4 reais leva a quinta. Só na Ativa House!",
+            "endereco": "Almeida de Moraes, 41, Vila Mathias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:28:01 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Ativa House - Agenda da Semana",
+            "data_evento": "2025-07-03 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://www.instagram.com/ativahouse",
+            "descricao": "Quinta-feira com Brasilidades, venha curtir Diego Alencikas Sexteto com entrada free até as 22h. Na sexta, prepare-se para o Rock ao Funk com Maralto e Mastrodisio, também com entrada free até as 22h. Sábado é dia de Hip-Hop e Funk com DJ Akila, Be Amarante e DJ Matt, entrada livre até 21h. No domingo, aproveite rock com Emanuel Original e Banda Suzan, entrada livre a noite toda.",
+            "endereco": "Almeida de Moraes, 31, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Bar Tu - Chopp Brahma",
+            "data_evento": "2023-11-08 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_7.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://www.instagram.com/bartusantos",
+            "descricao": "Toda quarta-feira, venha aproveitar o Chopp Brahma por apenas R$8,00 a noite toda! Uma ótima noite com preço inacreditável para relaxar com os amigos.",
+            "endereco": "",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Donna G - Happy Hour Especial",
+            "data_evento": "2023-11-07 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_8.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos",
+            "descricao": "Happy Hour todas as terças e quartas, das 17h às 20h30. Um momento perfeito para relaxar e curtir promoções incríveis em bebidas e porções.",
+            "endereco": "",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Donna G - Promoções Imperdíveis",
+            "data_evento": "2023-11-07 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_9.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos",
+            "descricao": "Aproveite estas ofertas! Balde na promoção por R$36,90 e 50% off em porções e drinks. Satisfação garantida para seu happy hour.",
+            "endereco": "",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Donna Guilhermina Bar - Quarta Original",
+            "data_evento": "2023-11-08 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_10.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar",
+            "descricao": "Quarta-feira com entrada gratuita! Cerveja Original 2un de 300ml por R$11,90, das 17h às 00h. Perfeito para juntar os amigos e curtir essa vibe descontraída.",
+            "endereco": "Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:28:43 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Quinta Sunset",
+            "data_evento": "2023-07-03 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar/",
+            "descricao": "Venha curtir o Quinta Sunset com muita música e diversão! Com artistas como Leo Zinho e Vou Ali e Já Volto, prepare-se para uma noite incrível. Promoção Open Corona das 18h às 22h por R$ 55 por pessoa. O Happy Hour começa às 17h e vai até o sol se pôr, com 50% de desconto em drinks de bebidas nacionais. Ambiente descontraído e entrada gratuita!",
+            "endereco": "Praia da Guilhermina, Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": null,
+            "titulo": "Quarta Original - Cancelado",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar/",
+            "descricao": "O evento Quarta Original foi cancelado, mas o espaço estará aberto para receber o público. Venha aproveitar o ambiente e as opções de bar disponíveis.",
+            "endereco": "Praia da Guilhermina, Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": null,
+            "titulo": "Rock no Meu Lugar",
+            "data_evento": "2023-07-02 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_13.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Prepare-se para o Rock no Meu Lugar com DZ Rock, Daniel Rato e muito mais! A noite começa às 18h com double gin e caipirinha até as 21h. Promoções especiais para quem comprar um balde com 5 e ganhar a 4ª caipirinha! Mulheres VIP até as 21h. Aproveite porções com 50% até as 21h e curta o melhor do rock.",
+            "endereco": "Av. Almirante Tamandaré, 284, Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": null,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2023-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Venha para a Roda de Samba com Só Resenha e DJ Sete! O evento acontece na varanda com Open Breja das 18h às 19h e Mulheres VIP até as 19h. Aproveite a animação e a energia contagiante do samba.",
+            "endereco": "Av. Almirante Tamandaré, 284, Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": null,
+            "titulo": "Churrasquin do Meu Lugar - Evento Fechado",
+            "data_evento": "2023-07-06 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_15.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "O Churrasquin do Meu Lugar será um evento fechado. Estamos ansiosos para receber todos na próxima oportunidade.",
+            "endereco": "Av. Almirante Tamandaré, 284, Praia Grande, SP",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:29:18 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Agitação com DZRock",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Venha curtir uma noite de muito rock com a banda DZRock, garantindo uma agitação geral para todos os presentes!",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Open Amstel",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_17.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Aproveite o Open Amstel por apenas R$39,90 até às 21h! Uma oportunidade imperdível para quem ama cerveja.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Double Drinks",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_18.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Desfrute do double de gin e caipirinha até às 21h, perfeito para começar a noite com estilo!",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Promoções e Mulher VIP",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_19.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Curta nossas promoções com porções a 50% off e mulher VIP! Aproveite também a cerveja Eisenbahn, na promoção compre 3 e ganhe a 4ª.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Venha para o Caldeirão do Leozinho! Noite animada com 3 horas de pagode, cantando Sorriso Maroto. Entrada free até às 20h e cardápio com 50% off até às 20h!",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": -23.997577,
+            "longitude": -46.257177
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:29:48 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Resenha em Casa",
+            "data_evento": "2023-07-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Curta a vibe da Resenha em Casa com PH, SóResenha, Vithoria Menezs e Nicollas. Aproveite a promoção de 50% de desconto e entrada VIP para mulheres até às 21h. Não perca Renanzin77 e DJ Babu agitando a pista!",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Venha para o Caldeirão do Leozinho com pagode e muito Sorriso Maroto! Abertura com Rogerinho Mello e DJ Babu. Entrada free até às 20h e cardápio com 50% de desconto até às 21h.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Transmissão ao Vivo",
+            "data_evento": "2023-07-04 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_24.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Assista à disputa emocionante entre Palmeiras e Chelsea ao vivo! Junte seus amigos para torcer e aproveitar drinks especiais.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Feijuca do Consa",
+            "data_evento": "2023-07-05 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_25.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Infelizmente, o Feijuca do Consa será um evento fechado. Continue ligado para mais informações sobre futuras programações.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 15:30:23 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Pagode do Edshow",
+            "data_evento": "2023-07-05 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_26.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Curta uma noite animada de pagode com Edshow! Drinks em dobro até 21h e entrada VIP para mulheres até 20h. A festa é garantida com uma vibe contagiante ao som de WS e DJ Babú.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2023-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_27.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Participe da nossa Roda de Samba, com a presença de Trindade e DJ Sete. Aproveite o 'open breja' na varanda das 18h às 19h e mulheres VIP até 19h. Ambiente acolhedor para todos os amantes do samba.",
+            "endereco": "Av. Almirante Tamandaré, 284",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Arraial do Xote de Quarta",
+            "data_evento": "2023-07-02 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_28.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Venha dançar no Arraial do Xote, uma festa típica com muito forró e música ao vivo. A noite promete animar com comidas típicas e um ambiente decorado no clima junino.",
+            "endereco": "R. Goiás, 39 - Gonzaga, Santos - SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Boteco do Moby",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_29.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Desfrute de música ao vivo no Boteco do Moby. Bebida Spaten ou Original por R$69, Jack Honey & Lemonade por R$20 até 18h. Deliciosos petiscos como bolinho de arroz por R$32 até 18h.",
+            "endereco": "R. Goiás, 39 - Gonzaga, Santos - SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_30.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "O sábado promete um clima de alegria e descontração. Venha curtir uma noite especial no Moby Dick.",
+            "endereco": "R. Goiás, 39 - Gonzaga, Santos - SP",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:11:33 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Doce Veneno",
+            "data_evento": "2023-07-18 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Prepare-se para uma noite inesquecível de Hip Hop e Rap com DJ Cia, DJ Campbell e DJ Boturão! Venha curtir o som contagiante e a atmosfera vibrante. Não perca!",
+            "endereco": "Almeida de Moraes, 41, Vila Matias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 2,
+            "titulo": "Antes que o Baile Comece",
+            "data_evento": "2023-07-20 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Roda de brasilidades com Diego Alencikas e seu sexteto. Entrada gratuita até as 22h e promoção de balde com 5 long necks. Não perca!",
+            "endereco": "Almeida de Moraes, 41, Vila Matias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 3,
+            "titulo": "Sextou BB",
+            "data_evento": "2023-07-21 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Venha curtir do rock ao funk em uma noite repleta de diversão. Com Maralto e Mastrobiso, tem promoção de 2x Caipirinha até as 22h!",
+            "endereco": "Almeida de Moraes, 41, Vila Matias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 4,
+            "titulo": "Do Hip-Hop ao Funk",
+            "data_evento": "2023-07-22 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Noite quente ao som de Akula, Be Amarante e DJ Matt. Entrada gratuita até as 21h e flash tattoo disponível!",
+            "endereco": "Almeida de Moraes, 41, Vila Matias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "id": 5,
+            "titulo": "Banda Suzan",
+            "data_evento": "2023-07-23 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "@ativahouse",
+            "linkInstagram": "https://instagram.com/ativahouse",
+            "descricao": "Domingo com a Banda Suzan agitando a pista e promoção imperdível: comprando 4 cervejas, a quinta sai por 4 reais. Entrada free a noite toda!",
+            "endereco": "Almeida de Moraes, 41, Vila Matias, Santos, SP",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:23:00 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "DJ Cia na Ativa House",
+            "data_evento": "2023-07-18 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Prepare-se para uma noite incrível na Ativa House com DJ Cia, DJ Campbell e DJ Boturão. Curta um som envolvente de rap e hip-hop e entre no clima com a vibe contagiante do evento. Não perca!",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Antes que o Baile Comece",
+            "data_evento": "2023-07-03 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Roda de brasilidades com Diego Alencikas Sexteto. Aproveite a promoção de balde com 5 long necks e entre grátis até às 22h. Uma noite cheia de música vibrante e clima animado.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Sextou BB!",
+            "data_evento": "2023-07-07 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Venha curtir a Sextou BB! com Maralto Mastro Biso. Aproveite a promoção de 2x caipirinha de limão até às 22h e entre no clima do rock ao funk numa noite inesquecível.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Do Hip-hop ao Funk",
+            "data_evento": "2023-07-05 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Uma noite eletrizante com Akula, Be Amarante e DJ Matt na Ativa House. Aproveite a entrada gratuita até às 21h e venha curtir com amigos neste sábado inesquecível do hip-hop ao funk.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Banda Suzan ao Vivo",
+            "data_evento": "2023-07-06 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Domingo é dia de rock com a Banda Suzan no palco da Ativa House. Aproveite a promoção comprando 4 cervejas + R$ 4 e leve a quinta. Entrada free a noite toda.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:23:48 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Agenda Semanal Ativa House",
+            "data_evento": "2025-07-03 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Quinta-feira, curtindo as Brasilidades com Diego Alencikas Sexteto. Entrada free até as 22h.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Agenda Semanal Ativa House",
+            "data_evento": "2025-07-04 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Sexta roqueira com Maralto e Mastrobiso. Entrada free até as 22h.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Agenda Semanal Ativa House",
+            "data_evento": "2025-07-05 21:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Sábado para agitar com hip-hop e funk ao som de DJ Akila, Be Amarante e DJ Matt. Entrada free até as 21h.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Agenda Semanal Ativa House",
+            "data_evento": "2025-07-06 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "ativahouse",
+            "linkInstagram": null,
+            "descricao": "Domingo rock com Emanuel Original e Banda Suzan. Entrada free a noite toda.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": null,
+            "titulo": "Promoção Chopp Brahma",
+            "data_evento": "2023-10-11 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_7.png",
+            "instagram": "bartusantos",
+            "linkInstagram": null,
+            "descricao": "Toda quarta-feira, aproveite o Chopp Brahma por apenas R$8,00 na Bartu Santos. A noite toda, venha aproveitar!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": null,
+            "titulo": "Happy G",
+            "data_evento": "2023-10-10 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_8.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": null,
+            "descricao": "Happy hour das 17h às 20h30, toda terça e quarta. Baldes promocionais e porções com 50% de desconto. Aproveite!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": null,
+            "titulo": "Quarta Original",
+            "data_evento": "2023-10-11 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_10.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": null,
+            "descricao": "Ex é Ex animando a quarta-feira. Cerveja Original por apenas R$11,90. Aproveite o happy hour das 17h às 20h30 com 50% off em drinks.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:24:23 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Quinta Sunset",
+            "data_evento": "2023-07-03 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://instagram.com/donnaguilherminabar",
+            "descricao": "Curta o melhor do pagode e sertanejo com Leozinho e Vou Ali e Já Volto na Quinta Sunset. Aproveite o Open Corona das 18h às 22h por apenas R$ 55 por pessoa. Entrada gratuita e uma vibe incrível!",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 2,
+            "titulo": "Quarta Original",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://instagram.com/donnaguilherminabar",
+            "descricao": "O evento Quarta Original com a banda Ex é Ex foi cancelado, mas a casa estará aberta. Aproveite o Happy Hour com 50% de desconto em drinks até 20h30.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 3,
+            "titulo": "Rock no Meu Lugar",
+            "data_evento": "2023-07-02 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_13.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Prepare-se para uma noite de rock no Meu Lugar com DZRock, Daniel Rato e abertura de Rackatanga. Double gin e caipirinha até 21h, promoções incríveis e Mulheres VIPs até 21h!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 4,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2023-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "Participe da Roda de Samba no Meu Lugar com Só Resenha e DJ Sete. Aproveite o Open Breja na varanda das 18h às 19h e Mulheres VIPs até 19h.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 5,
+            "titulo": "Churrasquin do Meu Lugar",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_15.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://instagram.com/meulugar.bar",
+            "descricao": "O evento fechado oferece oportunidades únicas de networking e confraternização em um ambiente exclusivo.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:24:41 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Agito no Meu Lugar Bar",
+            "data_evento": "2023-11-01 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Prepare-se para uma noite inesquecível com DZ Rock Oficial agitando a galera! Curta o melhor do rock em um ambiente vibrante. Mulher VIP e promoções incríveis, como porções a 50% de desconto e Double Gin e Caipirinha até às 21h. Open Amstel por R$ 39,90 até às 21h e oferta de Eisenbahn: compre um balde com 3, ganhe o 4º. Vibe animada e público descolado!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-11-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Venha se divertir no Caldeirão do Leozinho com 3 horas de pagode e a presença especial de Sorriso Maroto. Rogerinho do Mela vai começar abrindo essa noite incrível. Entrada franca até as 20h e todo o cardápio com 50% de desconto até as 20h. Uma experiência única para os amantes de pagode e boa música!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:25:12 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Resenha em Casa",
+            "data_evento": "2023-07-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Prepare-se para uma noite incrível de 'Só Resenha', com música ao vivo de PH, Vithoria Menezes e Nicollas, além dos DJs Renanzinho 77 e DJ Babu. Aproveite a promoção 'Mulher VIP' até às 21h e 50% de desconto até as 20h. O evento começa às 18h no Meu Lugar Bar, garantindo um clima de pura diversão e alegria.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Caldeirão do Leozinho",
+            "data_evento": "2023-07-04 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Venha curtir o 'Caldeirão do Leozinho' com 3 horas de pagode e a apresentação de Rogerinho Mello. A entrada é grátis até às 20h e todo o cardápio com 50% de desconto até às 21h. DJs e um ambiente descontraído garantem a diversão. Não perca!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 3,
+            "titulo": "Transmissão Palmeiras x Chelsea",
+            "data_evento": "2023-07-04 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_23.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Assista ao vivo a emocionante partida entre Palmeiras e Chelsea no Meu Lugar Bar. Prepare-se para torcer e se divertir com seus amigos em um ambiente animado e cheio de energia! A partida começa às 22h.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 4,
+            "titulo": "Feijuca do Consa",
+            "data_evento": "2023-07-05 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_24.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "A tradicional Feijuca do Consa acontece das 12h às 18h. Venha desfrutar de uma deliciosa feijoada em um evento que combina comida, bebida e um ambiente acolhedor. É a maneira perfeita de curtir o seu sábado!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:25:55 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Pagode do EdShow",
+            "data_evento": "2023-07-05 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_26.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "",
+            "descricao": "Venha curtir o 'Pagode do EdShow' com muito samba e alegria no Meu Lugar. Aproveite a promoção de Double Gin e Caipirinha até as 21h e Mulheres VIP até as 20h. A festa começa às 18h e vai até as 3h com o embalo do DJ Babu.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Roda de Samba com Trindah",
+            "data_evento": "2023-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_27.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "",
+            "descricao": "A festa está garantida com a Roda de Samba Meu Lugar, trazendo Trindah e Só Resenha para um dia inesquecível. Aproveite o Open Breja na varanda das 18h às 19h e Mulheres VIP até as 19h para animar ainda mais a noite.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 3,
+            "titulo": "Arraial do Xote de Quarta",
+            "data_evento": "2023-07-02 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_28.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "",
+            "descricao": "Participe do Arraial do Xote de Quarta no Moby Dick Santos! A festa junina começa a partir das 19h e promete muito forró e diversão em clima de São João.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 4,
+            "titulo": "Boteco do Moby",
+            "data_evento": "2023-07-02 14:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_29.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "",
+            "descricao": "Venha aproveitar o Boteco do Moby com música ao vivo! Entrada por R$ 30,00, com promoções incríveis como o Balde de Spaten ou Original por R$ 69 durante todo o evento. Curta também Jack Honey & Lemonade, e outras promoções até as 18h.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 5,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_30.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "",
+            "descricao": "Aproveite o sábado no Moby Dick Santos em um clima animado e descontraído, perfeito para curtir com os amigos.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:26:22 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": "2023-07-05 22:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_31.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://instagram.com/mobydicksantos",
+            "descricao": "Venha curtir um sábado vibrante com Jack Honey & Lemonade e Jack Apple & Tonic a R$ 24 até meia-noite. Aproveite o balde com 5 Coronas por R$ 69 até 00h. O Combo Smirnoff com 4 sucos ou refrigerantes sai por R$ 210 a noite toda. Para animar, G&T e G&T Especial em dobro até as 23h30. Música contagiante e ambiente descontraído no coração de Santos!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 2,
+            "titulo": "Arraial do Xote de Quarta",
+            "data_evento": "2023-10-25 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_32.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://instagram.com/mobydicksantos",
+            "descricao": "Participe do Arraial do Xote de Quarta com música boa e clima de festa junina. Balde com 5 Spaten ou Original 600ml por R$ 69 até as 20h! Compre Jack Honey & Lemonade a R$ 24 a noite toda e gin em dobro até as 20h. Uma delícia imperdível, bolinho de arroz a R$ 32 até as 20h. Coloque o chapéu de palha e ganhe uma canelinha até as 20h. Música envolvente em uma noite inesquecível!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 3,
+            "titulo": "Quinto no Moby",
+            "data_evento": "2023-10-26 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_35.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://instagram.com/mobydicksantos",
+            "descricao": "Desfrute de uma experiência musical inesquecível no Quinto no Moby! Uma noite especial com sons envolventes e um ambiente super animado. A casa promete uma vibe única com performances que vão fazer você dançar a noite inteira!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:26:57 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Quintô no Moby",
+            "data_evento": "2023-07-13 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_36.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "Venha curtir o Quintô no Moby! Aproveite o Welcome Bud até as 19h30 e as promoções de bebidas como o balde de Spaten ou Corona e G&T em dobro. Jack Honey & Lemonade e Jack Apple & Tonic por R$ 24, até as 22h00. Música ao vivo e animação garantida para todos os gostos!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": null,
+            "titulo": "House no Moby",
+            "data_evento": "2023-07-13 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_37.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "Descubra a magia da House no Moby! A noite promete com DJ sets incríveis e drinks em dobro até a meia-noite. Jack Honey & Lemonade por R$ 24 até a ooh00 e um combo especial de Smirnoff. Não perca essa experiência!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": null,
+            "titulo": "Boteco do Moby",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_38.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "Venha para o Boteco do Moby e desfrute do melhor do samba com comidas de boteco e cerveja gelada! Ambiente descontraído e muita animação te aguardando.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": null,
+            "titulo": "Festas no Toa Toa Bar",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_39.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7",
+            "descricao": "Organize sua festa no Toa Toa Bar! Perfeito para aniversários, casamentos, eventos corporativos ou chá revelação. Pacotes especiais disponíveis. Traga seus amigos e ganhe vouchers de consumação!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-03 16:27:15 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Concurso Samba Enredo 2026 - Semifinal",
+            "data_evento": "2023-07-01 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_41.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "",
+            "descricao": "Participe da emocionante semifinal do Concurso Samba Enredo 2026 na Quadra da X-9. O evento contará com um show completo do G.R.C.E.S. e a presença do grupo Mitinho. Entrada franca garantida!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": 2,
+            "titulo": "Samba de Malandro",
+            "data_evento": "2023-07-04 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_42.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "",
+            "descricao": "Venha para o animado Samba de Malandro com Gusttavinho, cantor renomado. Aproveite a lista VIP até as 21h e a promoção de Double Caipirinha até as 22h. Disputa de rainha e premiação de 500 reais!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}

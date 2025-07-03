@@ -1,0 +1,107 @@
+{
+    "data":[
+        {
+            "id": "glossario_palavras_certas",
+            "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações.",
+            "conteudo": [
+                "Trindah",
+                "Gabriel Antero",
+                "Cantor Ph",
+                "Meu Lugar",
+                "Renanzinho 77",
+                "Só Resenha",
+                "Mulher VIP",
+                "Leozinho",
+                "DJ Babu",
+                "Ex é Ex" ,
+                "mobydicksantos",
+                "meulugar.bar",
+                "donnaguilherminabar",
+                "donnag.santos",
+                "ativahouse"        
+            ]
+        },
+        {
+            "id": "glossario_palavras_erradas",
+            "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações erradas.",
+            "conteudo": [
+                "Jhow dero",
+                "Jhowdero",
+                "Dj PH"
+            ]
+        },
+        {
+            "id":"glossario_localizacao",
+            "descricao": "Glossário de localizações com instagram, endereços e coordenadas.",
+            "conteudo": [
+                {
+                    "instagram": "meulugar.bar",
+                    "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+                    "latitude": -23.965584968798762,
+                    "longitude": -46.30972219947866
+                },
+                {
+                    "instagram": "donnaguilherminabar",
+                    "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+                    "latitude": -24.015683557287833,
+                    "longitude": -46.43025549946118
+                },
+                {
+                    "instagram": "ativahouse",
+                    "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+                    "latitude": -23.949004515486546,
+                    "longitude": -46.325971600013546
+                },
+                {
+                    "instagram": "mobydicksantos",
+                    "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+                    "latitude": -23.971308564173924,
+                    "longitude": -46.32676692855928
+                },
+                {
+                    "instagram": "donnag.santos",
+                    "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+                    "latitude": -23.93389876991642,
+                    "longitude": -46.327088328559064
+                },
+                {
+                    "instagram": "x9_pioneira",
+                    "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+                    "latitude": -23.95758047133943,
+                    "longitude": -46.3109476150358
+                },
+                {
+                    "instagram": "cristoearesposta",
+                    "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+                    "latitude": -23.952444774065793,
+                    "longitude": -46.32667711230255
+                },
+                {
+                    "instagram": "bartusantos",
+                    "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+                    "latitude": -23.989280063359324,
+                    "longitude": -46.299486899464064
+                },
+                {
+                    "instagram": "toatoabarc7",
+                    "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+                    "latitude": -23.98933795930824,
+                    "longitude": -46.299500628749584
+                },
+                {
+                    "instagram": "cemporcentovida",
+                    "endereco": "R. da Liberdade, 442 - Embaré, Santos - SP, 11025-031",
+                    "latitude": -23.968790251199717,
+                    "longitude": -46.30777324471856
+                },
+                {
+                    "instagram": "cemporcentovida",
+                    "endereco": "Av. Antônio Emmerich, 1313 - Vila Cascatinha, São Vicente - SP, 11390-001",
+                    "latitude": -23.95440536218104,
+                    "longitude": -46.374875957633925
+                }
+            ]
+            
+        }
+    ]
+}
