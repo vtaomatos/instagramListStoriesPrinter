@@ -1,0 +1,13 @@
+- Pegar o print do instagram cortado e sem labels do story na frente;
+- Pegar informações dos labels como código (Ex. horario que o story foi postado e @ da casa);
+- Pegar o alt da imagem se houver;
+- Salvar a imagem com o prefixo data + horario com milissegundo da captura;
+- Mandar no mapa de imagens da categorização informações adicionais sobre a imagem como o @ da casa (pode ja pegar do nome da pasta) (os labels tipo horario que o story foi postado) e o alt da imagem. Se fizer sentido;
+- Quando salvar a imagem na pasta flyer, salvar com o horario de captura da imagem (Nome que o arquivo ja vai ter) mas separado em pastas com o nome da casa, salvar esse endereço em cada imagem do evento no banco;
+- Trocar o visualizador por um carrossel. Se tiverem eventos com a mesma localização na consulta trazer no carrossel.
+- Adicionar a descrição depois do flyer;
+- Adicionar horario de fim do evento no banco e na transcrição cadastro no banco;
+- Criar script para rodar os inserts automaticamente;
+- Aumentar base de casas manualmente;
+- Aumentar base de casas automaticamente;
+- Entender eventos que foram ontem.

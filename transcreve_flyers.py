@@ -6,6 +6,9 @@ from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
 import time
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 
 #TODO:
@@ -30,6 +33,7 @@ ARQUIVO_SAIDA = os.getenv("ARQUIVO_SQL_SAIDA", "inserts_eventos.sql")
 ARQUIVO_JSON_SAIDA = os.getenv("ARQUIVO_JSON_SAIDA", "eventos.json")
 TAMANHO_LOTE = int(os.getenv("TAMANHO_LOTE", 5))
 DIERTORIO_GLOSSARIO = os.getenv("GLOSSARIO", "./glossario.json")
+
 GLOSSARIO = {}
 
 # Carrega o glossário de artistas e casas de eventos
@@ -64,7 +68,7 @@ Extraia todas as informações com máxima precisão. Se necessário, pesquise n
 No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
 Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
 Glossário de endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
-Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim.
+Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
 Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
 """
 
@@ -119,14 +123,25 @@ def gerar_insert_sql(evento):
     return insert
 
 
-def salvar_inserts(inserts):
-    print("💾 Salvando INSERTs no arquivo:", ARQUIVO_SAIDA)
+def salvar_inserts(inserts, slug="inserts_eventos"):
+    # Cria nome do arquivo com data
+    data = datetime.now().strftime("%Y-%m-%d")
+    nome_arquivo = f"migrations_sql/{data}_{slug}.sql"
+
+    # Garante que a pasta exista
+    os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
+
+    print(f"💾 Salvando INSERTs no arquivo: {nome_arquivo}")
+
+    # Timestamp interno no conteúdo (opcional)
     timestamp = datetime.now().strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
-    with open(ARQUIVO_SAIDA, "a", encoding="utf-8") as f:
-        f.write(f"\n\n{timestamp}\n")
+
+    with open(nome_arquivo, "w", encoding="utf-8") as f:
+        f.write(f"{timestamp}\n")
         f.write("\n".join(inserts))
         f.write("\n")
-    print(f"✅ {len(inserts)} INSERTs salvos com sucesso.")
+
+    print(f"✅ {len(inserts)} INSERTs salvos com sucesso em {nome_arquivo}")
 
 def salvar_json_eventos(eventos):
     print("💾 Salvando eventos no arquivo JSON:", ARQUIVO_JSON_SAIDA)

@@ -5,7 +5,9 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 import re
+import sys
 
+sys.stdout.reconfigure(encoding='utf-8')
 
 # Carrega variáveis de ambiente
 load_dotenv()
