@@ -66,16 +66,12 @@ def enviar_para_chatgpt(imagens):
 
 
 def mover_arquivo(caminho, destino):
-
     os.makedirs(destino, exist_ok=True)
 
-    # Lista arquivos que começam com "story_" e terminam com .png (ou .jpg etc.)
     arquivos_existentes = [
         f for f in os.listdir(destino)
         if f.startswith("story_") and os.path.splitext(f)[1].lower() in [".png", ".jpg", ".jpeg", ".webp"]
     ]
-
-    # Extrai os números dos arquivos existentes
     numeros = []
     for nome in arquivos_existentes:
         try:
@@ -89,8 +85,8 @@ def mover_arquivo(caminho, destino):
     novo_nome = f"story_{proximo_numero}{extensao}"
     destino_path = os.path.join(destino, novo_nome)
 
-    shutil.move(caminho, destino_path)
-    print(f"✅ Arquivo movido como {novo_nome}")
+    shutil.copy(caminho, destino_path)
+    print(f"✅ Arquivo copiado localmente como {novo_nome}")
 
 def construir_mapa_de_imagens(imagens):
     mapa = {}

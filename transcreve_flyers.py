@@ -20,7 +20,7 @@ import time
 # - Criar script para gravar os inserts no banco de dados;
 # - Alterar banco de dados para aceitar o campo de imagem em base64; [OK]
 # - Alterar o consumo do banco de dados para usar o campo de imagem em base64 ou o caminho do arquivo; [OK]
-
+# - Migrar o PHP de servidor; [OK]
 
 load_dotenv()
 
@@ -58,12 +58,13 @@ print("str_enderecos_coordenadas:", str_enderecos_coordenadas)
 client = OpenAI(api_key=API_KEY)
 
 PROMPT = """
-Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações. Para cada imagem, retorne um objeto JSON com os seguintes campos:
-{data: [{id, titulo, data_evento (AAAA-MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram, descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
-Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
+Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
+{data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
+Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
 No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
 Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
 Glossário de endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
+Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim.
 Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
 """
 
@@ -106,12 +107,12 @@ def gerar_insert_sql(evento):
 
     # Adiciona o campo de imagem base64, se existir
     # se a imagem com endereço flyer_imagem existir, gera o base64 e adiciona ao insert
-    # if "flyer_imagem" in evento and os.path.exists(evento["flyer_imagem"]):
-    #     with open(evento["flyer_imagem"], "rb") as f:
-    #         imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
+    if "flyer_imagem" in evento and os.path.exists(evento["flyer_imagem"]):
+        with open(evento["flyer_imagem"], "rb") as f:
+            imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
 
-    #     campos.append("imagem_base64")
-    #     valores_escapados.append(f"'{imagem_base64}'")
+        campos.append("imagem_base64")
+        valores_escapados.append(f"'{imagem_base64}'")
 
     insert = f"INSERT INTO eventos ({', '.join(campos)}) VALUES ({', '.join(valores_escapados)});"
     print("✅ INSERT gerado:", insert)

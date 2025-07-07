@@ -1419,3 +1419,1165 @@
         }
     ]
 }
+
+
+-- Inserção em 2025-07-07 01:44:43 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Música ao Vivo",
+            "data_evento": "2023-10-12 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Desfrute de uma noite com música ao vivo em um ambiente acolhedor. Comece o fim de semana em grande estilo no Bartu Santos, com performances vibrantes.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 2,
+            "titulo": "Double Caipirinhas",
+            "data_evento": "2023-10-12 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Aproveite hoje o double de caipirinhas deliciosas toda a noite. Venha curtir no Bartu Santos com uma promoção imperdível.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 3,
+            "titulo": "Sexta com Música ao Vivo",
+            "data_evento": "2023-10-13 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Atenção para a sexta-feira com muita música ao vivo a partir das 19h! Garanta sua vaga e desfrute de uma noite animada no Bartu Santos.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 4,
+            "titulo": "Feijoada Santista",
+            "data_evento": "2023-10-14 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Desfrute da feijoada mais santista da cidade todo sábado e domingo das 12h às 16h, no Bartu Santos. Um verdadeiro banquete de sabores!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 5,
+            "titulo": "Sábado com Samba ao Vivo",
+            "data_evento": "2023-10-14 14:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Venha para um sábado incrível com samba ao vivo! A partir das 14:30h, sinta o ritmo no Bartu Santos com o Pagode do Kaká.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:45:02 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "46 Anos de História - Cristo é a Resposta",
+            "data_evento": "2023-07-03 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "",
+            "descricao": "Celebre o aniversário de 46 anos da Igreja Cristo é a Resposta com muita história e emoção. Um encontro especial para toda a comunidade, com início às 20h.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 2,
+            "titulo": "46 Anos de História - Cristo é a Resposta",
+            "data_evento": "2023-07-04 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "",
+            "descricao": "Continuação das comemorações de 46 anos da Igreja Cristo é a Resposta. Participe e sinta a presença e a união da comunidade.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 3,
+            "titulo": "46 Anos de História - Cristo é a Resposta",
+            "data_evento": "2023-07-05 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "",
+            "descricao": "Terceiro dia das celebrações dos 46 anos da Igreja Cristo é a Resposta. Um momento de reflexão e comunhão.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 4,
+            "titulo": "46 Anos de História - Cristo é a Resposta",
+            "data_evento": "2023-07-06 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "",
+            "descricao": "Encerramento das comemorações dos 46 anos da Igreja Cristo é a Resposta. Venha celebrar e agradecer este marco com música, paz e união.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:45:26 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Quinta de Samba",
+            "data_evento": "2023-11-09 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Desfrute de uma noite animada com o melhor do samba com Beto do Rego na Donna Guilhermina. Aproveite o Open Corona por R$55, das 18h às 22h, e um Happy Hour incrível das 17h às 20h30 com 50% off em drinks. DJ Baldo vai animar os intervalos, garantindo uma experiência inesquecível!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 2,
+            "titulo": "Quinta de Samba",
+            "data_evento": "2023-11-16 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Desfrute de uma noite animada com o melhor do samba com Beto do Rego na Donna Guilhermina. Aproveite o Open Corona por R$55, das 18h às 22h, e um Happy Hour incrível das 17h às 20h30 com 50% off em drinks. DJ Baldo vai animar os intervalos, garantindo uma experiência inesquecível!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 3,
+            "titulo": "Quinta de Samba",
+            "data_evento": "2023-11-23 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Desfrute de uma noite animada com o melhor do samba com Beto do Rego na Donna Guilhermina. Aproveite o Open Corona por R$55, das 18h às 22h, e um Happy Hour incrível das 17h às 20h30 com 50% off em drinks. DJ Baldo vai animar os intervalos, garantindo uma experiência inesquecível!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 4,
+            "titulo": "Quinta de Samba",
+            "data_evento": "2023-11-30 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Desfrute de uma noite animada com o melhor do samba com Beto do Rego na Donna Guilhermina. Aproveite o Open Corona por R$55, das 18h às 22h, e um Happy Hour incrível das 17h às 20h30 com 50% off em drinks. DJ Baldo vai animar os intervalos, garantindo uma experiência inesquecível!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:45:53 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Acompanhe as Quartas de Final",
+            "data_evento": "2023-07-04 16:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Venha assistir as emocionantes quartas de final ao vivo! Fluminense enfrenta Al-Hilal às 16:00, e o grande duelo entre Palmeiras e Chelsea às 22:00. A casa abrirá mais cedo para você garantir o melhor lugar.",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 2,
+            "titulo": "Happy Hour no Donna Guilhermina",
+            "data_evento": "2023-10-18 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_17.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Aproveite o Happy Hour com 50% de desconto em drinks das 17h às 20h30. Um momento perfeito para relaxar e curtir com os amigos.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 3,
+            "titulo": "Open Corona no Donna Guilhermina",
+            "data_evento": "2023-10-18 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_18.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Open Corona das 18h às 22h por apenas R$ 55 por pessoa. Drinks gelados para animar a noite!",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 4,
+            "titulo": "Quinta Sunset no Donna Guilhermina",
+            "data_evento": "2023-07-03 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_19.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Desfrute do Quinta Sunset com entrada gratuita! Música ao vivo com Vou Ali e Já Volto, e Open Corona das 18h às 22h por R$ 55.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 5,
+            "titulo": "Sexta Donna no Donna Guilhermina",
+            "data_evento": "2023-07-04 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Celebre a Sexta Donna com entrada gratuita a partir das 12h! Aproveite o Open Original das 18h às 22h por apenas R$ 43. Música ao vivo e momentos inesquecíveis garantidos.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:46:23 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Resenha em Casa",
+            "data_evento": "2023-11-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Prepare-se para a 'Resenha em Casa', uma noite de pura diversão no Meu Lugar Bar! Com estilos musicais variados e uma vibe incrível, aproveite 50% de desconto no cardápio até as 20h e 'Mulher VIP' até 21h. Não perca esse evento exclusivo para curtir com os amigos!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Stand Up Comedy com André Santi",
+            "data_evento": "2023-11-30 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Chegou a hora de dar boas risadas com o 'Stand Up Comedy' de André Santi ao vivo no Meu Lugar Bar! Curta um ambiente descontraído com 50% de desconto em todo o cardápio até as 20h, desfrute de um rodízio de gin e caipirinha por R$ 42,90. Uma noite imperdível de humor e boas vibrações!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 3,
+            "titulo": "Resenha em Casa com PH, Só Resenha, Vithoria Menezes e DJ Babu",
+            "data_evento": "2023-11-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_23.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Venha curtir o 'Resenha em Casa' com atrações incríveis como PH, Renanzinho 77, Cantor Ph, DJ Babu e outros, no Meu Lugar Bar! Com muita música e animação, aproveite 50% de desconto no cardápio até 20h e 'Mulher VIP' até 21h. Uma festa inesquecível para você e seus amigos!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 4,
+            "titulo": "Véspera de Feriado com Fêla",
+            "data_evento": "2023-11-08 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_24.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Prepare-se para a 'Véspera de Feriado' com o som de Fêla no Meu Lugar Bar! Aproveite promoções incríveis como 'Double Beats', 'Double Gin' e caipirinha até as 21h. Compre um balde de Heineken e ganhe 4 garrafas (600ml). Uma noite para celebrar com estilo!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:46:42 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Feijuca do Consa",
+            "data_evento": "2023-11-01 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_26.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Curta a tradição do samba com a banda Só Resenha no feriado, na melhor vibe ao ar livre. A música ao vivo se mistura com uma deliciosa feijuca à vontade, além de uma mesa de doces e espaço kids. Tudo isso por apenas R$48,90! Aproveite promoções incríveis no Gin, Caipirinha e Amstel até as 15h. Um evento para toda a família e amigos!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": null,
+            "titulo": "Quinto no Moby",
+            "data_evento": "2023-11-03 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_27.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Marque presença no Quinto no Moby e sinta a energia do rock ao vivo! Desfrute de promoções especiais como welcome Bud até as 19h30, baldinho de cerveja por R$69 e G&T em dobro até 20h30. Um evento imperdível para os amantes de uma boa música e promoções que deixam a noite ainda mais especial.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": null,
+            "titulo": "Funk Sessions",
+            "data_evento": "2023-11-08 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_28.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Venha se divertir nas Funk Sessions com um G&T especial em dobro até 23h30. Aproveite o combo Smirnoff com 4 refrigerantes por R$210 e Jack Honey & Lemonade a R$20 até 00h. Uma noite recheada de promoções e boa música para animar sua quarta-feira!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:47:00 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "House Moby",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_31.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "Venha curtir a festa House Moby com bebidas em dobro até 00h00! Delicie-se com Jack Honey & Lemonade, Jack Apple & Tonic por apenas R$ 24 até 00h. Aproveite o combo Smirnoff com 4 sucos ou refrigerantes a noite toda por R$ 210.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 2,
+            "titulo": "Boteco do Moby",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_33.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "Desfrute de música ao vivo no Boteco do Moby com entrada a apenas R$ 30! Promocionalmente, balde com 5 Spaten ou Original de 600ml por R$ 69 o evento inteiro. Jack Honey & Lemonade por R$ 20 até às 18h. G&T em dobro e deliciosos bolinhos de arroz por R$ 32 até às 18h.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 3,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_35.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": "https://www.instagram.com/mobydicksantos",
+            "descricao": "O sábado está chamando por você! Venha se divertir no Moby Dick com música, drinks e a melhor vibe da cidade.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:47:24 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": "2023-07-05 22:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_36.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Sábado pede um sorriso com Jack Honey & Lemonade ou Jack Apple & Tonic por apenas R$ 24 até a meia-noite. Pegue um baldinho de Corona 5x por R$ 69 até o mesmo horário. Aproveite o combo Smirnoff com 4 sucos ou refrigerantes a noite toda por R$ 210. G&T e G&T especial em dobro até 23h30, em um ambiente animado e cheio de gente bonita!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": null,
+            "titulo": "Sextou Rock Fest",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_37.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Sextou com muito rock na Tô A Toa Bar! Prepare-se para uma noite cheia de energia com bandas de rock animando a galera. Um ambiente descontraído, perfeito para curtir com os amigos e começar o fim de semana com o pé direito!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": null,
+            "titulo": "Festas na Tô A Toa",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_38.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "A Tô A Toa é o lugar certo para sua comemoração! Venha celebrar com a gente em um ambiente acolhedor e divertido, com promoções especiais. Digite 'MeuNiver' e descubra os benefícios para seu aniversário!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": null,
+            "titulo": "Sábado Tô A Toa",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_39.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Neste sábado, venha conferir o cantor Leozinho, que traz para você o melhor do pagode ao vivo. Em um ambiente vibrante e descontraído, você pode dançar e aproveitar ótimas companhias. A festa mais esperada da semana está na Tô A Toa!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:47:51 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Julho é Seu Aniversário?",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_41.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Celebre seu aniversário com estilo! Traga seus amigos e ganhe vouchers de consumo. Clima de festa garantido!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": null,
+            "titulo": "Concurso Samba Enredo 2026 - Semifinal",
+            "data_evento": "2023-10-07 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_42.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Venha assistir à semifinal do Concurso Samba Enredo 2026 com show completo do G.R.C.E.S. Entrada franca!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Samba de Malandro",
+            "data_evento": "2023-07-04 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_43.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Com Gusttavinho e DJ Lateral, aproveite o 'Samba de Malandro' com double caipirinha das 19h às 22h. Nome na lista até 21h!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Samba de Jorge apresenta: Marcelo Sauwa",
+            "data_evento": "2023-07-10 13:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_44.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Participe do Samba de Jorge com Marcelo Sauwa e a Velha Guarda! Roda de samba e muita animação. Entrada franca!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Arraiá da Pioneira",
+            "data_evento": "2023-07-25 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_45.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Aproveite o Arraiá da Pioneira com comidas típicas, quadrilha e barraquinhas. Festa para toda a família!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 01:47:57 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Campeonato das Baterias - 3ª Rodada",
+            "data_evento": "2025-07-04 20:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_46.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "https://instagram.com/x9_pioneira",
+            "descricao": "Partidas emocionantes do campeonato de baterias com as equipes Ritmo Perfeito enfrentando Magia e Ritmo Santástico contra Chapa Quente. Não perca a energia e a animação desse evento competitivo!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:08:17 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Música ao Vivo no Bartu",
+            "data_evento": "2025-07-07 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Venha curtir uma noite incrível com música ao vivo a partir das 19h. Aproveite a boa música e um ambiente descontraído.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 2,
+            "titulo": "Double Caipirinhas no Bartu",
+            "data_evento": "2025-07-07 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Hoje é dia de aproveitamento máximo com double dos melhores drinks a noite toda. Não perca!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 3,
+            "titulo": "Música ao Vivo na Sexta",
+            "data_evento": "2025-07-11 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Comece seu fim de semana com música ao vivo no Bartu a partir das 19h. Reserve já o seu espaço para uma noite inesquecível!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 4,
+            "titulo": "Feijoada no Bartu",
+            "data_evento": "2025-07-12 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Neste sábado e domingo, venha saborear a feijoada mais santista da cidade das 12h às 16h. Uma experiência gastronômica imperdível.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 5,
+            "titulo": "Samba Ao Vivo",
+            "data_evento": "2025-07-12 14:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "",
+            "descricao": "Sábado é dia de samba! Venha curtir o Pagode do Kaká com samba ao vivo às 14h30. Um clima perfeito para o seu fim de semana!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:08:31 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-07 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoaresposta",
+            "linkInstagram": "",
+            "descricao": "Celebre conosco o aniversário de 46 anos da Igreja Cristo é a Resposta. Uma noite de comemoração e alegria. Junte-se a nós para uma celebração especial repleta de momentos de fé e comunidade, hoje às 20h.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 2,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-03 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_9.png",
+            "instagram": "cristoaresposta",
+            "linkInstagram": "",
+            "descricao": "Esta quinta estaremos todos juntos para celebrar o aniversário da Igreja Cristo é a Resposta, às 20h. Uma noite de celebração aguardando por você.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:08:53 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Quinta do Samba",
+            "data_evento": "2025-07-10 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": null,
+            "descricao": "Aproveite a Quinta do Samba com Beto do Reco na Casa Donna Guilhermina. Entrada gratuita! Curta um clima animado ao som do melhor do samba e DJ Baldo nos intervalos. Desfrute do Open Corona por R$55 das 18h às 22h e um happy hour com 50% de desconto em drinks nacionais das 17h às 20h30.",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 2,
+            "titulo": "Happy Hour na Melisse",
+            "data_evento": "2025-07-10 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": null,
+            "descricao": "Desfrute das bebidas incríveis da Melisse com 50% de desconto durante o happy hour das 17h às 20h30. A noite perfeita para relaxar com amigos em um ambiente sofisticado.",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 3,
+            "titulo": "Open Corona",
+            "data_evento": "2025-07-10 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_13.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": null,
+            "descricao": "Curta a noite com Open Corona das 18h às 22h por apenas R$55. Um convite para se refrescar e aproveitar com os amigos!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 4,
+            "titulo": "DJ Baldo Live",
+            "data_evento": "2025-07-10 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": null,
+            "descricao": "Devido ao cancelamento do samba, DJ Baldo está confirmado para animar a noite a partir das 20h. Venha dançar e curtir as melhores vibes!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:09:15 --
+{
+    "data": [
+        {
+            "id": "",
+            "titulo": "Quartas de Final ao Vivo",
+            "data_evento": "2025-07-11 16:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "",
+            "descricao": "Venha acompanhar ao vivo as quartas de final com Fluminense vs Al-Hilal às 16:00 e Palmeiras vs Chelsea às 22:00. Casa aberta mais cedo para você não perder nenhum detalhe e aproveitar cada momento.",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": "",
+            "titulo": "Happy Hour",
+            "data_evento": "2025-07-07 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_17.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Aproveite nosso Happy Hour das 17h às 20h30 com 50% de desconto em drinks. Perfeito para relaxar e curtir com amigos.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": "",
+            "titulo": "Open Corona",
+            "data_evento": "2025-07-07 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_18.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Curta o Open Corona das 18h às 22h por apenas R$55 por pessoa. Traga a galera e divirta-se sem moderação!",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": "",
+            "titulo": "Quinta Sunset",
+            "data_evento": "2025-07-10 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_19.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Música ao vivo com 'Vou ali e já volto'. Aproveite o Open Corona das 18h às 22h por R$55, além do Happy Hour das 17h às 20h30. Entrada gratuita e clima de festa o dia todo!",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": "",
+            "titulo": "Sexta Donna",
+            "data_evento": "2025-07-11 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "",
+            "descricao": "Venha curtir a Sexta Donna com música ao vivo e muita diversão. Open Original das 18h às 22h por apenas R$43. Entrada gratuita e animação garantida!",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:09:38 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Resenha em Casa",
+            "data_evento": "2025-07-10 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Prepare-se para uma noite incrível na 'Resenha em Casa' com Só Resenha! Curta os melhores hits e aproveite a promoção de 50% OFF no cardápio até 20h. Não perca a chance de entrar no clima, com Mulher VIP até às 21h.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Show de Comédia - André Santi",
+            "data_evento": "2025-07-15 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Venha se divertir com o show de comédia de André Santi! Aproveite 50% de desconto em todo o cardápio das 18h às 20h e curti um balde de Eisenbahn a oferta imperdível. O rodízio de Gin e Caipirinha por R$42,90 também estará disponível.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 3,
+            "titulo": "Esquenta Feriado - Fêla",
+            "data_evento": "2025-07-08 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_25.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar",
+            "descricao": "Não perca a Véspera de Feriado com Fêla agitando a noite! Double beats até às 21h e double gin e caipirinha imperdíveis. Curta as melhores promoções de Heineken com balde promocional!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:09:58 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Feijuca do Consa",
+            "data_evento": "2025-07-09 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_26.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": null,
+            "descricao": "Venha curtir a incrível Feijuca do Consa com a roda de samba da Só Resenha, muita música ao vivo e um clima descontraído. Aproveite a feijoada à vontade, mesa de doces e espaço kids por apenas R$48,90. Promoções de Gin & Caipirinha e Amstel por R$14,90 até as 15h. Um evento para toda a família!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Quintô no Moby",
+            "data_evento": "2025-07-10 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_27.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Quinta no Moby é o lugar certo para quem ama música ao vivo com as melhores bandas! Aproveite as promoções: Welcome Bud, balde 5x Spaten ou Original por R$69 durante o evento todo; G&T em dobro até as 20h30; e coquetel de mini salgadinhos até as 19h30.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 3,
+            "titulo": "Funk Sessions",
+            "data_evento": "2025-07-08 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_28.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Entre na vibe das Funk Sessions com DJ's incríveis e um ambiente animado! Aproveite o G&T especial em dobro até as 23h30 e o combo Smirnoff com 4 sucos ou refrigerantes por R$210 a noite toda.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:10:24 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "House Moby",
+            "data_evento": "2025-07-07 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_31.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Prepare-se para uma noite incrível com House Music no Moby! Desfrute de G&T especial em dobro até meia-noite, além de drinks Jack Honey & Lemonade por apenas R$24. O ambiente é animado e ideal para curtir com amigos.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 2,
+            "titulo": "Boteco do Moby",
+            "data_evento": "2025-07-07 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_32.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Venha para o Boteco do Moby! Música ao vivo, entrada por R$30. Aproveite baldes de cerveja e promoções de Jack Honey & Lemonade até as 18h. Um ambiente perfeito com samba e clima descontraído para o final de semana.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 3,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": "2025-07-12 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_33.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Neste sábado, venha sorrir no Moby! Ambiente animado, cheio de energia positiva, ideal para encontrar amigos e se divertir.",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:10:44 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Sábado Pede Sorriso",
+            "data_evento": "2025-07-05 22:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_36.png",
+            "instagram": "mobydicksantos",
+            "linkInstagram": null,
+            "descricao": "Venha curtir uma noite inesquecível no Moby Dick Santos com promoções incríveis de bebidas. Jack Honey & Lemonade e Jack Apple & Tonic por R$24 até 00h. Aproveite o balde com 5 Coronas por R$69 até 00h. Combo Smirnoff com 4 sucos ou refrigerantes a noite toda por R$210. E ainda G&T e G&T Especial em dobro até 23h30. Não perca!",
+            "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+            "latitude": -23.971308564173924,
+            "longitude": -46.32676692855928
+        },
+        {
+            "id": 2,
+            "titulo": "Sextou Rock Fest",
+            "data_evento": "2025-07-11 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_37.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Prepare-se para uma noite épica de rock no Tô A Toa Bar com as melhores bandas da região. Reserve já sua mesa e viva uma experiência única com boa música, amigos e muita animação!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 3,
+            "titulo": "Festa Tô A Toa",
+            "data_evento": "2025-07-12 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_38.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "A melhor festa do litoral te espera no Tô A Toa Bar! Comemore com os amigos e aproveite as atrações imperdíveis. Digite 'MeuNiver' e descubra os benefícios especiais para aniversariantes.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 4,
+            "titulo": "Sábado Tô A Toa",
+            "data_evento": "2025-07-12 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_39.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Viva a emoção do pagode no Tô A Toa Bar com Leozinho cantando os melhores hits. Garanta sua reserva e venha celebrar uma noite memorável com muita música e animação.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:11:09 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Aniversário To A Toa Bar",
+            "data_evento": "2025-07-09 00:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_41.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": null,
+            "descricao": "Celebre seu aniversário no To A Toa Bar em julho! Traga 10 amigos e ganhe um voucher de R$ 50,00 em consumação. Traga 15 amigos para um voucher de R$ 100,00, ou 20 amigos para um voucher de R$ 150,00. Para os mais populares, 30 convidados dão direito a um voucher de R$ 200,00. Venha festejar com estilo!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": null,
+            "titulo": "Concurso Samba Enredo 2026 - Semifinal",
+            "data_evento": "2025-07-12 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_42.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Venha para a semifinal do Concurso de Samba Enredo 2026! Com entrada franca, o evento contará com o show completo do G.R.C.E.S. Uma noite imperdível com muito samba e animação na Quadra da X-9!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Samba de Malandro",
+            "data_evento": "2025-07-04 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_43.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Samba de Malandro chega com o cantor Gustavinho trazendo o melhor do samba. Com lista VIP até as 21h e double caipirinha das 19h às 22h, é a noite perfeita para curtir boa música e ótimas promoções.",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Samba de Jorge",
+            "data_evento": "2025-07-10 16:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_44.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Samba de Jorge apresenta Marcelo Sauva com muita roda de samba e a Velha Guarda da bateria. Entrada franca para uma tarde inesquecível!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        },
+        {
+            "id": null,
+            "titulo": "Arraiá da Pioneira",
+            "data_evento": "2025-07-25 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_45.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": null,
+            "descricao": "Participe do Arraiá da Pioneira com comidas típicas, quadrilhas e barraquinhas! Uma festa cheia de cultura e diversão para todas as idades. Nos dias 25 e 26 de julho a partir das 20h e no dia 27 a partir das 14h.",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 02:11:14 --
+{
+    "data": [
+        {
+            "id": "",
+            "titulo": "3ª Rodada - Campeonato das Baterias",
+            "data_evento": "2025-07-04 20:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_46.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "https://instagram.com/x9_pioneira",
+            "descricao": "Venha conferir a emocionante 3ª Rodada do Campeonato das Baterias com as partidas entre Ritmo Perfeito e Magia Xisnoveana às 20:30, e Ritmo Santástico versus Chapa Quente às 21:30.",
+            "endereco": "R. João Fraccaroli, S/N - Santa Maria, Santos",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}
