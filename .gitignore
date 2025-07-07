@@ -4,3 +4,4 @@ flyer/*
 lixo/*
 inserts_*.sql
 bkpImgs/*
+migrations_sql/*

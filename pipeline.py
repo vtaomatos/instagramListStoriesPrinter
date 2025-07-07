@@ -18,7 +18,7 @@ def executar_etapa(nome, comando):
     inicio = time.time()
 
     try:
-        resultado = subprocess.run(["python", comando], capture_output=True, text=True)
+        resultado = subprocess.run(["python", comando], capture_output=True, text=True, encoding="utf-8")
         if resultado.returncode == 0:
             log(f"✅ Finalizado: {nome} em {time.time() - inicio:.1f}s")
         else:

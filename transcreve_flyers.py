@@ -136,7 +136,7 @@ def salvar_inserts(inserts, slug="inserts_eventos"):
     # Timestamp interno no conteúdo (opcional)
     timestamp = datetime.now().strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
 
-    with open(nome_arquivo, "w", encoding="utf-8") as f:
+    with open(nome_arquivo, "a", encoding="utf-8") as f:
         f.write(f"{timestamp}\n")
         f.write("\n".join(inserts))
         f.write("\n")
