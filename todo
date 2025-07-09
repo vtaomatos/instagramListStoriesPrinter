@@ -1,4 +1,6 @@
-- Pegar o print do instagram cortado e sem labels do story na frente;
+- Prever algum bug no login do instagram e refazer o login; [OK]
+- Pegar o print do instagram cortado; [OK]
+- Pegar o print do instagram  sem labels do story na frente; [OK]
 - Pegar informações dos labels como código (Ex. horario que o story foi postado e @ da casa);
 - Pegar o alt da imagem se houver;
 - Salvar a imagem com o prefixo data + horario com milissegundo da captura;
@@ -11,3 +13,5 @@
 - Aumentar base de casas manualmente;
 - Aumentar base de casas automaticamente;
 - Entender eventos que foram ontem.
+- Apresentar os eventeos em agenda formato calendário; Tipo "Agenda da região" ou "Agenda da cidade";
+- Criara script para remover os eventos iguais. Se tiver o mesmo base64 e mesma data remove;

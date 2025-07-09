@@ -1,107 +1,352 @@
 {
-    "data":[
+  "data": [
+    {
+      "id": "glossario_palavras_certas",
+      "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações.",
+      "conteudo": [
+        "Trindah",
+        "Gabriel Antero",
+        "Cantor Ph",
+        "Meu Lugar",
+        "Renanzinho 77",
+        "Só Resenha",
+        "Mulher VIP",
+        "Leozinho",
+        "DJ Babu",
+        "Ex é Ex",
+        "mobydicksantos",
+        "meulugar.bar",
+        "donnaguilherminabar",
+        "donnag.santos",
+        "ativahouse"
+      ]
+    },
+    {
+      "id": "glossario_palavras_erradas",
+      "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações erradas.",
+      "conteudo": [
+        "Jhow dero",
+        "Jhowdero",
+        "Dj PH"
+      ]
+    },
+    {
+      "id": "glossario_localizacao",
+      "descricao": "Glossário de localizações com instagram, endereços e coordenadas.",
+      "conteudo": [
         {
-            "id": "glossario_palavras_certas",
-            "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações.",
-            "conteudo": [
-                "Trindah",
-                "Gabriel Antero",
-                "Cantor Ph",
-                "Meu Lugar",
-                "Renanzinho 77",
-                "Só Resenha",
-                "Mulher VIP",
-                "Leozinho",
-                "DJ Babu",
-                "Ex é Ex" ,
-                "mobydicksantos",
-                "meulugar.bar",
-                "donnaguilherminabar",
-                "donnag.santos",
-                "ativahouse"        
-            ]
+          "instagram": "meulugar.bar",
+          "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+          "latitude": -23.965584968798762,
+          "longitude": -46.30972219947866
         },
         {
-            "id": "glossario_palavras_erradas",
-            "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações erradas.",
-            "conteudo": [
-                "Jhow dero",
-                "Jhowdero",
-                "Dj PH"
-            ]
+          "instagram": "donnaguilherminabar",
+          "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+          "latitude": -24.015683557287833,
+          "longitude": -46.43025549946118
         },
         {
-            "id":"glossario_localizacao",
-            "descricao": "Glossário de localizações com instagram, endereços e coordenadas.",
-            "conteudo": [
-                {
-                    "instagram": "meulugar.bar",
-                    "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
-                    "latitude": -23.965584968798762,
-                    "longitude": -46.30972219947866
-                },
-                {
-                    "instagram": "donnaguilherminabar",
-                    "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
-                    "latitude": -24.015683557287833,
-                    "longitude": -46.43025549946118
-                },
-                {
-                    "instagram": "ativahouse",
-                    "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
-                    "latitude": -23.949004515486546,
-                    "longitude": -46.325971600013546
-                },
-                {
-                    "instagram": "mobydicksantos",
-                    "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
-                    "latitude": -23.971308564173924,
-                    "longitude": -46.32676692855928
-                },
-                {
-                    "instagram": "donnag.santos",
-                    "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
-                    "latitude": -23.93389876991642,
-                    "longitude": -46.327088328559064
-                },
-                {
-                    "instagram": "x9_pioneira",
-                    "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
-                    "latitude": -23.95758047133943,
-                    "longitude": -46.3109476150358
-                },
-                {
-                    "instagram": "cristoearesposta",
-                    "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
-                    "latitude": -23.952444774065793,
-                    "longitude": -46.32667711230255
-                },
-                {
-                    "instagram": "bartusantos",
-                    "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
-                    "latitude": -23.989280063359324,
-                    "longitude": -46.299486899464064
-                },
-                {
-                    "instagram": "toatoabarc7",
-                    "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
-                    "latitude": -23.98933795930824,
-                    "longitude": -46.299500628749584
-                },
-                {
-                    "instagram": "cemporcentovida",
-                    "endereco": "R. da Liberdade, 442 - Embaré, Santos - SP, 11025-031",
-                    "latitude": -23.968790251199717,
-                    "longitude": -46.30777324471856
-                },
-                {
-                    "instagram": "cemporcentovida",
-                    "endereco": "Av. Antônio Emmerich, 1313 - Vila Cascatinha, São Vicente - SP, 11390-001",
-                    "latitude": -23.95440536218104,
-                    "longitude": -46.374875957633925
-                }
-            ]
-            
+          "instagram": "ativahouse",
+          "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+          "latitude": -23.949004515486546,
+          "longitude": -46.325971600013546
+        },
+        {
+          "instagram": "mobydicksantos",
+          "endereco": "Av. Vicente de Carvalho, 30 - Boqueirão, Santos - SP, 11045-500",
+          "latitude": -23.971308564173924,
+          "longitude": -46.32676692855928
+        },
+        {
+          "instagram": "donnag.santos",
+          "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+          "latitude": -23.93389876991642,
+          "longitude": -46.327088328559064
+        },
+        {
+          "instagram": "x9_pioneira",
+          "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+          "latitude": -23.95758047133943,
+          "longitude": -46.3109476150358
+        },
+        {
+          "instagram": "cristoearesposta",
+          "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+          "latitude": -23.952444774065793,
+          "longitude": -46.32667711230255
+        },
+        {
+          "instagram": "bartusantos",
+          "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos - SP, 11030-420",
+          "latitude": -23.989280063359324,
+          "longitude": -46.299486899464064
+        },
+        {
+          "instagram": "toatoabarc7",
+          "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+          "latitude": -23.98933795930824,
+          "longitude": -46.299500628749584
+        },
+        {
+          "instagram": "cemporcentovida",
+          "endereco": "R. da Liberdade, 442 - Embaré, Santos - SP, 11025-031",
+          "latitude": -23.968790251199717,
+          "longitude": -46.30777324471856
+        },
+        {
+          "instagram": "cemporcentovida",
+          "endereco": "Av. Antônio Emmerich, 1313 - Vila Cascatinha, São Vicente - SP, 11390-001",
+          "latitude": -23.95440536218104,
+          "longitude": -46.374875957633925
+        },
+        {
+          "instagram": "santosconventioncenter",
+          "endereco": "Pça. ALM. Gago Coutinho, 29 - Ponta da Praia, Santos - SP, 11030-200, Brasil",
+          "latitude": -23.985594,
+          "longitude": -46.2949961
+        },
+        {
+          "instagram": "472_bar",
+          "endereco": "Av. Washington Luís, 472 - Gonzaga, Santos - SP, 11055-000, Brasil",
+          "latitude": -23.9650418,
+          "longitude": -46.3288549
+        },
+        {
+          "instagram": "startedbarsantos",
+          "endereco": "R. Tuyuti, 96 - Centro, Santos - SP, 11010-305, Brasil",
+          "latitude": -23.932224,
+          "longitude": -46.3287916
+        },
+        {
+          "instagram": "cathedral_oficial",
+          "endereco": "R. Braz Cubas, 34 - Centro, Santos - SP, 11013-160, Brasil",
+          "latitude": -23.9340946,
+          "longitude": -46.3244858
+        },
+        {
+          "instagram": "goatclubsantos",
+          "endereco": "Rua do Comércio, 63 - Centro, Santos - SP, 11010-141, Brasil",
+          "latitude": -23.9328217,
+          "longitude": -46.3317936
+        },
+        {
+          "instagram": "seventysurf",
+          "endereco": "R. Quinze de Novembro, 53 - Centro, Santos - SP, 11010-150, Brasil",
+          "latitude": -23.932984,
+          "longitude": -46.3307307
+        },
+        {
+          "instagram": "qualeh.saobento",
+          "endereco": "Av. Nossa Sra. do Monte Serrat, 1249 - Morro de São Bento, Santos - SP, 11082-300, Brasil",
+          "latitude": -23.9383569,
+          "longitude": -46.33712389999999
+        },
+        {
+          "instagram": "mangutelounge",
+          "endereco": "Al. Paulo Gonçalves, 61 - Itararé, São Vicente - SP, 11320-350, Brasil",
+          "latitude": -23.9766672,
+          "longitude": -46.3713293
+        },
+        {
+          "instagram": "sambobar_oficial",
+          "endereco": "R. Benjamin Constant, 30 - Centro, São Vicente - SP, 11310-500, Brasil",
+          "latitude": -23.9640331,
+          "longitude": -46.3842177
+        },
+        {
+          "instagram": "natocabar",
+          "endereco": "R. Jacob Emmerich, 795 - Centro, São Vicente - SP, 11310-070, Brasil",
+          "latitude": -23.9659197,
+          "longitude": -46.3887297
+        },
+        {
+          "instagram": "chopperia.bomgosto",
+          "endereco": "R. Mal. Rondon, 126 - Parque Fernando Jorge, Cubatão - SP, 11500-280, Brasil",
+          "latitude": -23.8802851,
+          "longitude": -46.41609090000001
+        },
+        {
+          "instagram": "rocketseaclub",
+          "endereco": "Av. Tupiniquins, 590 - Japuí, São Vicente - SP, 11325-000, Brasil",
+          "latitude": -23.9806169,
+          "longitude": -46.3910766
+        },
+        {
+          "instagram": "capitaobarpg",
+          "endereco": "Av. Pres. Castelo Branco, 1548 - Canto do Forte, Praia Grande - SP, 11700-800, Brasil",
+          "latitude": -24.0133225,
+          "longitude": -46.4149174
+        },
+        {
+          "instagram": "barzindapraia",
+          "endereco": "Av. Mal. Mallet, 1108 - Canto do Forte, Praia Grande - SP, 11700-400, Brasil",
+          "latitude": -24.0073694,
+          "longitude": -46.40601299999999
+        },
+        {
+          "instagram": "embaixadorbarpg",
+          "endereco": "Av. Mal. Mallet, 1190 - Canto do Forte, Praia Grande - SP, 11700-400, Brasil",
+          "latitude": -24.0064561,
+          "longitude": -46.4066029
+        },
+        {
+          "instagram": "beachloungerestaurante",
+          "endereco": "Av. Pres. Castelo Branco, 2040 - Guilhermina, Praia Grande - SP, 11701-750, Brasil",
+          "latitude": -24.0137554,
+          "longitude": -46.4203935
+        },
+        {
+          "instagram": "estacaoverao.pg",
+          "endereco": "Av. Pres. Castelo Branco, 378 - Canto do Forte, Praia Grande - SP, 11700-800, Brasil",
+          "latitude": -24.0153069,
+          "longitude": -46.4034351
+        },
+        {
+          "instagram": "unidosdosmorros_oficial",
+          "endereco": "Av. Pref. Dr. Antônio Manoel de Carvalho, 2562 - Morro Nova Cintra, Santos - SP, 11080-100, Brasil",
+          "latitude": -23.9469915,
+          "longitude": -46.3536086
+        },
+        {
+          "instagram": "sedinha_quintaldosamba",
+          "endereco": "R. da Gaita de Foles, 426 - Jardim Santa Zelia, São Paulo - SP, 04933-040, Brasil",
+          "latitude": -23.683368,
+          "longitude": -46.7632276
+        },
+        {
+          "instagram": "lagoa_da_saudade_oficial",
+          "endereco": "lagoa da saudade - Morro Nova Cintra, Santos - SP, Brasil",
+          "latitude": -23.9481934,
+          "longitude": -46.3545216
+        },
+        {
+          "instagram": "clubeportuarios",
+          "endereco": "R. Joaquim Távora, 424 - Marapé, Santos - SP, 11075-301, Brasil",
+          "latitude": -23.9478218,
+          "longitude": -46.33975110000001
+        },
+        {
+          "instagram": "santoscidade",
+          "endereco": "Santos - SP, Brasil",
+          "latitude": -23.9592201,
+          "longitude": -46.3317787
+        },
+        {
+          "instagram": "viveremsantoseregiao",
+          "endereco": "Av. Conselheiro Nébias, 754 - 756 Sala 1510 - Paquetá, Santos - SP, 11045-002, Brasil",
+          "latitude": -23.9675159,
+          "longitude": -46.3240043
+        },
+        {
+          "instagram": "baseviacruz",
+          "endereco": "R. Rodrigo Silva, 219 - Macuco, Santos - SP, 11015-240, Brasil",
+          "latitude": -23.9635489,
+          "longitude": -46.3103648
+        },
+        {
+          "instagram": "penielbeach",
+          "endereco": "Av. Pres. Wilson, 1955 - José Menino, Santos - SP, 11065-201, Brasil",
+          "latitude": -23.9686467,
+          "longitude": -46.352536
+        },
+        {
+          "instagram": "penielsede",
+          "endereco": "Av. Martins Fontes, 781 - Catiapoã, São Vicente - SP, 11390-200, Brasil",
+          "latitude": -23.9616696,
+          "longitude": -46.3896824
+        },
+        {
+          "instagram": "penielvilamelo",
+          "endereco": "11370-000, Av. Antônio Emmerich, 735 - Vila Sao Jorge, São Vicente - SP, 11370-000, Brasil",
+          "latitude": -23.9598176,
+          "longitude": -46.3768313
+        },
+        {
+          "instagram": "peniellinhaum",
+          "endereco": "Av. Nossa Senhora de Fátima, 909 - Chico de Paula, Santos - SP, 11085-203, Brasil",
+          "latitude": -23.9491306,
+          "longitude": -46.3714099
+        },
+        {
+          "instagram": "_penielradioclube",
+          "endereco": "Av. Hugo Maia, 458 - Radio Clube, Santos - SP, 11088-000, Brasil",
+          "latitude": -23.9433381,
+          "longitude": -46.383971
+        },
+        {
+          "instagram": "adcampossales",
+          "endereco": "R. Campos Sales, 153 - Parque Bitaru, São Vicente - SP, 11310-430, Brasil",
+          "latitude": -23.9659167,
+          "longitude": -46.38903149999999
+        },
+        {
+          "instagram": "assembleiadedeus",
+          "endereco": "R. Dr. Manuel Tourinho, 351 - Macuco, Santos - SP, 11015-031, Brasil",
+          "latitude": -23.9572222,
+          "longitude": -46.31861110000001
+        },
+        {
+          "instagram": "comunidade.mesa",
+          "endereco": "R. Joaquim Távora, 264 - Vila Matias, Santos - SP, 11075-300, Brasil",
+          "latitude": -23.9486567,
+          "longitude": -46.3347861
+        },
+        {
+          "instagram": "vidanovasede",
+          "endereco": "R. Dr. Manuel Tourinho, 171 - Macuco, Santos - SP, 11015-031, Brasil",
+          "latitude": -23.9513889,
+          "longitude": -46.31777779999999
+        },
+        {
+          "instagram": "cristoeavidasantos",
+          "endereco": "R. Alexandre Martins, 177 - Aparecida, Santos - SP, 11025-201, Brasil",
+          "latitude": -23.9736056,
+          "longitude": -46.3085752
+        },
+        {
+          "instagram": "c3churchsantos",
+          "endereco": "R. Carvalho de Mendonça, 360 - Marapé, Santos - SP, 11070-103, Brasil",
+          "latitude": -23.953075,
+          "longitude": -46.33537630000001
+        },
+        {
+          "instagram": "lagoinhasantos",
+          "endereco": "Av. Visconde de São Leopoldo, 653 - Centro, Santos - SP, 11010-201, Brasil",
+          "latitude": -23.932081,
+          "longitude": -46.3368776
+        },
+        {
+          "instagram": "lagoinhasaovicente",
+          "endereco": "R. Goitacazes, 634 - Parque Sao Vicente, São Vicente - SP, 11360-020, Brasil",
+          "latitude": -23.954891,
+          "longitude": -46.4019815
+        },
+        {
+          "instagram": "zionchurchsantos",
+          "endereco": "Av. Washington Luís, 565 - Boqueirão, Santos - SP, 11055-001, Brasil",
+          "latitude": -23.9701789,
+          "longitude": -46.32884989999999
+        },
+        {
+          "instagram": "teatromunicipalsantos",
+          "endereco": "Centro Cultural Patricia Galvão - Av. Senador Pinheiro Machado, 48 - Vila Matias, Santos - SP, 11075-907, Brasil",
+          "latitude": -23.9442396,
+          "longitude": -46.3326986
+        },
+        {
+          "instagram": "batalhadaconselheiro",
+          "endereco": "Av. Conselheiro Nébias, 001 - Boqueirão, Santos - SP, 11045-501, Brasil",
+          "latitude": -23.9729439,
+          "longitude": -46.3243237
+        },
+        {
+          "instagram": "comunidade_do_marape",
+          "endereco": "Av. Helena Maria, 381 - Jardim Helena Maria, Guarujá - SP, 11431-080, Brasil",
+          "latitude": -23.9957469,
+          "longitude": -46.2731011
         }
-    ]
+      ]
+    }
+  ]
 }

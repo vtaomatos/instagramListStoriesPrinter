@@ -30,29 +30,43 @@ CONTAS = [
     "cristoearesposta",
     "cemporcentovida"
     ]
-TEMPO_POR_STORY = 1
+TEMPO_POR_STORY = .5
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.maximize_window()
 # driver.set_window_position(960, 0)  # metade direita da tela
 # driver.set_window_size(960, 1080)
 
+import sys  # para usar sys.exit()
+
 def login_instagram():
-    print("🔐 Logando no Instagram...")
-    driver.get("https://www.instagram.com/accounts/login/")
-    time.sleep(5)
+    for tentativa in range(2):  # tenta até 2 vezes
+        print(f"🔐 Tentando login no Instagram... (tentativa {tentativa + 1})")
+        driver.get("https://www.instagram.com/accounts/login/")
+        time.sleep(3)
 
-    campos = driver.find_elements(By.TAG_NAME, "input")
-    campos[0].send_keys(USUARIO)
-    campos[1].send_keys(SENHA)
-    campos[1].submit()
+        try:
+            campos = driver.find_elements(By.TAG_NAME, "input")
+            campos[0].clear()
+            campos[1].clear()
+            campos[0].send_keys(USUARIO)
+            campos[1].send_keys(SENHA)
+            campos[1].submit()
+        except Exception as e:
+            print(f"⚠️ Erro ao preencher login: {e}")
+            continue
 
-    time.sleep(7)
-    try:
-        driver.find_element(By.XPATH, "//button[contains(text(),'Agora não')]").click()
-    except:
-        pass
-    print("✅ Logado")
+        time.sleep(5)
+        try:
+            driver.find_element(By.XPATH, "//*[self::button or self::div][contains(text(), 'Agora não')]").click()
+            print("✅ Logado com sucesso")
+            return  # login deu certo, sai da função
+        except:
+            print("❌ Login falhou.")
+
+    # se chegou aqui, as duas tentativas falharam
+    print("🚫 Não foi possível logar após 2 tentativas. Encerrando.")
+    sys.exit(1)  # encerra o programa com erro
 
 
 def abrir_stories(conta):
@@ -103,18 +117,6 @@ def voltar_ao_primeiro_story(max_tentativas=50, delay=0.5):
             print(f"⚠️ Erro inesperado: {e}")
             break
 
-def baixar_imagem(src, caminho):
-    try:
-        resposta = requests.get(src, stream=True)
-        if resposta.status_code == 200:
-            with open(caminho, "wb") as f:
-                for bloco in resposta.iter_content(1024):
-                    f.write(bloco)
-            return True
-    except Exception as e:
-        print(f"Erro ao baixar imagem: {e}")
-    return False
-
 def pausar_story():
     time.sleep(1)
     
@@ -127,6 +129,43 @@ def pausar_story():
     except Exception as e:
         print("⚠️ Não foi possível pausar o story:", e)
 
+from selenium.common.exceptions import NoSuchElementException
+
+def ocultar_labels_topo():
+    print("🔍 Ocultando labels do topo...")
+    try:
+        div_labels_top = driver.find_element(By.XPATH, '//section//*[contains(text(), "Menu")]/ancestor::div[5]')
+        driver.execute_script("arguments[0].style.display='none';", div_labels_top)
+        print("✅ Labels do topo ocultadas.")
+    except NoSuchElementException:
+        print("⚠️ Não foi possível ocultar as labels do topo, talvez já estejam ocultas.")
+    except Exception as e:
+        print("⚠️ Erro ao ocultar as labels do topo:", e)
+
+def ocultar_labels_baixo():
+    print("🔍 Ocultando labels de baixo...")
+    try:
+        try:
+            div_labels_baixo = driver.find_element(By.XPATH, '//section//*[contains(text(), "Curtir") or contains(text(), "Like")]/ancestor::div[6]')
+        except NoSuchElementException:
+            try:
+                div_labels_baixo = driver.find_element(By.XPATH, '//section//*[contains(text(), "Direct") or contains(text(), "Share")]/ancestor::div[6]')
+            except NoSuchElementException:
+                div_labels_baixo = driver.find_element(By.XPATH, '//textarea[contains(@placeholder, "Responder a")]/ancestor::div[5]')
+
+        driver.execute_script("arguments[0].style.display='none';", div_labels_baixo)
+        print("✅ Labels de baixo ocultadas.")
+    except NoSuchElementException:
+        print("⚠️ Não foi possível ocultar as labels de baixo, talvez já estejam ocultas.")
+    except Exception as e:
+        print("⚠️ Erro ao ocultar as labels de baixo:", e)
+
+
+def ocultar_labels():
+    print("🔍 Ocultando todas as labels...")
+    ocultar_labels_topo()
+    ocultar_labels_baixo()
+    print("✅ Todas as labels ocultadas.")      
 
 def capturar_stories(conta):
     
@@ -145,7 +184,9 @@ def capturar_stories(conta):
     story_index = 1
     while True:
         try:
-            time.sleep(1)
+            time.sleep(.3)
+
+            ocultar_labels()            
 
             print(f"📸 Capturando story {story_index}...")
             driver.save_screenshot(f"{pasta}/story_{story_index}.png")

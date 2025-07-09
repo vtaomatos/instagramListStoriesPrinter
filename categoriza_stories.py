@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import re
 import sys
+from datetime import datetime
+
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -17,6 +19,8 @@ ROOT_DIR = os.getenv("ROOT_DIR", "./imagens")
 FLYER_DIR = os.getenv("FLYER_DIR", "./flyer")
 LIXO_DIR = os.getenv("LIXO_DIR", "./lixo")
 LOTE = int(os.getenv("LOTE", 5))
+EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
+
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -67,7 +71,15 @@ def enviar_para_chatgpt(imagens):
         return {}, mapa
 
 
-def mover_arquivo(caminho, destino):
+def mover_arquivo(caminho, destino_base):
+    # Extrai o nome da pasta do Instagram de onde veio a imagem
+    partes = caminho.split(os.sep)
+    try:
+        nome_instagram = partes[partes.index("stories_capturados") + 1]
+    except ValueError:
+        nome_instagram = "desconhecido"
+
+    destino = os.path.join(destino_base, EXEC_ID, nome_instagram)
     os.makedirs(destino, exist_ok=True)
 
     arquivos_existentes = [
@@ -88,7 +100,7 @@ def mover_arquivo(caminho, destino):
     destino_path = os.path.join(destino, novo_nome)
 
     shutil.copy(caminho, destino_path)
-    print(f"✅ Arquivo copiado localmente como {novo_nome}")
+    print(f"✅ Arquivo copiado como {novo_nome} para {destino}")
 
 def construir_mapa_de_imagens(imagens):
     mapa = {}

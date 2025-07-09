@@ -50,27 +50,30 @@ enderecos_coordenadas = next((item["conteudo"] for item in GLOSSARIO_DATA if ite
 # Concatenação de strings para inserir no prompt
 str_palavras_certas = ", ".join(palavras_certas)
 str_palavras_erradas = ", ".join(palavras_erradas)
-str_enderecos_coordenadas = "\n".join([
+str_enderecos_coordenadas_default = "\n".join([
     f"{item['instagram']} => {item['endereco']} (Lat: {item['latitude']}, Lng: {item['longitude']})"
     for item in enderecos_coordenadas
 ])
 
 print("str_palavras_certas:", str_palavras_certas)
 print("str_palavras_erradas:", str_palavras_erradas)
-print("str_enderecos_coordenadas:", str_enderecos_coordenadas)
+print("str_enderecos_coordenadas:", str_enderecos_coordenadas_default)
 
 client = OpenAI(api_key=API_KEY)
 
-PROMPT = """
-Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
-{data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
-Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
-No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
-Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
-Glossário de endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
-Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
-Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
-"""
+
+def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coordenadas):
+    return """
+    Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
+    {data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
+    Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
+    No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
+    Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
+    Glossário de endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
+    Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
+    Os campos de titulo e data_evento são obrigatórios, se possível.
+    Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
+    """
 
 def extrair_numero(nome_arquivo):
     # Tenta extrair número de algo como story_1.png
@@ -155,7 +158,16 @@ def salvar_json_eventos(eventos):
 def processar_lote(imagens_lote):
     print(f"🔄 Processando lote de {len(imagens_lote)} imagens...")
     image_parts = []
-    nome_mapa = {}  # Mapeia a ordem para o nome real da imagem
+    nome_mapa = {}
+
+    # 🔍 Coleta os nomes de instagram a partir dos caminhos das imagens
+    instagrams_lote = set()
+    for img_path in imagens_lote:
+        partes = os.path.normpath(img_path).split(os.sep)
+        if len(partes) >= 3:
+            instagram = partes[-2]
+            instagrams_lote.add(instagram.lower())
+
 
     for idx, img_path in enumerate(imagens_lote):
         with open(img_path, "rb") as f:
@@ -169,7 +181,19 @@ def processar_lote(imagens_lote):
         })
         nome_mapa[f"story_{idx + 1}{os.path.splitext(img_path)[1]}"] = os.path.basename(img_path)
 
-    messages = [{"type": "text", "text": PROMPT}] + image_parts
+    # 🔎 Filtra glossário de localização baseado no instagram das imagens
+    enderecos_filtrados = [
+        item for item in enderecos_coordenadas
+        if item["instagram"].lower() in instagrams_lote
+    ]
+
+    # 🧠 Monta o texto do glossário de endereços para o prompt
+    str_enderecos_coordenadas = "\n".join([
+        f"{item['instagram']} => {item['endereco']} (Lat: {item['latitude']}, Lng: {item['longitude']})"
+        for item in enderecos_filtrados
+    ])
+
+    messages = [{"type": "text", "text": gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coordenadas)}] + image_parts
 
     response = client.chat.completions.create(
         model="gpt-4o",

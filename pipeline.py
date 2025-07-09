@@ -31,6 +31,7 @@ def executar_etapa(nome, comando):
 
 # Etapas do pipeline
 etapas = [
+    ("Adição de possíveis novos locais ao radar", "busca_coordenadas.py"),
     ("Captura de stories", "captura_stories.py"),
     ("Corte das imagens", "corta_imagens.py"),
     ("Classificação dos flyers", "categoriza_stories.py"),
@@ -46,5 +47,5 @@ for nome, script in etapas:
 log("\n🎉 Pipeline finalizado com sucesso!")
 
 
-log("🌐 Abrindo http://localhost/ no navegador...")
-webbrowser.open("http://localhost/")
+log("🌐 Abrindo https://radareventos.com.br/ no navegador...")
+webbrowser.open("https://radareventos.com.br/")
