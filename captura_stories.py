@@ -1,5 +1,6 @@
 import os
 import time
+import json
 import requests
 from dotenv import load_dotenv
 from selenium import webdriver
@@ -11,6 +12,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import sys
 
+
 sys.stdout.reconfigure(encoding='utf-8')
 
 
@@ -18,18 +20,27 @@ load_dotenv()
 
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
-CONTAS = [
-    "meulugar.bar", 
-    "mobydicksantos", 
-    "donnag.santos",
-    "donnaguilherminabar",
-    "ativahouse",
-    "toatoabarc7",
-    "bartusantos",
-    "x9_pioneira",
-    "cristoearesposta",
-    "cemporcentovida"
-    ]
+
+def carregar_contas_do_glossario(caminho="glossario.json"):
+    try:
+        with open(caminho, "r", encoding="utf-8") as f:
+            glossario = json.load(f)
+
+        localizacao = next((item for item in glossario["data"] if item["id"] == "glossario_localizacao"), None)
+        if not localizacao:
+            print("⚠️ Nenhuma seção 'glossario_localizacao' encontrada no glossário.")
+            return []
+
+        contas = [obj["instagram"] for obj in localizacao.get("conteudo", []) if "instagram" in obj]
+        print(f"✅ {len(contas)} contas carregadas do glossário.")
+        return contas
+
+    except Exception as e:
+        print(f"⚠️ Erro ao carregar contas do glossário: {e}")
+        return []
+
+CONTAS = carregar_contas_do_glossario()
+
 TEMPO_POR_STORY = .5
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))

@@ -84,16 +84,21 @@ def extrair_numero(nome_arquivo):
 
 
 def carregar_imagens_em_lotes(diretorio, tamanho_lote):
-    print(f"🔍 Carregando imagens do diretório: {diretorio}")
-    imagens = sorted([
-        os.path.join(diretorio, f) for f in os.listdir(diretorio)
-        if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))
-    ], key=lambda x: extrair_numero(os.path.basename(x)))
+    print(f"🔍 Buscando imagens de forma recursiva em: {diretorio}")
+    imagens = []
+
+    for raiz, _, arquivos in os.walk(diretorio):
+        for nome in arquivos:
+            if nome.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+                imagens.append(os.path.join(raiz, nome))
+
+    imagens = sorted(imagens, key=lambda x: extrair_numero(os.path.basename(x)))
+
+    print(f"✅ {len(imagens)} imagens encontradas no diretório {diretorio}.")
+
     for i in range(0, len(imagens), tamanho_lote):
         yield imagens[i:i + tamanho_lote]
-    
-    print(f"✅ {len(imagens)} imagens carregadas do diretório {diretorio}.")
-
+        
 
 def gerar_insert_sql(evento):
     print("🔄 Gerando INSERT SQL para evento:", evento.get("titulo", "Sem título"))
@@ -171,7 +176,6 @@ def processar_lote(imagens_lote):
             instagram = partes[-2]
             instagrams_lote.add(instagram.lower())
 
-
     for idx, img_path in enumerate(imagens_lote):
         with open(img_path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode("utf-8")
@@ -216,6 +220,19 @@ def processar_lote(imagens_lote):
             basename = os.path.basename(nome_flyer)
             if basename in nome_mapa:
                 evento["flyer_imagem"] = f"./flyer/{nome_mapa[basename]}"
+
+            # Preenche latitude e longitude do evento com base no instagram no glossário
+            instagram_evento = evento.get("instagram", "").lower()
+            if instagram_evento:
+                coord = next((item for item in enderecos_coordenadas if item["instagram"].lower() == instagram_evento), None)
+                if coord:
+                    # Só atualiza se estiver vazio ou nulo
+                    if not evento.get("latitude"):
+                        evento["latitude"] = coord.get("latitude")
+                    if not evento.get("longitude"):
+                        evento["longitude"] = coord.get("longitude")
+                    if not evento.get("endereco"):
+                        evento["endereco"] = coord.get("endereco")
 
         inserts = [gerar_insert_sql(e) for e in eventos]
         print(f"✅ {len(eventos)} eventos processados do lote de {len(imagens_lote)} imagens.")

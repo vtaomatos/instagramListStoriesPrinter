@@ -72,12 +72,14 @@ def enviar_para_chatgpt(imagens):
 
 
 def mover_arquivo(caminho, destino_base):
-    # Extrai o nome da pasta do Instagram de onde veio a imagem
-    partes = caminho.split(os.sep)
-    try:
-        nome_instagram = partes[partes.index("stories_capturados") + 1]
-    except ValueError:
-        nome_instagram = "desconhecido"
+    nome_instagram = "desconhecido"
+
+    # ✅ Tenta extrair o nome da conta no padrão: stories_capturados/{EXEC_ID}/{instagram}/story_1.png
+    match = re.search(r"stories_capturados[\\/][^\\/]+[\\/](.*?)[\\/]", caminho)
+    if match:
+        nome_instagram = match.group(1)
+    else:
+        print(f"⚠️ Caminho inesperado: não foi possível extrair o nome da conta de '{caminho}'")
 
     destino = os.path.join(destino_base, EXEC_ID, nome_instagram)
     os.makedirs(destino, exist_ok=True)
@@ -86,6 +88,7 @@ def mover_arquivo(caminho, destino_base):
         f for f in os.listdir(destino)
         if f.startswith("story_") and os.path.splitext(f)[1].lower() in [".png", ".jpg", ".jpeg", ".webp"]
     ]
+
     numeros = []
     for nome in arquivos_existentes:
         try:

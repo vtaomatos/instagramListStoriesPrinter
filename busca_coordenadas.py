@@ -3,6 +3,9 @@ import json
 import time
 import os
 from dotenv import load_dotenv
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 # === Config ===
 ARQUIVO_LOCAIS = "novos_lugares.txt"
