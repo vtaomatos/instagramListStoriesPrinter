@@ -127,7 +127,6 @@ def gerar_insert_sql(evento):
 
 
 def salvar_inserts(inserts, slug="inserts_eventos"):
-    # Cria nome do arquivo com data
     data = datetime.now().strftime("%Y-%m-%d")
     nome_arquivo = f"migrations_sql/{data}_{slug}.sql"
 
@@ -146,14 +145,18 @@ def salvar_inserts(inserts, slug="inserts_eventos"):
 
     print(f"✅ {len(inserts)} INSERTs salvos com sucesso em {nome_arquivo}")
 
-def salvar_json_eventos(eventos):
-    print("💾 Salvando eventos no arquivo JSON:", ARQUIVO_JSON_SAIDA)
+def salvar_json_eventos(eventos, slug="eventos"):
+    nome_arquivo = f"eventos_json/{datetime.now().strftime('%Y-%m-%d')}_{slug}.json"
+    os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
+
+    print("💾 Salvando eventos no arquivo JSON:", nome_arquivo)
     timestamp = datetime.now().strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
-    with open(ARQUIVO_JSON_SAIDA, "a", encoding="utf-8") as f:
+    with open(nome_arquivo, "a", encoding="utf-8") as f:
         f.write(f"\n\n{timestamp}\n")
         json.dump({"data": eventos}, f, ensure_ascii=False, indent=4)
         f.write("\n")
     print(f"✅ {len(eventos)} eventos salvos no arquivo JSON com sucesso.")
+
 
 def processar_lote(imagens_lote):
     print(f"🔄 Processando lote de {len(imagens_lote)} imagens...")
@@ -225,14 +228,17 @@ def processar_lote(imagens_lote):
         return []
 
 def main():
+    slug_execucao = datetime.now().strftime("%Y%m%d_%H%M%S")
+
     for lote in carregar_imagens_em_lotes(DIRETORIO_IMAGENS, TAMANHO_LOTE):
         inserts, eventos = processar_lote(lote)
         if inserts:
-            salvar_json_eventos(eventos)
-            salvar_inserts(inserts)
+            salvar_json_eventos(eventos, slug_execucao)
+            salvar_inserts(inserts, slug=slug_execucao)
             print(f"✅ {len(inserts)} eventos inseridos do lote de {len(lote)} imagens.")
         else:
             print("⚠️ Nenhum evento encontrado no lote.")
+
 
 if __name__ == "__main__":
     main()
