@@ -15,12 +15,12 @@ sys.stdout.reconfigure(encoding='utf-8')
 # - Adicionar mais logs [OK]
 # - Adicionar o glossário de artistas e casas de eventos como variavel [OK]
 # - Adicionar imagem em base64 no banco; [OK]
-# - Ocultar os elementos do story que atrapalham a leitura do flyer;
+# - Ocultar os elementos do story que atrapalham a leitura do flyer; [OK]
 # - Gravar os objetos JSON retornados em um arquivo separado para análise de duplicados; [OK]
-# - Identificar as imagens duplicadas;
+# - Identificar as imagens duplicadas; [Evitar duplicação de imagens a partir de horario de postagem x captura dos stories da conta] [OK]
 # - Identificar os eventos duplicados;
 # - Unir as informações de eventos duplicados como informações complementares de um mesmo evento;
-# - Criar script para gravar os inserts no banco de dados;
+# - Criar script para gravar os inserts no banco de dados; [OK]
 # - Alterar banco de dados para aceitar o campo de imagem em base64; [OK]
 # - Alterar o consumo do banco de dados para usar o campo de imagem em base64 ou o caminho do arquivo; [OK]
 # - Migrar o PHP de servidor; [OK]
@@ -33,6 +33,7 @@ ARQUIVO_SAIDA = os.getenv("ARQUIVO_SQL_SAIDA", "inserts_eventos.sql")
 ARQUIVO_JSON_SAIDA = os.getenv("ARQUIVO_JSON_SAIDA", "eventos.json")
 TAMANHO_LOTE = int(os.getenv("TAMANHO_LOTE", 5))
 DIERTORIO_GLOSSARIO = os.getenv("GLOSSARIO", "./glossario.json")
+DIR_MIGRATIONS_SQL = os.getenv("DIR_MIGRATIONS_SQL", "./migrations_sql")
 
 GLOSSARIO = {}
 
@@ -50,7 +51,7 @@ enderecos_coordenadas = next((item["conteudo"] for item in GLOSSARIO_DATA if ite
 # Concatenação de strings para inserir no prompt
 str_palavras_certas = ", ".join(palavras_certas)
 str_palavras_erradas = ", ".join(palavras_erradas)
-str_enderecos_coordenadas_default = "\n".join([
+str_enderecos_coordenadas_default = " \n ".join([
     f"{item['instagram']} => {item['endereco']} (Lat: {item['latitude']}, Lng: {item['longitude']})"
     for item in enderecos_coordenadas
 ])
@@ -63,17 +64,19 @@ client = OpenAI(api_key=API_KEY)
 
 
 def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coordenadas):
-    return """
+    prompt = """
     Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
     {data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
     Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
     No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
     Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
-    Glossário de endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
+    Glossário de instagram correto, endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
     Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
     Os campos de titulo e data_evento são obrigatórios, se possível.
     Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
     """
+    print("Prompt gerado:", prompt)
+    return prompt
 
 def extrair_numero(nome_arquivo):
     # Tenta extrair número de algo como story_1.png
@@ -82,23 +85,65 @@ def extrair_numero(nome_arquivo):
     except:
         return float("inf")  # empurra arquivos sem número pro final
 
+def filtrar_imagens_validas(diretorio_base):
+    imagens_por_conta = {}
+    datas_transcritas = []
 
-def carregar_imagens_em_lotes(diretorio, tamanho_lote):
-    print(f"🔍 Buscando imagens de forma recursiva em: {diretorio}")
-    imagens = []
+    if os.path.exists("migrations_sql"):
+        for nome in os.listdir("migrations_sql"):
+            if nome.endswith(".sql"):
+                try:
+                    data_str = nome.split("_inserts")[0]  # Ex: 20250714_081606
+                    data_dt = datetime.strptime(data_str, "%Y%m%d_%H%M%S")
+                    datas_transcritas.append(data_dt)
+                except Exception as e:
+                    print(f"⚠️ Ignorando nome de arquivo malformado: {nome} - Erro: {e}")
+    else:
+        print("⚠️ Pasta 'migrations_sql' não encontrada. Considerando todas as execuções.")
 
-    for raiz, _, arquivos in os.walk(diretorio):
-        for nome in arquivos:
-            if nome.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
-                imagens.append(os.path.join(raiz, nome))
+    data_mais_recente_sql = max(datas_transcritas) if datas_transcritas else datetime.min
+    print(f"📅 Data mais recente de transcrição: {data_mais_recente_sql}")
 
-    imagens = sorted(imagens, key=lambda x: extrair_numero(os.path.basename(x)))
+    for data_execucao in os.listdir(diretorio_base):
+        caminho_data = os.path.join(diretorio_base, data_execucao)
+        if not os.path.isdir(caminho_data):
+            continue
 
-    print(f"✅ {len(imagens)} imagens encontradas no diretório {diretorio}.")
+        try:
+            data_execucao_dt = datetime.strptime(data_execucao, "%Y%m%d_%H%M%S")
+        except ValueError:
+            print(f"⚠️ Nome de pasta inválido: {data_execucao}")
+            continue
 
-    for i in range(0, len(imagens), tamanho_lote):
-        yield imagens[i:i + tamanho_lote]
-        
+        if data_execucao_dt <= data_mais_recente_sql:
+            print(f"⏩ Ignorando {data_execucao} (já transcrita)")
+            continue
+
+        for conta in os.listdir(caminho_data):
+            caminho_conta = os.path.join(caminho_data, conta)
+            if not os.path.isdir(caminho_conta):
+                continue
+
+            imagens = []
+            for nome in os.listdir(caminho_conta):
+                if nome.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+                    caminho_imagem = os.path.join(caminho_conta, nome)
+                    imagens.append(caminho_imagem)
+
+            imagens_ordenadas = sorted(imagens, key=lambda x: extrair_numero(os.path.basename(x)))
+            if imagens_ordenadas:
+                if conta not in imagens_por_conta:
+                    imagens_por_conta[conta] = []
+                imagens_por_conta[conta].extend(imagens_ordenadas)
+
+    total = sum(len(v) for v in imagens_por_conta.values())
+    print(f"✅ {total} imagens encontradas após filtro por data.")
+    return imagens_por_conta
+
+
+def dividir_em_lotes(lista, tamanho_lote):
+    for i in range(0, len(lista), tamanho_lote):
+        yield lista[i:i + tamanho_lote]
 
 def gerar_insert_sql(evento):
     print("🔄 Gerando INSERT SQL para evento:", evento.get("titulo", "Sem título"))
@@ -127,13 +172,12 @@ def gerar_insert_sql(evento):
         valores_escapados.append(f"'{imagem_base64}'")
 
     insert = f"INSERT INTO eventos ({', '.join(campos)}) VALUES ({', '.join(valores_escapados)});"
-    print("✅ INSERT gerado:", insert)
+    # print("✅ INSERT gerado:", insert)
     return insert
 
 
-def salvar_inserts(inserts, slug="inserts_eventos"):
-    data = datetime.now().strftime("%Y-%m-%d")
-    nome_arquivo = f"migrations_sql/{data}_{slug}.sql"
+def salvar_inserts(inserts, data, slug="inserts_eventos"):
+    nome_arquivo = f"{DIR_MIGRATIONS_SQL}/{data}_{slug}.sql"
 
     # Garante que a pasta exista
     os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
@@ -150,7 +194,7 @@ def salvar_inserts(inserts, slug="inserts_eventos"):
 
     print(f"✅ {len(inserts)} INSERTs salvos com sucesso em {nome_arquivo}")
 
-def salvar_json_eventos(eventos, slug="eventos"):
+def salvar_json_eventos(eventos, data, slug="eventos"):
     nome_arquivo = f"eventos_json/{datetime.now().strftime('%Y-%m-%d')}_{slug}.json"
     os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
 
@@ -186,7 +230,7 @@ def processar_lote(imagens_lote):
                 "url": f"data:{mime_type};base64,{b64}"
             }
         })
-        nome_mapa[f"story_{idx + 1}{os.path.splitext(img_path)[1]}"] = os.path.basename(img_path)
+        nome_mapa[f"story_{idx + 1}{os.path.splitext(img_path)[1]}"] = img_path
 
     # 🔎 Filtra glossário de localização baseado no instagram das imagens
     enderecos_filtrados = [
@@ -195,8 +239,8 @@ def processar_lote(imagens_lote):
     ]
 
     # 🧠 Monta o texto do glossário de endereços para o prompt
-    str_enderecos_coordenadas = "\n".join([
-        f"{item['instagram']} => {item['endereco']} (Lat: {item['latitude']}, Lng: {item['longitude']})"
+    str_enderecos_coordenadas = " \n ".join([
+        f"(instagram: {item['instagram']}, endereco: {item['endereco']}, Lat: {item['latitude']}, Lng: {item['longitude']})"
         for item in enderecos_filtrados
     ])
 
@@ -219,7 +263,9 @@ def processar_lote(imagens_lote):
             nome_flyer = evento.get("flyer_imagem", "")
             basename = os.path.basename(nome_flyer)
             if basename in nome_mapa:
-                evento["flyer_imagem"] = f"./flyer/{nome_mapa[basename]}"
+                evento["flyer_imagem"] = nome_mapa[basename]
+                evento['instagram'] = evento["flyer_imagem"].split(os.sep)[-2]  # Pega o instagram do caminho do arquivo
+                evento['linkInstagram'] = f"https://www.instagram.com/{evento['instagram']}/"
 
             # Preenche latitude e longitude do evento com base no instagram no glossário
             instagram_evento = evento.get("instagram", "").lower()
@@ -245,16 +291,19 @@ def processar_lote(imagens_lote):
         return []
 
 def main():
-    slug_execucao = datetime.now().strftime("%Y%m%d_%H%M%S")
+    imagens_por_conta = filtrar_imagens_validas(DIRETORIO_IMAGENS)
+    data_execucao = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    for lote in carregar_imagens_em_lotes(DIRETORIO_IMAGENS, TAMANHO_LOTE):
-        inserts, eventos = processar_lote(lote)
-        if inserts:
-            salvar_json_eventos(eventos, slug_execucao)
-            salvar_inserts(inserts, slug=slug_execucao)
-            print(f"✅ {len(inserts)} eventos inseridos do lote de {len(lote)} imagens.")
-        else:
-            print("⚠️ Nenhum evento encontrado no lote.")
+    for conta, imagens in imagens_por_conta.items():
+        print(f"\n📦 Processando conta: {conta} ({len(imagens)} imagens)")
+        for lote in dividir_em_lotes(imagens, TAMANHO_LOTE):
+            inserts, eventos = processar_lote(lote)
+            if inserts:
+                salvar_json_eventos(eventos, data_execucao)
+                salvar_inserts(inserts, data_execucao)
+                print(f"✅ {len(inserts)} eventos inseridos do lote de {len(lote)} imagens.")
+            else:
+                print("⚠️ Nenhum evento encontrado no lote.")
 
 
 if __name__ == "__main__":
