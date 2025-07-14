@@ -7,6 +7,7 @@ from openai import OpenAI
 import re
 import sys
 from datetime import datetime
+import ast
 
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -28,7 +29,9 @@ def listar_imagens(diretorio):
     extensoes = ('.jpg', '.jpeg', '.png', '.webp')
     imagens = []
     for raiz, _, arquivos in os.walk(diretorio):
+        print(raiz,_,arquivos,diretorio)
         for nome in arquivos:
+            print(nome, imagens)
             if nome.lower().endswith(extensoes):
                 imagens.append(os.path.join(raiz, nome))
     return imagens
@@ -42,12 +45,14 @@ def enviar_para_chatgpt(imagens):
 
     prompt = (
         "Você agora vai ler e descrever eventos muito bem.\n"
-        "Você receberá imagens com nomes fictícios como 'story_1', 'story_2' etc. "
-        "Considere esses nomes ao retornar os resultados.\n"
-        "Gere um JSON com a estrutura:\n"
-        "{data:[{imagem: 'story_1', isFlyer: true, descricao: '...'}]}"
-        "Somente isso, não adicione nada fora do JSON."
+        "Você receberá imagens com nomes fictícios como 'story_1', 'story_2' etc.\n"
+        "Considere esses nomes ao retornar os resultados.\n\n"
+        "Gere **exclusivamente** um JSON **válido** com a seguinte estrutura:\n"
+        '{ "data": [ { "imagem": "story_1", "isFlyer": true, "descricao": "..." } ] }\n'
+        "⚠️ Use **aspas duplas** em todas as chaves e valores string, conforme o padrão JSON.\n"
+        "❌ Não inclua ```json ou nenhum texto fora do JSON.\n"
     )
+
 
     mensagens = [
         {"role": "system", "content": "Você é um assistente que analisa imagens de eventos para identificar se são flyers."},
@@ -66,19 +71,27 @@ def enviar_para_chatgpt(imagens):
         dados = json.loads(conteudo_limpo)
         return dados, mapa
     except json.JSONDecodeError:
-        print("⚠️ Falha ao interpretar o JSON. Retorno recebido:")
-        print(conteudo)
-        return {}, mapa
+        try:
+            print("⚠️ JSON inválido, tentando com ast.literal_eval...")
+            dados = ast.literal_eval(conteudo_limpo)
+            return dados, mapa
+        except Exception:
+            print("❌ Falha total ao interpretar JSON. Conteúdo bruto:")
+            print(conteudo)
+            return {}, mapa
 
 
 def mover_arquivo(caminho, destino_base):
     nome_instagram = "desconhecido"
 
-    # ✅ Tenta extrair o nome da conta no padrão: stories_capturados/{EXEC_ID}/{instagram}/story_1.png
-    match = re.search(r"stories_capturados[\\/][^\\/]+[\\/](.*?)[\\/]", caminho)
-    if match:
-        nome_instagram = match.group(1)
-    else:
+    # ✅ Caminho multiplataforma
+    caminho_normalizado = os.path.normpath(caminho)
+    partes = caminho_normalizado.split(os.sep)
+
+    try:
+        idx = partes.index("stories_capturados")
+        nome_instagram = partes[idx + 2]
+    except (ValueError, IndexError):
         print(f"⚠️ Caminho inesperado: não foi possível extrair o nome da conta de '{caminho}'")
 
     destino = os.path.join(destino_base, EXEC_ID, nome_instagram)
@@ -104,6 +117,7 @@ def mover_arquivo(caminho, destino_base):
 
     shutil.copy(caminho, destino_path)
     print(f"✅ Arquivo copiado como {novo_nome} para {destino}")
+    
 
 def construir_mapa_de_imagens(imagens):
     mapa = {}
