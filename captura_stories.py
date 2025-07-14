@@ -11,6 +11,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from webdriver_manager.chrome import ChromeDriverManager
 import sys
+from selenium.common.exceptions import NoSuchElementException
+from datetime import datetime
 
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -20,6 +22,9 @@ load_dotenv()
 
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
+
+EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
+
 
 def carregar_contas_do_glossario(caminho="glossario.json"):
     try:
@@ -140,7 +145,6 @@ def pausar_story():
     except Exception as e:
         print("⚠️ Não foi possível pausar o story:", e)
 
-from selenium.common.exceptions import NoSuchElementException
 
 def ocultar_labels_topo():
     print("🔍 Ocultando labels do topo...")
@@ -162,8 +166,14 @@ def ocultar_labels_baixo():
             try:
                 div_labels_baixo = driver.find_element(By.XPATH, '//section//*[contains(text(), "Direct") or contains(text(), "Share")]/ancestor::div[6]')
             except NoSuchElementException:
-                div_labels_baixo = driver.find_element(By.XPATH, '//textarea[contains(@placeholder, "Responder a")]/ancestor::div[5]')
-
+                try:
+                    div_labels_baixo = driver.find_element(By.XPATH, '//textarea[contains(@placeholder, "Responder a")]/ancestor::div[5]')
+                except NoSuchElementException:
+                    div_labels_baixo = None
+        if not div_labels_baixo: 
+            print("⚠️ Não foi possível encontrar as labels de baixo, talvez já estejam ocultas.")
+            return
+        
         driver.execute_script("arguments[0].style.display='none';", div_labels_baixo)
         print("✅ Labels de baixo ocultadas.")
     except NoSuchElementException:
@@ -189,13 +199,13 @@ def capturar_stories(conta):
     pausar_story()
     voltar_ao_primeiro_story()
 
-    pasta = f"./stories_capturados/{conta}"
+    pasta = f"./stories_capturados/{EXEC_ID}/{conta}"
     os.makedirs(pasta, exist_ok=True)
     
     story_index = 1
     while True:
         try:
-            time.sleep(.3)
+            time.sleep(.5)
 
             ocultar_labels()            
 
