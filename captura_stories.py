@@ -1,7 +1,6 @@
 import os
 import time
 import json
-import requests
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -13,7 +12,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import sys
 from selenium.common.exceptions import NoSuchElementException
 from datetime import datetime
-
+import pytz
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -22,9 +21,40 @@ load_dotenv()
 
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
-
+ROOT_DIR = os.getenv("ROOT_DIR", "./stories_capturados")
 EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
 
+
+import os
+from datetime import datetime
+import pytz
+
+def maior_horario_execucao(conta):
+    try:
+        # Filtra apenas as pastas que têm uma subpasta com o nome da conta
+        pastas_validas = [
+            pasta for pasta in os.listdir(ROOT_DIR)
+            if os.path.isdir(os.path.join(ROOT_DIR, pasta, conta))
+        ]
+
+        if not pastas_validas:
+            print(f"⚠️ Nenhuma execução anterior encontrada para a conta '{conta}'.")
+            return None
+
+        # Converte o nome da pasta em datetime e pega a mais recente
+        maior_pasta = max(
+            pastas_validas,
+            key=lambda x: datetime.strptime(x, "%Y%m%d_%H%M%S")
+        )
+
+        tz = pytz.timezone("America/Sao_Paulo")
+        horario_dt = tz.localize(datetime.strptime(maior_pasta, "%Y%m%d_%H%M%S"))
+
+        print(f"🕒 Maior horário de execução da conta '{conta}': {horario_dt}")
+        return horario_dt
+    except Exception as e:
+        print(f"⚠️ Erro ao buscar a maior execução da conta '{conta}': {e}")
+        return None
 
 def carregar_contas_do_glossario(caminho="glossario.json"):
     try:
@@ -53,7 +83,21 @@ driver.maximize_window()
 # driver.set_window_position(960, 0)  # metade direita da tela
 # driver.set_window_size(960, 1080)
 
-import sys  # para usar sys.exit()
+
+def pegar_horario_story():
+    try:
+        horario_element = driver.find_element(By.XPATH, "//time")
+        horario = horario_element.get_attribute("datetime")
+        if horario:
+            print(f"🕒 Horário do story: \n {horario}")
+            return horario
+        else:
+            print("⚠️ Horário do story não encontrado.")
+            return None
+    except NoSuchElementException:
+        print("⚠️ Elemento de horário não encontrado.")
+        return None
+    
 
 def login_instagram():
     for tentativa in range(2):  # tenta até 2 vezes
@@ -186,7 +230,50 @@ def ocultar_labels():
     print("🔍 Ocultando todas as labels...")
     ocultar_labels_topo()
     ocultar_labels_baixo()
-    print("✅ Todas as labels ocultadas.")      
+    print("✅ Todas as labels ocultadas.")  
+
+def checar_se_ja_capturado_pelo_horario(ultima_execucao_captura_conta):
+    horario_story = pegar_horario_story()
+    horario_story = datetime.fromisoformat(horario_story.replace("Z", "+00:00"))  # UTC
+
+    print("🕒horario_story_convertido: \n", horario_story)
+    print("🕒ultima_execucao_captura_conta: \n", ultima_execucao_captura_conta)
+
+    if not ultima_execucao_captura_conta:
+        print("⚠️ Não foi possível determinar o horário da última execução.")
+        return False
+    if not horario_story:
+        print("⚠️ Não foi possível obter o horário do story.")
+        return False
+    if horario_story < ultima_execucao_captura_conta:
+        print("⚠️ Story já capturado pelo horário, pulando.")
+        return True
+
+    print("✅ Story ainda não capturado pelo horário, prosseguindo.")    
+    return False
+
+def avançar_story():
+    try:
+        seta_direita = driver.find_element(By.XPATH,'//section//*[contains(text(), "Avançar") or contains(text(), "Next")]/ancestor::div[2]')
+        seta_direita.click()
+        time.sleep(TEMPO_POR_STORY)
+        return True
+    except NoSuchElementException as e:
+        print("🚫 Sem mais stories.")
+        return False
+
+
+def faz_a_captura_do_story(pasta, story_index):
+    try:
+        time.sleep(1)  # espera um pouco para garantir que o story esteja carregado
+        ocultar_labels()            
+        print(f"📸 Capturando story {story_index}...")
+        driver.save_screenshot(f"{pasta}/story_{story_index}.png")
+        print(f"📸 Screenshot do story {pasta}/story_{story_index}.png salva.")
+        return story_index + 1
+    except (TimeoutException, NoSuchElementException):
+        print(f"⚠️ Não foi possível tirar screenchshot ou salvar a imagem {pasta}/story_{story_index}.png, pulando.")
+        return story_index
 
 def capturar_stories(conta):
     
@@ -199,37 +286,30 @@ def capturar_stories(conta):
     pausar_story()
     voltar_ao_primeiro_story()
 
-    pasta = f"./stories_capturados/{EXEC_ID}/{conta}"
+    pasta = f"{ROOT_DIR}/{EXEC_ID}/{conta}"
     os.makedirs(pasta, exist_ok=True)
     
     story_index = 1
+    ultima_execucao_captura_conta = maior_horario_execucao(conta)
+
     while True:
-        try:
-            time.sleep(.5)
-
-            ocultar_labels()            
-
-            print(f"📸 Capturando story {story_index}...")
-            driver.save_screenshot(f"{pasta}/story_{story_index}.png")
-            print(f"📸 Screenshot do story {pasta}/story_{story_index}.png salva.")
-
-        except (TimeoutException, NoSuchElementException):
-            print(f"⚠️ Não foi possível tirar screenchshot ou salvar a imagem {pasta}/story_{story_index}.png, pulando.")
-
-        # Tenta ir para o próximo story
-        try:
-            seta_direita = driver.find_element(By.XPATH,'//section//*[contains(text(), "Avançar") or contains(text(), "Next")]/ancestor::div[2]')
-            seta_direita.click()
-            story_index += 1
-            time.sleep(TEMPO_POR_STORY)
-        except NoSuchElementException:
-            print("🚫 Sem mais stories.")
+        
+        if not checar_se_ja_capturado_pelo_horario(ultima_execucao_captura_conta):                
+                story_index = faz_a_captura_do_story(pasta, story_index)
+        
+        if not avançar_story():
             break
+
+    return True
 
 try:
     login_instagram()
     for conta in CONTAS:
-        capturar_stories(conta)
+        if not capturar_stories(conta):
+            print(f"⚠️ Não foi possível capturar stories de @{conta}, pulando.")
+        else:
+            print(f"✅ Stories de @{conta} capturados com sucesso.")
+            
 finally:
     driver.quit()
     print("\n✅ Finalizado e navegador fechado.")
