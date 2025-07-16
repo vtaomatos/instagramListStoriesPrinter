@@ -18,16 +18,16 @@ def executar_etapa(nome, comando):
     inicio = time.time()
 
     try:
-        resultado = subprocess.run(["python", comando], capture_output=True, text=True, encoding="utf-8")
+        resultado = subprocess.run(["python", comando], text=True, encoding="utf-8")
         if resultado.returncode == 0:
             log(f"✅ Finalizado: {nome} em {time.time() - inicio:.1f}s")
         else:
             log(f"❌ Erro na etapa: {nome}")
             print(resultado.stderr)
-            exit(1)
+            exit(0)
     except Exception as e:
         log(f"💥 Falha ao executar '{comando}': {e}")
-        exit(1)
+        exit(0)
 
 # Etapas do pipeline
 etapas = [

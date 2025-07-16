@@ -5,8 +5,9 @@ import re
 from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
-import time
 import sys
+from collections import defaultdict
+
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -195,25 +196,37 @@ def salvar_inserts(inserts, data, slug="inserts_eventos"):
     print(f"✅ {len(inserts)} INSERTs salvos com sucesso em {nome_arquivo}")
 
 def salvar_json_eventos(eventos, data, slug="eventos"):
-    nome_arquivo = f"eventos_json/{datetime.now().strftime('%Y-%m-%d')}_{slug}.json"
+    nome_arquivo = f"eventos_json/{data}_{slug}.json"
     os.makedirs(os.path.dirname(nome_arquivo), exist_ok=True)
 
+    eventos_existentes = []
+
+    # Se o arquivo já existir, carrega os eventos existentes
+    if os.path.exists(nome_arquivo):
+        try:
+            with open(nome_arquivo, "r", encoding="utf-8") as f:
+                conteudo = json.load(f)
+                eventos_existentes = conteudo.get("data", [])
+        except Exception as e:
+            print(f"⚠️ Erro ao ler JSON existente: {e}. Continuando com lista vazia.")
+
+    # Junta os eventos novos com os antigos (você pode adaptar para evitar duplicados se quiser)
+    todos_eventos = eventos_existentes + eventos
+
     print("💾 Salvando eventos no arquivo JSON:", nome_arquivo)
-    timestamp = datetime.now().strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
-    with open(nome_arquivo, "a", encoding="utf-8") as f:
-        f.write(f"\n\n{timestamp}\n")
-        json.dump({"data": eventos}, f, ensure_ascii=False, indent=4)
-        f.write("\n")
-    print(f"✅ {len(eventos)} eventos salvos no arquivo JSON com sucesso.")
+    with open(nome_arquivo, "w", encoding="utf-8") as f:
+        json.dump({"data": todos_eventos}, f, ensure_ascii=False, indent=4)
+    print(f"✅ {len(eventos)} novos eventos adicionados. Total: {len(todos_eventos)}")
 
 
-def processar_lote(imagens_lote):
-    print(f"🔄 Processando lote de {len(imagens_lote)} imagens...")
+
+def gerar_eventos_a_partir_de_imagens(imagens_lote):
+    print(f"🔄 Gerando eventos a partir de {len(imagens_lote)} imagens...")
+
     image_parts = []
     nome_mapa = {}
-
-    # 🔍 Coleta os nomes de instagram a partir dos caminhos das imagens
     instagrams_lote = set()
+
     for img_path in imagens_lote:
         partes = os.path.normpath(img_path).split(os.sep)
         if len(partes) >= 3:
@@ -232,13 +245,12 @@ def processar_lote(imagens_lote):
         })
         nome_mapa[f"story_{idx + 1}{os.path.splitext(img_path)[1]}"] = img_path
 
-    # 🔎 Filtra glossário de localização baseado no instagram das imagens
+    # Filtra o glossário com base nos instagrams presentes no lote
     enderecos_filtrados = [
         item for item in enderecos_coordenadas
         if item["instagram"].lower() in instagrams_lote
     ]
 
-    # 🧠 Monta o texto do glossário de endereços para o prompt
     str_enderecos_coordenadas = " \n ".join([
         f"(instagram: {item['instagram']}, endereco: {item['endereco']}, Lat: {item['latitude']}, Lng: {item['longitude']})"
         for item in enderecos_filtrados
@@ -258,52 +270,175 @@ def processar_lote(imagens_lote):
         json_data = json.loads(conteudo_limpo)
         eventos = json_data.get("data", [])
 
-        # Substitui o nome do arquivo retornado pelo nome real original
+        # Substitui nomes de arquivos retornados
         for evento in eventos:
             nome_flyer = evento.get("flyer_imagem", "")
             basename = os.path.basename(nome_flyer)
             if basename in nome_mapa:
                 evento["flyer_imagem"] = nome_mapa[basename]
-                evento['instagram'] = evento["flyer_imagem"].split(os.sep)[-2]  # Pega o instagram do caminho do arquivo
-                evento['linkInstagram'] = f"https://www.instagram.com/{evento['instagram']}/"
 
-            # Preenche latitude e longitude do evento com base no instagram no glossário
-            instagram_evento = evento.get("instagram", "").lower()
-            if instagram_evento:
-                coord = next((item for item in enderecos_coordenadas if item["instagram"].lower() == instagram_evento), None)
-                if coord:
-                    # Só atualiza se estiver vazio ou nulo
-                    if not evento.get("latitude"):
-                        evento["latitude"] = coord.get("latitude")
-                    if not evento.get("longitude"):
-                        evento["longitude"] = coord.get("longitude")
-                    if not evento.get("endereco"):
-                        evento["endereco"] = coord.get("endereco")
-
-        inserts = [gerar_insert_sql(e) for e in eventos]
-        print(f"✅ {len(eventos)} eventos processados do lote de {len(imagens_lote)} imagens.")
-        return inserts, eventos
+        return eventos
 
     except Exception as e:
-        print("❌ Erro ao processar JSON:", e)
+        print("❌ Erro ao gerar eventos:", e)
         print("Conteúdo retornado:", conteudo)
-        print("⚠️ Nenhum evento processado.")
         return []
+
+
+def agrupar_eventos_por_instagram(eventos):
+    agrupados = defaultdict(list)
+    for evento in eventos:
+        insta = evento.get("instagram", "").lower()
+        if insta:
+            agrupados[insta].append(evento)
+    return agrupados
+
+def filtrar_eventos_para_melhorar(eventos):
+    eventos_filtrados = []
+    for evento in eventos:
+        falta_data = not evento.get("data_evento")
+        falta_local = not (evento.get("endereco") or (evento.get("latitude") and evento.get("longitude")))
+        if falta_data or falta_local:
+            eventos_filtrados.append(evento)
+    return eventos_filtrados
+
+
+def agrupar_possiveis_duplicados(eventos):
+    grupos = defaultdict(list)
+    for evento in eventos:
+        chave = (evento.get("data_evento", ""), evento.get("endereco", ""))
+        grupos[chave].append(evento)
+    return [g for g in grupos.values() if len(g) > 1]
+
+def gerar_prompt_unificacao(eventos_problema, demais_eventos_da_conta):
+    prompt = """
+Unifique os eventos duplicados, e complete as informações faltantes de forma coerente se possível.
+Considere os seguintes eventos problemáticos: {eventos_problema}
+Dentre os seguintes eventos da mesma conta: {demais_eventos_da_conta}
+Responda apenas com um JSON válido: {"data": [todos os eventos]}.
+Nada além do JSON.
+"""
+    return prompt
+
+def solicitar_unificacao_ao_gpt(eventos_problema, demais_eventos_da_conta):
+    prompt_text = gerar_prompt_unificacao(eventos_problema, demais_eventos_da_conta)
+
+    # Monta os blocos de conteúdo (text + imagens)
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt_text}
+            ]
+        }
+    ]
+
+    # Adiciona os blocos de imagem ao conteúdo da mensagem
+    for evento in eventos_problema:
+        img_path = evento.get("flyer_imagem")
+        if img_path and os.path.exists(img_path):
+            with open(img_path, "rb") as f:
+                b64 = base64.b64encode(f.read()).decode("utf-8")
+            mime_type = "image/png" if img_path.lower().endswith("png") else "image/jpeg"
+            messages[0]["content"].append({
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:{mime_type};base64,{b64}"
+                }
+            })
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            max_tokens=3000
+        )
+        conteudo = response.choices[0].message.content
+        print("📤 Resposta bruta do GPT:")
+        print(conteudo)  # <-- AJUDA A ENCONTRAR O ERRO EXATO
+
+        conteudo_limpo = re.sub(r"^```(?:json)?\n|\n```$", "", conteudo.strip())
+        dados = json.loads(conteudo_limpo)
+
+        return dados.get("data", [])
+    except Exception as e:
+        print("❌ Erro ao interpretar resposta do GPT:", e)
+        print("⚠️ Falha ao processar os eventos com base64. Verifique se os arquivos existem.")
+        return []
+
+def preparar_eventos_para_insert(eventos):
+    for evento in eventos:
+        # Preenche instagram e linkInstagram
+        if "flyer_imagem" in evento:
+            caminho = evento["flyer_imagem"]
+            partes = os.path.normpath(caminho).split(os.sep)
+            if len(partes) >= 3:
+                evento["instagram"] = partes[-2]
+                evento["linkInstagram"] = f"https://www.instagram.com/{evento['instagram']}/"
+
+        # Enriquecer com coordenadas se faltarem
+        instagram_evento = evento.get("instagram", "").lower()
+        if instagram_evento:
+            coord = next((item for item in enderecos_coordenadas if item["instagram"].lower() == instagram_evento), None)
+            if coord:
+                if not evento.get("latitude"):
+                    evento["latitude"] = coord.get("latitude")
+                if not evento.get("longitude"):
+                    evento["longitude"] = coord.get("longitude")
+                if not evento.get("endereco"):
+                    evento["endereco"] = coord.get("endereco")
+
+    inserts = [gerar_insert_sql(e) for e in eventos]
+    return inserts
+
+
 
 def main():
     imagens_por_conta = filtrar_imagens_validas(DIRETORIO_IMAGENS)
     data_execucao = datetime.now().strftime("%Y%m%d_%H%M%S")
+    todos_eventos = []
 
     for conta, imagens in imagens_por_conta.items():
         print(f"\n📦 Processando conta: {conta} ({len(imagens)} imagens)")
+
         for lote in dividir_em_lotes(imagens, TAMANHO_LOTE):
-            inserts, eventos = processar_lote(lote)
-            if inserts:
-                salvar_json_eventos(eventos, data_execucao)
-                salvar_inserts(inserts, data_execucao)
-                print(f"✅ {len(inserts)} eventos inseridos do lote de {len(lote)} imagens.")
+            eventos = gerar_eventos_a_partir_de_imagens(lote)
+
+            if eventos:
+                todos_eventos.extend(eventos)
             else:
                 print("⚠️ Nenhum evento encontrado no lote.")
+
+    print(f"\n📊 Total de eventos brutos encontrados: {len(todos_eventos)}")
+
+    # 🔁 Agrupa por conta
+    # eventos_por_conta = agrupar_eventos_por_instagram(todos_eventos)
+    # eventos_final = []
+
+    # for conta, eventos in eventos_por_conta.items():
+    #     eventos_problema = filtrar_eventos_para_melhorar(eventos)
+
+    #     if eventos_problema:
+    #         print(f"🧠 Enviando {len(eventos_problema)} eventos incompletos de {conta} para unificação GPT...")
+    #         eventos_corrigidos = solicitar_unificacao_ao_gpt(eventos_problema, eventos)
+    #         eventos_final.extend(eventos_corrigidos)
+    #         salvar_json_eventos(eventos_corrigidos, data_execucao)
+
+    #     else:
+    #         eventos_final.extend(eventos)
+    #         salvar_json_eventos(eventos, data_execucao)
+
+    eventos_final = todos_eventos
+
+
+    print(f"\n📊 Total de eventos: {len(eventos_final)}")
+
+    if eventos_final:
+        inserts = preparar_eventos_para_insert(eventos_final)
+        salvar_inserts(inserts, data_execucao)
+        print(f"✅ {len(inserts)} INSERTs salvos no total.")
+    else:
+        print("⚠️ Nenhum evento final encontrado para salvar.")
 
 
 if __name__ == "__main__":

@@ -29,12 +29,12 @@ import os
 from datetime import datetime
 import pytz
 
-def maior_horario_execucao(conta):
+def maior_horario_execucao(conta, excecao=None):
     try:
         # Filtra apenas as pastas que têm uma subpasta com o nome da conta
         pastas_validas = [
             pasta for pasta in os.listdir(ROOT_DIR)
-            if os.path.isdir(os.path.join(ROOT_DIR, pasta, conta))
+            if os.path.isdir(os.path.join(ROOT_DIR, pasta, conta)) and pasta != excecao
         ]
 
         if not pastas_validas:
@@ -55,6 +55,7 @@ def maior_horario_execucao(conta):
     except Exception as e:
         print(f"⚠️ Erro ao buscar a maior execução da conta '{conta}': {e}")
         return None
+
 
 def carregar_contas_do_glossario(caminho="glossario.json"):
     try:
@@ -100,7 +101,7 @@ def pegar_horario_story():
     
 
 def login_instagram():
-    for tentativa in range(2):  # tenta até 2 vezes
+    for tentativa in range(3):  # tenta até 3 vezes
         print(f"🔐 Tentando login no Instagram... (tentativa {tentativa + 1})")
         driver.get("https://www.instagram.com/accounts/login/")
         time.sleep(3)
@@ -186,8 +187,10 @@ def pausar_story():
         botao_pausar.click()
 
         print("⏸️ Story pausado.")
+        return True
     except Exception as e:
         print("⚠️ Não foi possível pausar o story:", e)
+        return False
 
 
 def ocultar_labels_topo():
@@ -234,6 +237,11 @@ def ocultar_labels():
 
 def checar_se_ja_capturado_pelo_horario(ultima_execucao_captura_conta):
     horario_story = pegar_horario_story()
+
+    if not horario_story:
+        print("⚠️ Não foi possível obter o horário do story, pulando comparação de horario.")
+        return False
+    
     horario_story = datetime.fromisoformat(horario_story.replace("Z", "+00:00"))  # UTC
 
     print("🕒horario_story_convertido: \n", horario_story)
@@ -281,21 +289,24 @@ def capturar_stories(conta):
     ver_story()
 
     if not verificar_se_story_abriu(conta):
-        return
+        return False
     
-    pausar_story()
+    if not pausar_story():
+        print("⚠️ Não foi possível pausar o story, há algo de errado com {conta}, pulando.")
+        return False
+    
     voltar_ao_primeiro_story()
 
     pasta = f"{ROOT_DIR}/{EXEC_ID}/{conta}"
     os.makedirs(pasta, exist_ok=True)
     
     story_index = 1
-    ultima_execucao_captura_conta = maior_horario_execucao(conta)
+    ultima_execucao_captura_conta = maior_horario_execucao(conta,EXEC_ID)
 
     while True:
         
-        if not checar_se_ja_capturado_pelo_horario(ultima_execucao_captura_conta):                
-                story_index = faz_a_captura_do_story(pasta, story_index)
+        if not ultima_execucao_captura_conta or not checar_se_ja_capturado_pelo_horario(ultima_execucao_captura_conta):                
+            story_index = faz_a_captura_do_story(pasta, story_index)
         
         if not avançar_story():
             break
