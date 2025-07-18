@@ -1,53 +1,55 @@
 import os
 import mysql.connector
-from datetime import datetime
 from dotenv import load_dotenv
 import sys
-import time
 
 sys.stdout.reconfigure(encoding='utf-8')
-
 load_dotenv()
 
-config = {
-    "host": os.getenv("DB_HOST"),
-    "user": os.getenv("DB_USER"),
-    "password": os.getenv("DB_PASSWORD"),
-    "database": os.getenv("DB_NAME"),
-    "use_pure": True
-}
+def main(exec_id, conta, migrations_dir="./migrations_sql"):
+    config = {
+        "host": os.getenv("DB_HOST"),
+        "user": os.getenv("DB_USER"),
+        "password": os.getenv("DB_PASSWORD"),
+        "database": os.getenv("DB_NAME"),
+        "use_pure": True
+    }
 
-MIGRATIONS_DIR = "./migrations_sql"
+    # Conecta ao banco
+    conn = mysql.connector.connect(**config)
+    cursor = conn.cursor()
 
-# Conecta ao banco
-conn = mysql.connector.connect(**config)
-cursor = conn.cursor()
+    # Cria a tabela de controle, se necessário
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS migrations_sql (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        filename VARCHAR(255) NOT NULL UNIQUE,
+        executed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+    conn.commit()
 
-# Cria a tabela de controle, se necessário
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS migrations_sql (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    filename VARCHAR(255) NOT NULL UNIQUE,
-    executed_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
-""")
-conn.commit()
+    # Caminho do arquivo específico da conta dentro do exec_id
+    caminho_arquivo = os.path.join(migrations_dir, f"{exec_id}_{conta}.sql")
 
-# Pega os arquivos ordenados por nome
-arquivos = sorted(f for f in os.listdir(MIGRATIONS_DIR) if f.endswith(".sql"))
+    if not os.path.isfile(caminho_arquivo):
+        print(f"⚠️ Arquivo não encontrado: {caminho_arquivo}")
+        return
 
-for arquivo in arquivos:
-    caminho = os.path.join(MIGRATIONS_DIR, arquivo)
+    # Verifica se já foi executado
+    if os.name == "nt":
+        nome_arquivo_para_registro = caminho_arquivo.replace("\\", "/")
+    else:
+        nome_arquivo_para_registro = caminho_arquivo
 
-    # Pula se já foi executado
-    cursor.execute("SELECT 1 FROM migrations_sql WHERE filename = %s", (arquivo,))
+    cursor.execute("SELECT 1 FROM migrations_sql WHERE filename = %s", (nome_arquivo_para_registro,))
     if cursor.fetchone():
-        print(f"⏩ Já executado: {arquivo}")
-        continue
+        print(f"⏩ Já executado: {caminho_arquivo}")
+        return
 
-    print(f"🚀 Executando: {arquivo}")
+    print(f"🚀 Executando: {caminho_arquivo}")
     try:
-        with open(caminho, "r", encoding="utf-8") as f:
+        with open(caminho_arquivo, "r", encoding="utf-8") as f:
             buffer = ""
             for linha in f:
                 linha = linha.strip()
@@ -68,13 +70,14 @@ for arquivo in arquivos:
                     buffer = ""
 
         conn.commit()
-        # Marca como executado
-        cursor.execute("INSERT INTO migrations_sql (filename) VALUES (%s)", (arquivo,))
-        conn.commit()
-        print(f"✅ Finalizado: {arquivo}")
-    except Exception as e:
-        print(f"❌ Erro geral em {arquivo}: {e}")
-        conn.rollback()
 
-cursor.close()
-conn.close()
+        # Marca como executado
+        cursor.execute("INSERT INTO migrations_sql (filename) VALUES (%s)", (nome_arquivo_para_registro,))
+        conn.commit()
+        print(f"✅ Finalizado: {caminho_arquivo}")
+    except Exception as e:
+        print(f"❌ Erro geral: {e}")
+        conn.rollback()
+    finally:
+        cursor.close()
+        conn.close()

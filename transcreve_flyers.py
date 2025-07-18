@@ -29,7 +29,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY_OPENAI")
-DIRETORIO_IMAGENS = os.getenv("DIRETORIO_IMAGENS", "./flyer")
+DIRETORIO_IMAGENS = os.getenv("ROOT_DIR", "./stories_capturados")
 ARQUIVO_SAIDA = os.getenv("ARQUIVO_SQL_SAIDA", "inserts_eventos.sql")
 ARQUIVO_JSON_SAIDA = os.getenv("ARQUIVO_JSON_SAIDA", "eventos.json")
 TAMANHO_LOTE = int(os.getenv("TAMANHO_LOTE", 5))
@@ -66,7 +66,7 @@ client = OpenAI(api_key=API_KEY)
 
 def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coordenadas):
     prompt = """
-    Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
+    Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm ou não flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
     {data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
     Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
     No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
@@ -74,7 +74,7 @@ def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coorde
     Glossário de instagram correto, endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
     Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
     Os campos de titulo e data_evento são obrigatórios, se possível.
-    Retorne nada além do objeto solicitado. Caso necessário traga informações vazias.
+    Retorne nada além de um json válido solicitado. Caso necessário traga informações vazias.
     """
     print("Prompt gerado:", prompt)
     return prompt
@@ -86,10 +86,7 @@ def extrair_numero(nome_arquivo):
     except:
         return float("inf")  # empurra arquivos sem número pro final
 
-def filtrar_imagens_validas(diretorio_base):
-    imagens_por_conta = {}
     datas_transcritas = []
-
     if os.path.exists("migrations_sql"):
         for nome in os.listdir("migrations_sql"):
             if nome.endswith(".sql"):
@@ -104,38 +101,29 @@ def filtrar_imagens_validas(diretorio_base):
 
     data_mais_recente_sql = max(datas_transcritas) if datas_transcritas else datetime.min
     print(f"📅 Data mais recente de transcrição: {data_mais_recente_sql}")
+    return data_mais_recente_sql
 
-    for data_execucao in os.listdir(diretorio_base):
-        caminho_data = os.path.join(diretorio_base, data_execucao)
-        if not os.path.isdir(caminho_data):
-            continue
+import os
 
-        try:
-            data_execucao_dt = datetime.strptime(data_execucao, "%Y%m%d_%H%M%S")
-        except ValueError:
-            print(f"⚠️ Nome de pasta inválido: {data_execucao}")
-            continue
+def filtrar_imagens_validas(diretorio_base, exec_id, conta):
+    imagens_por_conta = {}
 
-        if data_execucao_dt <= data_mais_recente_sql:
-            print(f"⏩ Ignorando {data_execucao} (já transcrita)")
-            continue
+    caminho_conta = os.path.join(diretorio_base, exec_id, conta)
+    if not os.path.isdir(caminho_conta):
+        print(f"Não é um diretório: {caminho_conta}")
+        return False
 
-        for conta in os.listdir(caminho_data):
-            caminho_conta = os.path.join(caminho_data, conta)
-            if not os.path.isdir(caminho_conta):
-                continue
+    imagens = []
+    for nome in os.listdir(caminho_conta):
+        if nome.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+            caminho_imagem = os.path.join(caminho_conta, nome)
+            imagens.append(caminho_imagem)
 
-            imagens = []
-            for nome in os.listdir(caminho_conta):
-                if nome.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
-                    caminho_imagem = os.path.join(caminho_conta, nome)
-                    imagens.append(caminho_imagem)
-
-            imagens_ordenadas = sorted(imagens, key=lambda x: extrair_numero(os.path.basename(x)))
-            if imagens_ordenadas:
-                if conta not in imagens_por_conta:
-                    imagens_por_conta[conta] = []
-                imagens_por_conta[conta].extend(imagens_ordenadas)
+    imagens_ordenadas = sorted(imagens, key=lambda x: extrair_numero(os.path.basename(x)))
+    if imagens_ordenadas:
+        if conta not in imagens_por_conta:
+            imagens_por_conta[conta] = []
+        imagens_por_conta[conta].extend(imagens_ordenadas)
 
     total = sum(len(v) for v in imagens_por_conta.values())
     print(f"✅ {total} imagens encontradas após filtro por data.")
@@ -175,7 +163,6 @@ def gerar_insert_sql(evento):
     insert = f"INSERT INTO eventos ({', '.join(campos)}) VALUES ({', '.join(valores_escapados)});"
     # print("✅ INSERT gerado:", insert)
     return insert
-
 
 def salvar_inserts(inserts, data, slug="inserts_eventos"):
     nome_arquivo = f"{DIR_MIGRATIONS_SQL}/{data}_{slug}.sql"
@@ -217,8 +204,6 @@ def salvar_json_eventos(eventos, data, slug="eventos"):
     with open(nome_arquivo, "w", encoding="utf-8") as f:
         json.dump({"data": todos_eventos}, f, ensure_ascii=False, indent=4)
     print(f"✅ {len(eventos)} novos eventos adicionados. Total: {len(todos_eventos)}")
-
-
 
 def gerar_eventos_a_partir_de_imagens(imagens_lote):
     print(f"🔄 Gerando eventos a partir de {len(imagens_lote)} imagens...")
@@ -284,7 +269,6 @@ def gerar_eventos_a_partir_de_imagens(imagens_lote):
         print("Conteúdo retornado:", conteudo)
         return []
 
-
 def agrupar_eventos_por_instagram(eventos):
     agrupados = defaultdict(list)
     for evento in eventos:
@@ -301,7 +285,6 @@ def filtrar_eventos_para_melhorar(eventos):
         if falta_data or falta_local:
             eventos_filtrados.append(evento)
     return eventos_filtrados
-
 
 def agrupar_possiveis_duplicados(eventos):
     grupos = defaultdict(list)
@@ -391,55 +374,46 @@ def preparar_eventos_para_insert(eventos):
     inserts = [gerar_insert_sql(e) for e in eventos]
     return inserts
 
-
-
-def main():
-    imagens_por_conta = filtrar_imagens_validas(DIRETORIO_IMAGENS)
-    data_execucao = datetime.now().strftime("%Y%m%d_%H%M%S")
+def main(exec_id, conta_desejada):
+    imagens_por_conta = filtrar_imagens_validas(DIRETORIO_IMAGENS, exec_id, conta_desejada)
+    data_execucao = exec_id
     todos_eventos = []
 
-    for conta, imagens in imagens_por_conta.items():
-        print(f"\n📦 Processando conta: {conta} ({len(imagens)} imagens)")
+    if not imagens_por_conta:
+        print(f"Nenhuma imagem a conta: {conta_desejada}")
+        return False
 
-        for lote in dividir_em_lotes(imagens, TAMANHO_LOTE):
-            eventos = gerar_eventos_a_partir_de_imagens(lote)
+    imagens = imagens_por_conta.get(conta_desejada)
 
-            if eventos:
-                todos_eventos.extend(eventos)
-            else:
-                print("⚠️ Nenhum evento encontrado no lote.")
+    if not imagens:
+        print(f"Nenhuma imagem encontrada para a conta: {conta_desejada}")
+        return False
+
+    print(f"\n📦 Processando conta: {conta_desejada} ({len(imagens)} imagens)")
+
+    for lote in dividir_em_lotes(imagens, TAMANHO_LOTE):
+        eventos = gerar_eventos_a_partir_de_imagens(lote)
+
+        if eventos:
+            todos_eventos.extend(eventos)
+        else:
+            print("⚠️ Nenhum evento encontrado no lote.")
 
     print(f"\n📊 Total de eventos brutos encontrados: {len(todos_eventos)}")
 
-    # 🔁 Agrupa por conta
-    # eventos_por_conta = agrupar_eventos_por_instagram(todos_eventos)
-    # eventos_final = []
-
-    # for conta, eventos in eventos_por_conta.items():
-    #     eventos_problema = filtrar_eventos_para_melhorar(eventos)
-
-    #     if eventos_problema:
-    #         print(f"🧠 Enviando {len(eventos_problema)} eventos incompletos de {conta} para unificação GPT...")
-    #         eventos_corrigidos = solicitar_unificacao_ao_gpt(eventos_problema, eventos)
-    #         eventos_final.extend(eventos_corrigidos)
-    #         salvar_json_eventos(eventos_corrigidos, data_execucao)
-
-    #     else:
-    #         eventos_final.extend(eventos)
-    #         salvar_json_eventos(eventos, data_execucao)
-
     eventos_final = todos_eventos
-
 
     print(f"\n📊 Total de eventos: {len(eventos_final)}")
 
     if eventos_final:
         inserts = preparar_eventos_para_insert(eventos_final)
-        salvar_inserts(inserts, data_execucao)
+        salvar_inserts(inserts, data_execucao, conta_desejada)
         print(f"✅ {len(inserts)} INSERTs salvos no total.")
     else:
         print("⚠️ Nenhum evento final encontrado para salvar.")
-
+        return False
+    
+    return True
 
 if __name__ == "__main__":
     main()

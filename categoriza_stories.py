@@ -6,21 +6,17 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import re
 import sys
-from datetime import datetime
 import ast
 
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-# Carrega variáveis de ambiente
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-ROOT_DIR = os.getenv("ROOT_DIR", "./imagens")
 FLYER_DIR = os.getenv("FLYER_DIR", "./flyer")
 LIXO_DIR = os.getenv("LIXO_DIR", "./lixo")
 LOTE = int(os.getenv("LOTE", 5))
-EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -81,7 +77,7 @@ def enviar_para_chatgpt(imagens):
             return {}, mapa
 
 
-def mover_arquivo(caminho, destino_base):
+def mover_arquivo(caminho, destino_base, exec_id):
     nome_instagram = "desconhecido"
 
     # ✅ Caminho multiplataforma
@@ -94,7 +90,7 @@ def mover_arquivo(caminho, destino_base):
     except (ValueError, IndexError):
         print(f"⚠️ Caminho inesperado: não foi possível extrair o nome da conta de '{caminho}'")
 
-    destino = os.path.join(destino_base, EXEC_ID, nome_instagram)
+    destino = os.path.join(destino_base, exec_id, nome_instagram)
     os.makedirs(destino, exist_ok=True)
 
     arquivos_existentes = [
