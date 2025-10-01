@@ -1,11 +1,15 @@
 # Dockerfile para Instagram List Stories Printer
 FROM python:3.11-slim
 
-# Evitar prompts interativos e manter o container limpo
+# Evitar prompts interativos
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Atualiza e instala dependências do Chromium e libs necessárias
+# Diretório de trabalho
+WORKDIR /usr/src/app
+
+# Instalar dependências de sistema
 RUN apt-get update && apt-get install -y \
+    build-essential \
     chromium \
     fonts-liberation \
     libnss3 \
@@ -29,15 +33,14 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-# Definir variáveis de ambiente para Selenium
+# Variáveis de ambiente para Selenium/Chromium
 ENV CHROME_BIN=/usr/bin/chromium
+ENV CHROME_PATH=/usr/bin/chromium
 ENV PIP_NO_CACHE_DIR=1
 
-# Diretório de trabalho
-WORKDIR /usr/src/app
-
-# Copiar requirements.txt e instalar dependências Python
+# Copiar requirements e instalar dependências Python
 COPY requirements.txt .
+# Usar psycopg2-binary no requirements.txt para evitar erros de compilação
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copiar todo o código do projeto
