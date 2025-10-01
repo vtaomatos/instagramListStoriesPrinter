@@ -4,6 +4,9 @@ FROM python:3.11-slim
 # Define diretório de trabalho dentro do container
 WORKDIR /usr/src/app
 
+# Instala gcc e bibliotecas do PostgreSQL
+RUN apt-get update && apt-get install -y gcc libpq-dev
+
 # Copia dependências
 COPY requirements.txt ./
 
