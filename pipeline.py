@@ -51,7 +51,7 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--headless")            # roda sem GUI
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="140.0.7339.207").install()), options=chrome_options)
 driver.maximize_window()
 
 try:
