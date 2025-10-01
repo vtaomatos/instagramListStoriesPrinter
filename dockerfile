@@ -1,19 +1,12 @@
-# Base: Python 3.11
+# Dockerfile para Instagram List Stories Printer
 FROM python:3.11-slim
 
-# Define diretório de trabalho dentro do container
-WORKDIR /usr/src/app
+# Evitar prompts interativos e manter o container limpo
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Instala gcc e bibliotecas do PostgreSQL
-RUN apt-get update && apt-get install -y gcc libpq-dev
-
-# Copia dependências
-COPY requirements.txt ./
-
-# antes do pip install -r requirements.txt
+# Atualiza e instala dependências do Chromium e libs necessárias
 RUN apt-get update && apt-get install -y \
     chromium \
-    chromium-driver \
     fonts-liberation \
     libnss3 \
     libxss1 \
@@ -31,16 +24,24 @@ RUN apt-get update && apt-get install -y \
     libpangocairo-1.0-0 \
     libpango-1.0-0 \
     libdrm2 \
+    curl \
+    unzip \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
-# Instala dependências
-RUN pip install --no-cache-dir -r requirements.txt
+# Definir variáveis de ambiente para Selenium
+ENV CHROME_BIN=/usr/bin/chromium
+ENV PIP_NO_CACHE_DIR=1
 
-# Copia todo o projeto
+# Diretório de trabalho
+WORKDIR /usr/src/app
+
+# Copiar requirements.txt e instalar dependências Python
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copiar todo o código do projeto
 COPY . .
 
-# Define variável de ambiente (pode usar seu .env depois)
-ENV PYTHONUNBUFFERED=1
-
-# Comando padrão (pode ser sobrescrito pelo docker-compose ou entrypoint)
+# Comando padrão ao iniciar o container
 CMD ["python", "pipeline.py"]

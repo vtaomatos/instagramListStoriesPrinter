@@ -7,6 +7,7 @@ from logar_instagram import login_instagram
 import json
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from busca_coordenadas import main as buscarCoordenadasMain
 from captura_stories import capturar_stories
@@ -43,10 +44,6 @@ log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
 # Inicia o navegador
 log("🌐 Abrindo navegador...")
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 
 chrome_options = Options()
 chrome_options.binary_location = "/usr/bin/chromium"  # caminho do chromium no container
