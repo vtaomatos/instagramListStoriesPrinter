@@ -42,7 +42,19 @@ log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
 
 # Inicia o navegador
 log("🌐 Abrindo navegador...")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+
+chrome_options = Options()
+chrome_options.binary_location = "/usr/bin/chromium"  # caminho do chromium no container
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--headless")            # roda sem GUI
+chrome_options.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 driver.maximize_window()
 
 try:
