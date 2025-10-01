@@ -83,7 +83,7 @@ def verificar_se_story_abriu(conta, driver):
 def ver_story(driver):
     print("👀 passando pelo botão 'ver stories'...")
     try:
-        botao_ver = driver.find_element(By.XPATH, "//div[contains(text(),'Ver story') or contains(text(),'Watch story')]")
+        botao_ver = driver.find_element(By.XPATH, "//div[contains(text(),'Ver story') or contains(text(),'View story')]")
         botao_ver.click()
         print("🖱️ Botão 'Ver story' clicado")
         time.sleep(2)
@@ -96,7 +96,7 @@ def voltar_ao_primeiro_story(driver, max_tentativas=50, delay=0.5):
 
     for _ in range(max_tentativas):
         try:
-            seta_voltar = driver.find_element(By.XPATH,'//section//*[contains(text(), "Voltar") or contains(text(), "Back")]/ancestor::div[2]')
+            seta_voltar = driver.find_element(By.XPATH,'//section//*[contains(text(), "Voltar") or contains(text(), "Previous")]/ancestor::div[2]')
             seta_voltar.click()
             time.sleep(delay)
         except NoSuchElementException:
