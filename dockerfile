@@ -20,4 +20,4 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 
 # Comando padrão (pode ser sobrescrito pelo docker-compose ou entrypoint)
-CMD ["python", "main.py"]
+CMD ["python", "pipeline.py"]
