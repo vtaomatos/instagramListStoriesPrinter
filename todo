@@ -1,17 +1,20 @@
 - Prever algum bug no login do instagram e refazer o login; [OK]
 - Pegar o print do instagram cortado; [OK]
 - Pegar o print do instagram  sem labels do story na frente; [OK]
-- Pegar informações dos labels como código (Ex. horario que o story foi postado e @ da casa);
+- Pegar informações dos labels como código (Ex. horario que o story foi postado e @ da casa); [OK]
 - Pegar o alt da imagem se houver;
-- Salvar a imagem com o prefixo data + horario com milissegundo da captura;
+- Salvar a imagem com o prefixo data + horario com milissegundo da captura; [OK (Não precisou ser a imagem, sim a pasta)]
 - Mandar no mapa de imagens da categorização informações adicionais sobre a imagem como o @ da casa (pode ja pegar do nome da pasta) (os labels tipo horario que o story foi postado) e o alt da imagem. Se fizer sentido;
-- Quando salvar a imagem na pasta flyer, salvar com o horario de captura da imagem (Nome que o arquivo ja vai ter) mas separado em pastas com o nome da casa, salvar esse endereço em cada imagem do evento no banco;
-- Trocar o visualizador por um carrossel. Se tiverem eventos com a mesma localização na consulta trazer no carrossel.
-- Adicionar a descrição depois do flyer;
-- Adicionar horario de fim do evento no banco e na transcrição cadastro no banco;
-- Criar script para rodar os inserts automaticamente;
-- Aumentar base de casas manualmente;
-- Aumentar base de casas automaticamente;
-- Entender eventos que foram ontem.
+- Quando salvar a imagem na pasta flyer, salvar com o horario de captura da imagem (Nome que o arquivo ja vai ter) mas separado em pastas com o nome da casa, salvar esse endereço em cada imagem do evento no banco; [OK]
+- Trocar o visualizador por um carrossel. Se tiverem eventos com a mesma localização na consulta trazer no carrossel.[MELHORAR O CARROSSEL]
+- Adicionar a descrição depois do flyer; 
+- Adicionar horario de fim do evento no banco e na transcrição cadastro no banco; [OK]
+- Usar campo de data de fim do evento na area do usuário;
+- Criar script para rodar os inserts automaticamente; [ok]
+- Aumentar base de casas manualmente; [ok]
+- Aumentar base de casas automaticamente; [in progress]
+- Entender eventos que foram ontem. Vincular alt e horario da postagem no prompt do gpt;
 - Apresentar os eventeos em agenda formato calendário; Tipo "Agenda da região" ou "Agenda da cidade";
-- Criara script para remover os eventos iguais. Se tiver o mesmo base64 e mesma data remove;
+- Criar script para remover os eventos iguais. Se tiver o mesmo base64 e mesma data remove;
+- Adicionar descrição do ambiente ao glossario (como: Categoria do local [igreja, balada, cinema], Horario de encerramento do local, clima do local, alguma informação sobre publico);
+- Adicionar um glossario de bandas e artistas com inteligencia para cadastrar novos;
