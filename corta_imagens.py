@@ -42,6 +42,8 @@ def main(exec_id, conta):
     print(f"📂 Encontradas {len(imagens)} imagens da conta '{conta}' em '{exec_id}'")
 
     for caminho in imagens:
-        cortar_imagem(caminho, largura_corte=455, altura_corte=824)
+        # cortar_imagem(caminho, largura_corte=455, altura_corte=824)
+        cortar_imagem(caminho, largura_corte=245, altura_corte=460)
+
 
     return True
