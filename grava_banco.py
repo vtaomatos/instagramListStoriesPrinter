@@ -34,7 +34,7 @@ def main(exec_id, conta, migrations_dir="./migrations_sql"):
 
     if not os.path.isfile(caminho_arquivo):
         print(f"⚠️ Arquivo não encontrado: {caminho_arquivo}")
-        return
+        return False
 
     # Verifica se já foi executado
     if os.name == "nt":
@@ -45,7 +45,7 @@ def main(exec_id, conta, migrations_dir="./migrations_sql"):
     cursor.execute("SELECT 1 FROM migrations_sql WHERE filename = %s", (nome_arquivo_para_registro,))
     if cursor.fetchone():
         print(f"⏩ Já executado: {caminho_arquivo}")
-        return
+        return False
 
     print(f"🚀 Executando: {caminho_arquivo}")
     try:
@@ -75,9 +75,11 @@ def main(exec_id, conta, migrations_dir="./migrations_sql"):
         cursor.execute("INSERT INTO migrations_sql (filename) VALUES (%s)", (nome_arquivo_para_registro,))
         conn.commit()
         print(f"✅ Finalizado: {caminho_arquivo}")
+        return True
     except Exception as e:
         print(f"❌ Erro geral: {e}")
         conn.rollback()
+        return False
     finally:
         cursor.close()
         conn.close()
