@@ -1,0 +1,616 @@
+
+
+-- Inserção em 2025-07-07 05:15:30 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Show com Banda Suzan",
+            "data_evento": "2025-07-06 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://www.instagram.com/ativahouse/",
+            "descricao": "Curta um domingo incrível com a Banda Suzan tocando os grandes sucessos do rock em um ambiente descontraído. Promoção imperdível: comprando 4 cervejas, a 5ª é por nossa conta! Entrada completamente gratuita a noite toda, das 20h à 01h.",
+            "endereco": "Rua Almeida de Moraes, 41 - Vila Matias, Santos, SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": 2,
+            "titulo": "Agenda Semanal Ativa House",
+            "data_evento": "2025-07-03 22:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://www.instagram.com/ativahouse/",
+            "descricao": "Semana cheia de música boa na Ativa House! Começa quinta com Diego Alencikas Sexteto trazendo brasilidades vibrantes. Sexta é dia de rock com Maralto e MastroBiso. No sábado, solte os passos ao som do melhor do hip-hop e funk com DJ Akila, Be Amarante e DJ Matt. Domingo, a energia do rock com Emanuel Original e Banda Suzan. Aproveite entrada gratuita até às 22h todas as noites!",
+            "endereco": "Rua Almeida de Moraes, 41 - Vila Matias, Santos, SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": 3,
+            "titulo": "Grupo Feitiço no Bartu Santos",
+            "data_evento": "2025-07-06 14:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://www.instagram.com/bartusantos/",
+            "descricao": "Hoje é dia de samba no pé com Grupo Feitiço a partir das 14h30. Traga seus amigos para um domingo regado a música boa e a descontração que só o Bartu Santos pode oferecer.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 4,
+            "titulo": "Feijoada Bartu Santos",
+            "data_evento": "2025-07-06 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://www.instagram.com/bartusantos/",
+            "descricao": "Delicie-se com a feijoada mais santista da cidade no Bartu Santos neste domingo a partir das 12h. Uma combinação perfeita de gastronomia e música para alegrar seu fim de semana!",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 5,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-06 08:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "https://www.instagram.com/cristoearesposta/",
+            "descricao": "Celebre conosco os 46 anos de história do Cristo é a Resposta. Participe das celebrações às 8h30 e 10h30 e sinta-se parte desta linda jornada de fé e comunhão.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos, SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:16:06 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-06 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "https://www.instagram.com/cristoearesposta/",
+            "descricao": "Celebre os 46 anos de história com uma festa vibrante no Cristo é a Resposta. Aniversário especial começando hoje às 19h. Junte-se a nós para um evento memorável.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos - SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 2,
+            "titulo": "Samba de Domingo",
+            "data_evento": "2025-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_7.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos/",
+            "descricao": "Desfrute de um domingo com muito samba, cortesia de Beto do Reco, Vida Q Segue e DJ Badu. A partir das 18h com um open de Corona por R$55. Não perca!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 3,
+            "titulo": "Open Corona + Samba",
+            "data_evento": "2025-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_8.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos/",
+            "descricao": "Finalize sua semana com um animado Open Corona e muito samba! Aproveite por apenas R$55/pessoa, das 18h às 21h.",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 4,
+            "titulo": "Segunda MPB",
+            "data_evento": "2025-07-07 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_9.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar/",
+            "descricao": "Curta música ao vivo com Ex é Ex, Ricardinho e Anderson Fernandes. Aproveite o open de Original e Corona, com entrada gratuita! Happy hour com 50% de desconto em drinks.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": 5,
+            "titulo": "Churrasquin do Meu Lugar",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_10.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Infelizmente, o evento de hoje está fechado. Aguardamos por você em uma próxima oportunidade para um delicioso churrasquinho.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:16:35 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Feijuca no Delivery",
+            "data_evento": "2025-07-07 11:14:45",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Desfrute da deliciosa feijuca no conforto da sua casa! Procure Meu Lugar Bar no iFood e escolha entre nossas incríveis opções de feijoada entregues fresquinhas para você.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Feijuca do Consa Delivery",
+            "data_evento": "2025-07-07 11:14:45",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Aproveite a tradicional 'Feijuca do Consa' no delivery! Um kit que serve de 3 a 4 pessoas por R$ 74,90, com arroz branco, feijoada, couve refogada, torresmo e farofa especial. Imperdível!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 3,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2025-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Roda de Samba com Só Resenha, participação especial de Trindah e DJ SE7E agitam a noite! Aproveite o open breja na varanda. Mulher VIP até as 19h. Venha conferir!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 4,
+            "titulo": "Domingo Tô a Toa",
+            "data_evento": "2025-07-06 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_15.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Venha curtir o feijão com samba no Tô a Toa! Música ao vivo com o grupo Geral Já Sabe. Comida à vontade por R$ 54,90, incluindo sobremesa. Ambiente climatizado e aconchegante.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:17:00 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Forró do Carcará",
+            "data_evento": "2025-07-06 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Venha curtir um forró animado com Xaxado e DJ Carcará! Clima aconchegante e ambiente climatizado garantem a vibe perfeita. Não perca!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 2,
+            "titulo": "Pagode 90 & Flash Back",
+            "data_evento": "2025-07-08 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_19.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Reviva os anos 90 com muito pagode e nostalgia! Banda Munhoz apresenta clássicos de Art Popular, Raça Negra e mais. Ambiente climatizado e diversão garantida.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 3,
+            "titulo": "Feijoada com Samba",
+            "data_evento": "2025-07-09 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Feriado com sabor! Feijoada completa à vontade por R$ 54,90 com sobremesa inclusa. Música ao vivo com samba. Reservas disponíveis.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:17:26 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Tardezinha Funk - Feriado",
+            "data_evento": "2025-07-09 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Prepare-se para a Tardezinha Funk com MC Alemão, MC Betinho e Pekeno no Saboo. Curta o som que agita a galera em um ambiente climatizado. Ela VIP e Homens pagam apenas R$ 20. Venha viver a vibe do funk na quarta-feira de feriado!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 2,
+            "titulo": "Concurso de Sambas Concorrentes 2026 - Final",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "https://www.instagram.com/x9_pioneira/",
+            "descricao": "Celebre a final do Concurso de Sambas Concorrentes para 2026 na X9 Pioneira. Samba 5, Samba 9, Samba 4 e Samba 3 estão na final! Parabéns aos compositores pela fantástica festa de carnaval!",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:56:32 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Domingo na Ativa House",
+            "data_evento": "2025-07-06 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_1.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://www.instagram.com/ativahouse/",
+            "descricao": "Prepare-se para curtir uma noite de rock com a Banda Suzan na Ativa House! Aproveite a promoção imperdível: comprando 4 cervejas, leve a quinta por apenas 4 reais. A entrada é free a noite toda, das 20h até 1h! Um evento para quem curte boa música, bebidinhas geladas e vibe descontraída.",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": 2,
+            "titulo": "Agenda de Eventos - Ativa House",
+            "data_evento": "2025-07-06 00:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_2.png",
+            "instagram": "ativahouse",
+            "linkInstagram": "https://www.instagram.com/ativahouse/",
+            "descricao": "Esta semana na Ativa House não pode faltar na sua agenda! Começamos na quinta-feira com Diego Alencikas Sexteto, em um show de Brasilidades com entrada free até as 22h. Sexta é dia de rock e funk com Maralto e MastroBiso. No sábado, DJ Akila, Be Amarante e DJ Matt comandam a pista com hip-hop e funk até às 21h. Domingo é noite de rock com Emanuel Original e Banda Suzan, com entrada free a noite toda. Não perca!",
+            "endereco": "R. Almeida de Moraes, 41 - Vila Matias, Santos - SP, 11015-450",
+            "latitude": -23.949004515486546,
+            "longitude": -46.325971600013546
+        },
+        {
+            "id": 3,
+            "titulo": "Grupo Feitiço no Bartu Santos",
+            "data_evento": "2025-07-06 14:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_3.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://www.instagram.com/bartusantos/",
+            "descricao": "Domingo é dia de samba no Bartu Santos com o Grupo Feitiço! Junte seus amigos e venha curtir uma tarde animada a partir das 14h30. Música de qualidade em um ambiente vibrante, perfeito para quem gosta de um bom pagode e reencontrar amigos.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 4,
+            "titulo": "Feijoada no Bartu Santos",
+            "data_evento": "2025-07-06 00:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_4.png",
+            "instagram": "bartusantos",
+            "linkInstagram": "https://www.instagram.com/bartusantos/",
+            "descricao": "Venha experimentar a feijoada mais santista da cidade no Bartu Santos! Um convite irrecusável para quem ama boa comida e clima de confraternização. Aproveite o domingo delicioso acompanhado de amigos e família.",
+            "endereco": "Av. Antônio Guenaga, 44 - Ponta da Praia, Santos, SP, 11030-420",
+            "latitude": -23.989280063359324,
+            "longitude": -46.299486899464064
+        },
+        {
+            "id": 5,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-06 08:30:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_5.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "https://www.instagram.com/cristoearesposta/",
+            "descricao": "Comemore os 46 anos de história do Cristo é a Resposta com celebrações especiais às 8h30 e 10h30. Um momento de muita fé, comunhão e gratidão. Todos estão convidados para celebrar conosco este marco importante.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos, SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:56:50 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Aniversário Cristo é a Resposta",
+            "data_evento": "2025-07-07 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_6.png",
+            "instagram": "cristoearesposta",
+            "linkInstagram": "https://www.instagram.com/cristoearesposta/",
+            "descricao": "Celebração do 46º Aniversário da Cristo é a Resposta com uma noite especial de louvor e adoração. Venha e traga sua família para uma experiência inesquecível de música e fé.",
+            "endereco": "Av. Washington Luís, 136 - Encruzilhada, Santos, SP, 11050-200",
+            "latitude": -23.952444774065793,
+            "longitude": -46.32667711230255
+        },
+        {
+            "id": 2,
+            "titulo": "Samba de Domingo",
+            "data_evento": "2025-07-13 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_9.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos/",
+            "descricao": "Participe do animado Samba de Domingo com Beto Rico e Vida Q Segue. Curta música e diversão enquanto desfruta do incrível Open Corona por R$ 55,00. Entrada gratuita a partir das 17h!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        },
+        {
+            "id": 3,
+            "titulo": "Open Corona + Samba",
+            "data_evento": "2025-07-13 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_10.png",
+            "instagram": "donnag.santos",
+            "linkInstagram": "https://www.instagram.com/donnag.santos/",
+            "descricao": "Finalizando a semana com muito samba e diversão com Open Corona! Das 18h às 21h por apenas R$ 55,00 por pessoa. Não perca!",
+            "endereco": "Rua Itororó, 19 - Centro, Santos - SP, 11010-070",
+            "latitude": -23.93389876991642,
+            "longitude": -46.327088328559064
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:57:16 --
+{
+    "data": [
+        {
+            "id": null,
+            "titulo": "Segunda MPB",
+            "data_evento": "2025-07-07 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_11.png",
+            "instagram": "donnaguilherminabar",
+            "linkInstagram": "https://www.instagram.com/donnaguilherminabar/",
+            "descricao": "Música ao vivo com Ex é Ex, Ricardinho e Anderson Fernandes. Desfrute de uma vibe incrível com entrada gratuita. Aproveite o Open Bar de Original e Corona com preços incríveis! O evento começa às 18h e vai até às 22h.",
+            "endereco": "Av. Pres. Castelo Branco, 3123, Praia Grande, Sao Paulo, Brazil 11703650",
+            "latitude": -24.015683557287833,
+            "longitude": -46.43025549946118
+        },
+        {
+            "id": null,
+            "titulo": null,
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_12.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Evento fechado no 'Churrasquin do Meu Lugar Bar'.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": null,
+            "titulo": null,
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_13.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Hoje tem feijuca no delivery! É só entrar no iFood e procurar Meu Lugar Bar.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": null,
+            "titulo": null,
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_14.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Feijuca do Consa no delivery. Serve de 3 a 4 pessoas. R$ 74,90 + taxa de entrega.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": null,
+            "titulo": null,
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": null,
+            "flyer_imagem": "./flyer/story_15.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Feijuca do Consa no delivery inclui: arroz branco, feijoada, couve refogada, torresmo e farofa especial.",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:57:39 --
+{
+    "data": [
+        {
+            "id": 1,
+            "titulo": "Roda de Samba Meu Lugar",
+            "data_evento": "2025-07-06 18:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_16.png",
+            "instagram": "meulugar.bar",
+            "linkInstagram": "https://www.instagram.com/meulugar.bar/",
+            "descricao": "Venha curtir a Roda de Samba com Só Resenha e Trindah, com Open Breja na varanda das 18h às 19h. Mulher VIP até as 19h. Ambiente descontraído e música de qualidade!",
+            "endereco": "Rua Almirante Tamandaré, 284, Santos, Sao Paulo, Brazil 11015-250",
+            "latitude": -23.965584968798762,
+            "longitude": -46.30972219947866
+        },
+        {
+            "id": 2,
+            "titulo": "Feijoada com Samba - Domingo Tô A Toa",
+            "data_evento": "2025-07-06 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_17.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Delicie-se com nossa feijoada ao som do Grupo Geral Já Sabe, por apenas R$ 54,90, sobremesa inclusa. Ambiente climatizado e um clima perfeito para relaxar!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 3,
+            "titulo": "Forró do Carcará",
+            "data_evento": "2025-07-06 19:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_18.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Aquecendo sua noite de domingo com Xaxado e DJ Carcará. Forró animado para dançar a noite toda! Ambiente climatizado garantido.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": 4,
+            "titulo": "Pagode 90 & Flashback",
+            "data_evento": "2025-07-08 20:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_20.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Celebrando a véspera de feriado com Munhoz cantando hits de Art Popular, Raça Negra, Katinguelê e Soweto. Um show inesquecível no clima dos anos 90!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        }
+    ]
+}
+
+
+-- Inserção em 2025-07-07 05:58:01 --
+{
+    "data": [
+        {
+            "id": "",
+            "titulo": "Feijoada com Samba",
+            "data_evento": "2025-07-09 12:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_21.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Desfrute de uma deliciosa feijoada com música ao vivo de samba neste feriado. Aproveite a comida à vontade a partir de R$54,90 com sobremesa inclusa. Ambiente climatizado e vibe familiar.",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": "",
+            "titulo": "Tardezinha Funk",
+            "data_evento": "2025-07-09 17:00:00",
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_22.png",
+            "instagram": "toatoabarc7",
+            "linkInstagram": "https://www.instagram.com/toatoabarc7/",
+            "descricao": "Venha curtir a Tardezinha Funk com Mc Alemão e Mc Betinho neste feriado. Elas VIP e homens apenas R$20. Música incrível em um ambiente animado!",
+            "endereco": "Av. Antônio Guenaga, 62 - Ponta da Praia, Santos - SP, 11030-420",
+            "latitude": -23.98933795930824,
+            "longitude": -46.299500628749584
+        },
+        {
+            "id": "",
+            "titulo": "Concurso de Sambas - Final",
+            "data_evento": null,
+            "tipo_conteudo": "imagem",
+            "flyer_html": "",
+            "flyer_imagem": "./flyer/story_23.png",
+            "instagram": "x9_pioneira",
+            "linkInstagram": "https://www.instagram.com/x9_pioneira/",
+            "descricao": "Participe do concurso de sambas concorrentes para 2026. A final contará com os sambas 5, 9, 4 e 3. Celebre com os compositores na X9 Pioneira.",
+            "endereco": "R. Santos Dumont, 19 - Estuário, Santos - SP, 11015-231",
+            "latitude": -23.95758047133943,
+            "longitude": -46.3109476150358
+        }
+    ]
+}
