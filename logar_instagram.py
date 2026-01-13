@@ -4,42 +4,88 @@ import time
 from dotenv import load_dotenv
 from datetime import datetime
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 sys.stdout.reconfigure(encoding='utf-8')
-
 load_dotenv()
 
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
 EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-tentativas = 3
+MANUAL_TIMEOUT = 300  # tempo em segundos para login manual
+AUTOMATIC_TIMEOUT = 60  # timeout para tentativa automática
 
-def login_instagram(driver):
-    for tentativa in range(tentativas):  # tenta até 3 vezes
-        print(f"🔐 Tentando login no Instagram... (tentativa {tentativa + 1})")
-        driver.get("https://www.instagram.com/accounts/login/")
-        time.sleep(3)
 
+def ja_esta_logado(driver):
+    """Verifica se a sessão do Instagram já está ativa."""
+    driver.get("https://www.instagram.com/")
+    time.sleep(5)
+
+    elementos_logado = [
+        "//a[contains(@href, '/accounts/edit')]",
+        "//svg[@aria-label='Página inicial']",
+        "//a[contains(@href, '/direct')]"
+    ]
+
+    for xpath in elementos_logado:
         try:
-            campos = driver.find_elements(By.TAG_NAME, "input")
-            campos[0].clear()
-            campos[1].clear()
-            campos[0].send_keys(USUARIO)
-            campos[1].send_keys(SENHA)
-            campos[1].submit()
-        except Exception as e:
-            print(f"⚠️ Erro ao preencher login: {e}")
-            continue
-
-        time.sleep(5)
-        try:
-            driver.find_element(By.XPATH, "//*[self::button or self::div][contains(text(), 'Agora não')]").click()
-            print("✅ Logado com sucesso")
+            driver.find_element(By.XPATH, xpath)
+            print("✅ Sessão do Instagram já está ativa")
             return True
         except:
-            print("❌ Login falhou.")
-
-    # se chegou aqui, as duas tentativas falharam
-    print("🚫 Não foi possível logar após {tentativas} tentativas. Encerrando.")
+            pass
     return False
+
+
+def login_instagram(driver, manual_timeout=MANUAL_TIMEOUT, automatic_timeout=AUTOMATIC_TIMEOUT):
+    """
+    Fluxo híbrido de login:
+    1. Se já logado → retorna True
+    2. Login manual com timeout
+    3. Tentativa automática com usuário/senha do .env
+    """
+    if ja_esta_logado(driver):
+        return True
+
+    print("🔐 Sessão não detectada. Abrindo página de login...")
+
+    # Etapa 1: login manual
+    print(f"⏳ Aguarde login manual (até {manual_timeout//60} minutos)...")
+    start_manual = time.time()
+    while time.time() - start_manual < manual_timeout:
+        time.sleep(60)
+        if not "login" in driver.current_url and ja_esta_logado(driver): # Pagina de login sendo aberta na função ja_esta_logado.
+            print("✅ Login manual detectado!")
+            return True
+
+    print("⚠️ Tempo de login manual expirou. Tentando login automático...")
+
+    # Etapa 2: login automático
+    try:
+        driver.get("https://www.instagram.com/")
+        time.sleep(3)
+
+        user_input = driver.find_element(By.NAME, "username")
+        pass_input = driver.find_element(By.NAME, "password")
+
+        user_input.clear()
+        user_input.send_keys(USUARIO)
+        pass_input.clear()
+        pass_input.send_keys(SENHA)
+        pass_input.send_keys(Keys.ENTER)
+
+        # Aguarda o login automático completar
+        start_auto = time.time()
+        while time.time() - start_auto < automatic_timeout:
+            if ja_esta_logado(driver):
+                print("✅ Login automático bem-sucedido!")
+                return True
+            time.sleep(2)
+
+        print("❌ Login automático falhou. Encerrando execução...")
+        return False
+
+    except Exception as e:
+        print(f"❌ Erro no login automático: {e}")
+        return False

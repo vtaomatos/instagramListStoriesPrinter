@@ -2,6 +2,7 @@ FROM python:3.12-slim
 
 # Dependências do sistema pro Chrome
 RUN apt-get update && apt-get install -y \
+    cron \
     wget \
     unzip \
     chromium \
@@ -26,9 +27,19 @@ ENV CHROMEDRIVER_BIN=/usr/bin/chromedriver
 
 WORKDIR /app
 
+# Copia e instala dependências Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copia o código do robo
 COPY . .
 
-CMD ["python", "pipeline.py"]
+# Copia crontab para dentro do container
+COPY crontab /etc/cron.d/robo-cron
+RUN chmod 0644 /etc/cron.d/robo-cron && crontab /etc/cron.d/robo-cron
+
+# Cria diretório de logs
+RUN mkdir -p /app/logs
+
+# Comando para rodar cron em foreground
+CMD ["cron", "-f"]

@@ -6,15 +6,14 @@ import webbrowser
 from logar_instagram import login_instagram
 import json
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from busca_coordenadas import main as buscarCoordenadasMain
 from captura_stories import capturar_stories
 from transcreve_flyers import main as trascreveFlyersMain
 from corta_imagens import main as cortaImagensMain
 from grava_banco import main as gravaBancoMain
 from selenium.webdriver.chrome.options import Options
-
+# Service
+from selenium.webdriver.chrome.service import Service
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -45,24 +44,16 @@ log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
 # Inicia o navegador
 log("🌐 Abrindo navegador...")
 
-chrome_options = Options()
+options = Options()
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
-# 🔴 ESSENCIAL
-chrome_options.binary_location = "/usr/bin/chromium"
-
-# 🔴 OBRIGATÓRIO EM VPS
-chrome_options.add_argument("--headless=new")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--window-size=1920,1080")
-
-service = Service("/usr/bin/chromedriver")
-
-driver = webdriver.Chrome(
-    service=service,
-    options=chrome_options
+driver = webdriver.Remote(
+    command_executor="http://selenium-chrome:4444/wd/hub",
+    options=options
 )
+driver.set_window_size(1920, 1080)
+
 
 try:
     # Etapa: Buscar coordenadas
@@ -76,7 +67,9 @@ try:
     # Etapa: Login Instagram
     inicio_etapa = time.time()
     log("🔐 Realizando login no Instagram...")
-    login_instagram(driver)
+    if not login_instagram(driver):
+        log("❌ Falha no login. Encerrando pipeline.")
+        sys.exit(1)
     log(f"✅ Login efetuado em {time.time() - inicio_etapa:.1f}s")
 
     # Etapas por conta
