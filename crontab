@@ -1,3 +1,3 @@
 # minuto hora dia_do_mes mes dia_da_semana comando
-0 9 * * * /app/run_pipeline.sh >> /app/logs/cron_$(date +\%Y\%m\%d).log 2>&1
-0 15 * * * /app/run_pipeline.sh >> /app/logs/cron_$(date +\%Y\%m\%d).log 2>&1
+0 12 * * * /app/run_pipeline.sh >> /app/logs/cron_$(date +\%Y\%m\%d).log 2>&1
+0 19 * * * /app/run_pipeline.sh >> /app/logs/cron_$(date +\%Y\%m\%d).log 2>&1

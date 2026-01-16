@@ -19,7 +19,6 @@ AUTOMATIC_TIMEOUT = 60  # timeout para tentativa automática
 
 def ja_esta_logado(driver):
     """Verifica se a sessão do Instagram já está ativa."""
-    driver.get("https://www.instagram.com/")
     time.sleep(5)
 
     elementos_logado = [
@@ -45,6 +44,9 @@ def login_instagram(driver, manual_timeout=MANUAL_TIMEOUT, automatic_timeout=AUT
     2. Login manual com timeout
     3. Tentativa automática com usuário/senha do .env
     """
+    driver.get("https://www.instagram.com/")
+    time.sleep(3)
+
     if ja_esta_logado(driver):
         return True
 
@@ -63,7 +65,6 @@ def login_instagram(driver, manual_timeout=MANUAL_TIMEOUT, automatic_timeout=AUT
 
     # Etapa 2: login automático
     try:
-        driver.get("https://www.instagram.com/")
         time.sleep(3)
 
         user_input = driver.find_element(By.NAME, "username")

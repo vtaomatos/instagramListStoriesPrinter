@@ -1,0 +1,8 @@
+FROM selenium/standalone-chrome:4.39.0
+
+USER root
+
+RUN mkdir -p /home/seluser/chrome-profile \
+ && chown -R seluser:seluser /home/seluser/chrome-profile
+
+USER seluser

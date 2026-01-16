@@ -1,8 +1,27 @@
 services:
-  radar-bot:
-    build: .
-    container_name: radar-bot
-    env_file: .env
-    restart: always
+  selenium-chrome:
+    build:
+      context: ./navegador
+    container_name: selenium-chrome
+    shm_size: 2gb
+    ports:
+      - "4444:4444"
+      - "7900:7900"
     volumes:
-      - ./data:/usr/src/app/data
+      - chrome-profile:/home/seluser/chrome-profile
+    restart: unless-stopped
+
+  robo:
+    build: .
+    container_name: robo
+    depends_on:
+      - selenium-chrome
+    environment:
+      - SELENIUM_URL=http://selenium-chrome:4444/wd/hub
+    volumes:
+      - logs:/app/logs   # 🔹 persistência de logs
+    restart: "no"
+
+volumes:
+  chrome-profile:
+  logs:

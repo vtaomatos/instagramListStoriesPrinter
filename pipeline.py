@@ -3,8 +3,9 @@ import time
 from datetime import datetime
 import sys
 import webbrowser
-from logar_instagram import login_instagram
 import json
+import signal  # 🆕
+from logar_instagram import login_instagram
 from selenium import webdriver
 from busca_coordenadas import main as buscarCoordenadasMain
 from captura_stories import capturar_stories
@@ -17,8 +18,27 @@ from selenium.webdriver.chrome.service import Service
 
 sys.stdout.reconfigure(encoding='utf-8')
 
+driver = None  # 🆕 referência global
+
 def log(msg):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
+
+# 🆕 HANDLER DE ENCERRAMENTO SEGURO
+def shutdown_handler(sig, frame):
+    log("🛑 Ctrl+C detectado. Encerrando robô com segurança...")
+    global driver
+    if driver:
+        try:
+            driver.quit()
+            log("🧹 Sessão Selenium encerrada com sucesso.")
+        except Exception as e:
+            log(f"⚠️ Erro ao encerrar sessão Selenium: {e}")
+    sys.exit(0)
+
+# 🆕 REGISTRA OS SINAIS
+signal.signal(signal.SIGINT, shutdown_handler)
+signal.signal(signal.SIGTERM, shutdown_handler)
+
 
 def carregar_contas_do_glossario(caminho="glossario.json"):
     try:
@@ -38,6 +58,7 @@ def carregar_contas_do_glossario(caminho="glossario.json"):
         log(f"⚠️ Erro ao carregar contas do glossário: {e}")
         return []
 
+
 EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
 log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
 
@@ -48,12 +69,14 @@ options = Options()
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
+# 🔐 PROFILE PERSISTENTE
+options.add_argument("--user-data-dir=/home/seluser/chrome-profile")
+
 driver = webdriver.Remote(
     command_executor="http://selenium-chrome:4444/wd/hub",
     options=options
 )
 driver.set_window_size(1920, 1080)
-
 
 try:
     # Etapa: Buscar coordenadas
@@ -80,7 +103,7 @@ try:
         inicio_etapa = time.time()
         log("📸 Capturando stories...")
         if not capturar_stories(conta, EXEC_ID, driver):
-            print("NÃO CAPTUROU STORIES!!!!")
+            log("⚠️ NÃO CAPTUROU STORIES")
             continue
         log(f"✅ Stories capturados em {time.time() - inicio_etapa:.1f}s")
 
@@ -88,7 +111,7 @@ try:
         inicio_etapa = time.time()
         log("✂️ Cortando imagens...")
         if not cortaImagensMain(EXEC_ID, conta):
-            print("NÃO CORTOU IMAGENS!!!!")
+            log("⚠️ NÃO CORTOU IMAGENS")
             continue
         log(f"✅ Imagens cortadas em {time.time() - inicio_etapa:.1f}s")
 
@@ -96,7 +119,7 @@ try:
         inicio_etapa = time.time()
         log("📝 Transcrevendo textos dos flyers...")
         if not trascreveFlyersMain(EXEC_ID, conta):
-            print("NÃO TRANSCREVEU FLYERS!!!!")
+            log("⚠️ NÃO TRANSCREVEU FLYERS")
             continue
         log(f"✅ Flyers transcritos em {time.time() - inicio_etapa:.1f}s")
 
@@ -104,16 +127,16 @@ try:
         inicio_etapa = time.time()
         log("💾 Gravando dados no banco de dados...")
         if not gravaBancoMain(EXEC_ID, conta):
-            print("NÃO GRAVOU NO BANCO!!!!")
+            log("⚠️ NÃO GRAVOU NO BANCO")
             continue
         log(f"✅ Dados gravados em {time.time() - inicio_etapa:.1f}s")
 
         log(f"\n✅ Finalizado para a conta: {conta}\n{'─'*60}")
 
 finally:
-    driver.quit()
-    log("🧹 Navegador fechado.")
+    log("Finalizada execução: " + EXEC_ID)
+    if driver:
+        driver.quit()
+        log("🧹 Sessão Selenium encerrada.")
 
 log("\n🎉 Pipeline finalizado com sucesso!")
-log("🌐 Abrindo https://radareventos.com.br/ no navegador...")
-webbrowser.open("https://radareventos.com.br")

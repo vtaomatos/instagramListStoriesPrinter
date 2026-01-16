@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# Dependências do sistema pro Chrome
+# Dependências do sistema pro Chrome e utilitários
 RUN apt-get update && apt-get install -y \
     cron \
     wget \
@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libxshmfence1 \
     ca-certificates \
+    procps \
     --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
@@ -34,12 +35,16 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia o código do robo
 COPY . .
 
+# 🔹 Cria diretório de logs (volume-friendly)
+RUN mkdir -p /app/logs
+
+# 🔹 Garante permissão de execução dos scripts
+RUN chmod +x /app/run_pipeline.sh
+RUN chmod +x /app/kill_pipeline.sh
+
 # Copia crontab para dentro do container
 COPY crontab /etc/cron.d/robo-cron
 RUN chmod 0644 /etc/cron.d/robo-cron && crontab /etc/cron.d/robo-cron
-
-# Cria diretório de logs
-RUN mkdir -p /app/logs
 
 # Comando para rodar cron em foreground
 CMD ["cron", "-f"]
