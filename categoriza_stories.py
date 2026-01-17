@@ -17,6 +17,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 FLYER_DIR = os.getenv("FLYER_DIR", "./flyer")
 LIXO_DIR = os.getenv("LIXO_DIR", "./lixo")
 LOTE = int(os.getenv("LOTE", 5))
+ROOT_DIR = os.getenv("ROOT_DIR", "./stories_capturados")
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)

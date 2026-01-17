@@ -1,0 +1,189 @@
+{
+  "data": [
+    {
+      "id": "glossario_palavras_certas",
+      "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações.",
+      "conteudo": [
+        "Trindah",
+        "Gabriel Antero",
+        "Meu Lugar"
+      ]
+    },
+    {
+      "id": "glossario_palavras_erradas",
+      "descricao": "Glossário de artistas e casas de eventos com nomes comuns e abreviações erradas.",
+      "conteudo": [
+        "Jhow dero",
+        "Dj PH"
+      ]
+    },
+    {
+      "id": "glossario_localizacao",
+      "descricao": "Glossário de localizações com instagram, endereços e coordenadas.",
+      "conteudo": [
+        {
+          "instagram": "meulugar.bar",
+          "endereco": "Rua Exemplo, 123, Cidade, SP",
+          "latitude": -23.965,
+          "longitude": -46.309
+        },
+        {
+          "instagram": "donnaguilherminabar",
+          "endereco": "Av. Teste, 456, Cidade, SP",
+          "latitude": -24.015,
+          "longitude": -46.43
+        },
+        {
+          "instagram": "ativahouse",
+          "endereco": "R. Ficticia, 789, Cidade, SP",
+          "latitude": -23.949,
+          "longitude": -46.325
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        },
+        {
+          "instagram": "conta1",
+          "endereco": "R. Cel. Álvaro Simões, 143 - Centro, Feira de Santana - BA, 44059-370, Brasil",
+          "latitude": -12.2498646,
+          "longitude": -38.96116079999999
+        }
+      ]
+    }
+  ]
+}
