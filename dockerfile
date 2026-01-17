@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     libxshmfence1 \
     ca-certificates \
     procps \
+    bash \
     --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
@@ -38,9 +39,8 @@ COPY . .
 # 🔹 Cria diretório de logs (volume-friendly)
 RUN mkdir -p /app/logs
 
-# 🔹 Garante permissão de execução dos scripts
-RUN chmod +x /app/run_pipeline.sh
-RUN chmod +x /app/kill_pipeline.sh
+# 🔹 Remove CR do Windows e garante permissão de execução de todos os scripts .sh
+RUN find /app -name "*.sh" -exec sed -i 's/\r$//' {} \; -exec chmod +x {} \;
 
 # Copia crontab para dentro do container
 COPY crontab /etc/cron.d/robo-cron
