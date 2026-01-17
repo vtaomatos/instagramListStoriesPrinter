@@ -19,9 +19,8 @@ services:
     environment:
       - SELENIUM_URL=http://selenium-chrome:4444/wd/hub
     volumes:
-      - logs:/app/logs   # 🔹 persistência de logs
+      - ./logs:/app/logs   # 🔹 persistência de logs
     restart: "no"
 
 volumes:
   chrome-profile:
-  logs:
