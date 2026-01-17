@@ -5,6 +5,8 @@ lixo/*
 inserts_*.sql
 bkpImgs/*
 migrations_sql/*
+.venv/
 venv/
 __pycache__/
 *.pyc
+logs/
