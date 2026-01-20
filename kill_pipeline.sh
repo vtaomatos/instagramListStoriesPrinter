@@ -1,22 +1,39 @@
 #!/bin/bash
+set -e
 
-# Nome do processo que queremos matar
+# Nome do script ou processo Python que queremos matar
 PROCESSO="pipeline.py"
 
-# Encontra os PIDs
-PIDS=$(pgrep -f $PROCESSO)
+echo "🔍 Procurando processos $PROCESSO..."
+
+# Procura PIDs do processo Python
+PIDS=$(pgrep -f "$PROCESSO" || true)
 
 if [ -z "$PIDS" ]; then
     echo "❌ Nenhum processo $PROCESSO rodando."
-    exit 0
+else
+    echo "⚠️ Matando processo(s) $PROCESSO com PID(s): $PIDS"
+    # Mata cada PID de forma segura
+    for PID in $PIDS; do
+        kill -TERM "$PID" 2>/dev/null || true
+        echo "🛑 PID $PID encerrado"
+    done
 fi
 
-echo "⚠️ Matando processo(s) $PROCESSO com PID(s): $PIDS"
+# Opcional: parar container do robo caso esteja rodando via docker compose
+ROBO_CONTAINER=$(docker ps -q --filter "name=robo")
+if [ -n "$ROBO_CONTAINER" ]; then
+    echo "⚠️ Parando container Docker do robo: $ROBO_CONTAINER"
+    docker stop "$ROBO_CONTAINER"
+    echo "✅ Container do robo parado"
+fi
 
-# Mata cada PID
-for PID in $PIDS; do
-    kill $PID
-    echo "🛑 PID $PID encerrado"
-done
+# Opcional: parar Selenium caso queira resetar tudo
+SELENIUM_CONTAINER=$(docker ps -q --filter "name=selenium-chrome")
+if [ -n "$SELENIUM_CONTAINER" ]; then
+    echo "⚠️ Parando container Selenium: $SELENIUM_CONTAINER"
+    docker stop "$SELENIUM_CONTAINER"
+    echo "✅ Container Selenium parado"
+fi
 
-echo "✅ Todos os processos $PROCESSO foram encerrados."
+echo "✅ Todos os processos e containers associados foram encerrados."

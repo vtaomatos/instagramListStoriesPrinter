@@ -1,8 +1,6 @@
-import subprocess
 import time
 from datetime import datetime
 import sys
-import webbrowser
 import json
 import signal  # 🆕
 from logar_instagram import login_instagram
@@ -13,8 +11,8 @@ from transcreve_flyers import main as trascreveFlyersMain
 from corta_imagens import main as cortaImagensMain
 from grava_banco import main as gravaBancoMain
 from selenium.webdriver.chrome.options import Options
-# Service
-from selenium.webdriver.chrome.service import Service
+import shutil
+import os
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -135,8 +133,26 @@ try:
 
 finally:
     log("Finalizada execução: " + EXEC_ID)
+
     if driver:
         driver.quit()
         log("🧹 Sessão Selenium encerrada.")
+    
+    log("Apagando arquivos temporários...")
+    #apagar pasta de migrations
+    #apagar pasta de stories_capturados
+    #Deixar apenas os 6 logs mais recentes na pasta de logs
+
+    shutil.rmtree(f"./stories_capturados/{EXEC_ID}/", ignore_errors=True)
+    shutil.rmtree(f"./migrations_sql/", ignore_errors=True)
+    
+    logs = sorted(
+        [f for f in os.listdir("./logs/") if f.startswith("pipeline_")],
+        key=lambda x: os.path.getmtime(os.path.join("./logs/", x))
+    )
+
+    # Deixar apenas os 6 logs mais recentes na pasta de logs
+    for log_file in logs[:-6]:
+        os.remove(os.path.join("./logs/", log_file))
 
 log("\n🎉 Pipeline finalizado com sucesso!")

@@ -4,23 +4,32 @@ services:
       context: ./navegador
     container_name: selenium-chrome
     shm_size: 2gb
+    environment:
+      - SE_NODE_MAX_SESSIONS=1
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_SESSION_REQUEST_TIMEOUT=60
+      - SE_SESSION_RETRY_INTERVAL=5
     ports:
       - "4444:4444"
       - "7900:7900"
     volumes:
-      - chrome-profile:/home/seluser/chrome-profile
-    restart: unless-stopped
+      - ./chrome-profile-new:/home/seluser/chrome-profile
+      - ./logs_selenium:/var/log/selenium
+    restart: "no"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
 
   robo:
     build: .
     container_name: robo
     depends_on:
-      - selenium-chrome
+      selenium-chrome:
+        condition: service_healthy
     environment:
       - SELENIUM_URL=http://selenium-chrome:4444/wd/hub
     volumes:
-      - ./logs:/app/logs   # 🔹 persistência de logs
+      - ./logs:/app/logs
     restart: "no"
-
-volumes:
-  chrome-profile:

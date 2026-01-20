@@ -2,11 +2,8 @@ FROM python:3.12-slim
 
 # Dependências do sistema pro Chrome e utilitários
 RUN apt-get update && apt-get install -y \
-    cron \
     wget \
     unzip \
-    chromium \
-    chromium-driver \
     fonts-liberation \
     libnss3 \
     libatk-bridge2.0-0 \
@@ -22,9 +19,6 @@ RUN apt-get update && apt-get install -y \
     procps \
     --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
-
-ENV CHROME_BIN=/usr/bin/chromium
-ENV CHROMEDRIVER_BIN=/usr/bin/chromedriver
 
 WORKDIR /app
 
@@ -42,9 +36,4 @@ RUN mkdir -p /app/logs
 RUN chmod +x /app/run_pipeline.sh
 RUN chmod +x /app/kill_pipeline.sh
 
-# Copia crontab para dentro do container
-COPY crontab /etc/cron.d/robo-cron
-RUN chmod 0644 /etc/cron.d/robo-cron && crontab /etc/cron.d/robo-cron
-
-# Comando para rodar cron em foreground
-CMD ["cron", "-f"]
+CMD ["python", "pipeline.py"]
