@@ -7,7 +7,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import sys
 from collections import defaultdict
-
+import unicodedata
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -67,8 +67,8 @@ client = OpenAI(api_key=API_KEY)
 def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coordenadas):
     prompt = """
     Você receberá imagens extraídas de stories do Instagram de casas de eventos. Elas contêm ou não flyers com informações sobre festas, artistas e programações que normalmente são postados semanalmente. Para cada evento, retorne um objeto JSON com os seguintes campos:
-    {data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), data_fim_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS, tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude}]}.
-    Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram da casa de eventos. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
+    {data: [{id, titulo, data_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS), data_fim_evento ((talvez ano atual)AAAA-(talvez mês atual)MM-DD HH:MM:SS, tipo_conteudo ("imagem" ou "html"), flyer_html, flyer_imagem ("./flyer/story_N.png"), instagram, linkInstagram (geralmente https://www.instagram.com/{instagram}/), descricao (com gênero musical, promoções, artistas, vibe, horário), endereco (completo e pesquisado), latitude, longitude, categoria (enum:'MUSICA','FESTA','SHOW','BAR','BALADA','ARTE','CULTURA','RELIGIOSO','GEEK','EDUCACAO','WORKSHOP','PALESTRA','ATIVIDADE FISICA','ESPORTE','OUTROS','NAO IDENTIFICADO'), tags(objeto JSON contendo apenas listas ou valores curtos, sem frases, sem texto corrido, com palavras normalizadas (lowercase, sem acento), seguindo este padrão: tipo_evento (ex: baile, show, festa, workshop), estilos (ex: black, rnb, funk, eletronica), publico (ex: 18+, livre), periodo (ex: noturno, diurno), dias (ex: sexta, sabado), caracteristicas (ex: open bar, gratuito, ao vivo), cidade, bairro, artistas (nomes próprios), recorrente (true ou false)}]}.
+    Extraia todas as informações com máxima precisão. Se necessário, pesquise na internet o endereço e Instagram do evento ou casa do evento. A data e hora do evento são obrigatórias. Se for um evento recorrente (por exemplo, toda quarta-feira, todo sabado, etc), gere quatro ocorrências com datas reais futuras, espaçadas semanalmente. Use exatamente o nome do arquivo recebido (como "story_1.png") para preencher o campo flyer_imagem.
     No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
     Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
     Glossário de instagram correto, endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
@@ -134,35 +134,35 @@ def dividir_em_lotes(lista, tamanho_lote):
     for i in range(0, len(lista), tamanho_lote):
         yield lista[i:i + tamanho_lote]
 
-def gerar_insert_sql(evento):
-    print("🔄 Gerando INSERT SQL para evento:", evento.get("titulo", "Sem título"))
-    campos = [
-        "titulo", "data_evento", "tipo_conteudo", "flyer_html", "flyer_imagem",
-        "instagram", "linkInstagram", "latitude", "longitude", "descricao", "endereco"
-    ]
-    valores = [evento.get(c, "") for c in campos]
-    valores_escapados = []
-    for v in valores:
-        if isinstance(v, str):
-            v_escaped = v.replace("'", "''")  # escape de aspas simples para SQL
-            valores_escapados.append(f"'{v_escaped}'")
-        elif v is None:
-            valores_escapados.append("null")
-        else:
-            valores_escapados.append(str(v))
+# def gerar_insert_sql(evento):
+#     print("🔄 Gerando INSERT SQL para evento:", evento.get("titulo", "Sem título"))
+#     campos = [
+#         "titulo", "data_evento", "tipo_conteudo", "flyer_html", "flyer_imagem",
+#         "instagram", "linkInstagram", "latitude", "longitude", "descricao", "endereco"
+#     ]
+#     valores = [evento.get(c, "") for c in campos]
+#     valores_escapados = []
+#     for v in valores:
+#         if isinstance(v, str):
+#             v_escaped = v.replace("'", "''")  # escape de aspas simples para SQL
+#             valores_escapados.append(f"'{v_escaped}'")
+#         elif v is None:
+#             valores_escapados.append("null")
+#         else:
+#             valores_escapados.append(str(v))
 
-    # Adiciona o campo de imagem base64, se existir
-    # se a imagem com endereço flyer_imagem existir, gera o base64 e adiciona ao insert
-    if "flyer_imagem" in evento and os.path.exists(evento["flyer_imagem"]):
-        with open(evento["flyer_imagem"], "rb") as f:
-            imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
+#     # Adiciona o campo de imagem base64, se existir
+#     # se a imagem com endereço flyer_imagem existir, gera o base64 e adiciona ao insert
+#     if "flyer_imagem" in evento and os.path.exists(evento["flyer_imagem"]):
+#         with open(evento["flyer_imagem"], "rb") as f:
+#             imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
 
-        campos.append("imagem_base64")
-        valores_escapados.append(f"'{imagem_base64}'")
+#         campos.append("imagem_base64")
+#         valores_escapados.append(f"'{imagem_base64}'")
 
-    insert = f"INSERT INTO eventos ({', '.join(campos)}) VALUES ({', '.join(valores_escapados)});"
-    # print("✅ INSERT gerado:", insert)
-    return insert
+#     insert = f"INSERT INTO eventos ({', '.join(campos)}) VALUES ({', '.join(valores_escapados)});"
+#     # print("✅ INSERT gerado:", insert)
+#     return insert
 
 def salvar_inserts(inserts, data, slug="inserts_eventos"):
     nome_arquivo = f"{DIR_MIGRATIONS_SQL}/{data}_{slug}.sql"
@@ -373,6 +373,126 @@ def preparar_eventos_para_insert(eventos):
 
     inserts = [gerar_insert_sql(e) for e in eventos]
     return inserts
+
+def normalizar(texto):
+    if not texto:
+        return ""
+
+    texto = texto.lower()
+    texto = unicodedata.normalize("NFD", texto)
+    texto = texto.encode("ascii", "ignore").decode("utf-8")
+    texto = re.sub(r"[^a-z0-9\s]", " ", texto)
+    texto = re.sub(r"\s+", " ", texto)
+    return texto.strip()
+
+
+def gerar_search_index(evento):
+    partes = []
+
+    for campo in ["titulo", "descricao", "categoria", "endereco"]:
+        if evento.get(campo):
+            partes.append(evento[campo])
+
+    tags = evento.get("tags")
+    if not isinstance(tags, dict):
+        tags = {}
+
+    if isinstance(tags, dict):
+        def extrair(v):
+            if isinstance(v, dict):
+                for x in v.values():
+                    extrair(x)
+            elif isinstance(v, list):
+                for x in v:
+                    extrair(x)
+            elif isinstance(v, str):
+                partes.append(v)
+
+        extrair(tags)
+
+    return normalizar(" ".join(sorted(set(partes))))
+
+def gerar_insert_sql(evento):
+    print("🔄 Gerando INSERT SQL para evento:", evento.get("titulo", "Sem título"))
+
+    CATEGORIAS_VALIDAS = {
+        'MUSICA','FESTA','SHOW','BAR','BALADA','ARTE','CULTURA','RELIGIOSO','GEEK','EDUCACAO','WORKSHOP','PALESTRA','ATIVIDADE FISICA','ESPORTE','OUTROS','NAO IDENTIFICADO'
+    }
+
+    if evento.get("categoria") not in CATEGORIAS_VALIDAS:
+        evento["categoria"] = "NAO IDENTIFICADO"
+
+
+    # Gera índice semântico
+    search_index = gerar_search_index(evento)
+
+    campos = [
+        "titulo",
+        "data_evento",
+        "data_fim_evento",
+        "tipo_conteudo",
+        "flyer_html",
+        "flyer_imagem",
+        "instagram",
+        "linkInstagram",
+        "latitude",
+        "longitude",
+        "descricao",
+        "endereco",
+        "categoria",
+        "tags",
+        "search_index"
+    ]
+
+    valores_escapados = []
+
+    for campo in campos:
+        valor = evento.get(campo)
+
+        # Campo JSON (tags)
+        if campo == "tags":
+            if valor is None:
+                valores_escapados.append("null")
+            else:
+                json_str = json.dumps(valor, ensure_ascii=False)
+                json_str = json_str.replace("'", "''")
+                valores_escapados.append(f"'{json_str}'")
+
+        # Campo search_index
+        elif campo == "search_index":
+            valores_escapados.append(f"'{search_index}'")            
+
+        # Strings
+        elif isinstance(valor, str):
+            v = valor.replace("'", "''")
+            valores_escapados.append(f"'{v}'")
+
+        # Nulos
+        elif valor is None:
+            valores_escapados.append("null")
+
+        # Datas, números etc
+        else:
+            valores_escapados.append(str(valor))
+
+    
+
+    # Imagem base64 opcional
+    if evento.get("flyer_imagem") and os.path.exists(evento["flyer_imagem"]):
+        with open(evento["flyer_imagem"], "rb") as f:
+            imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
+
+        campos.append("imagem_base64")
+        valores_escapados.append(f"'{imagem_base64}'")
+
+
+    insert = f"""
+    INSERT INTO eventos ({', '.join(campos)})
+    VALUES ({', '.join(valores_escapados)});
+    """.strip()
+
+    return insert
+
 
 def main(exec_id, conta_desejada):
     imagens_por_conta = filtrar_imagens_validas(DIRETORIO_IMAGENS, exec_id, conta_desejada)
