@@ -13,6 +13,7 @@ from grava_banco import main as gravaBancoMain
 from selenium.webdriver.chrome.options import Options
 import shutil
 import os
+import requests
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -154,5 +155,9 @@ finally:
     # Deixar apenas os 6 logs mais recentes na pasta de logs
     for log_file in logs[:-6]:
         os.remove(os.path.join("./logs/", log_file))
+
+    
+    #Chama link de conversao de base64 para imagens no servidor;
+    requests.post("https://radareventos.com.br/imgconverter.php")
 
 log("\n🎉 Pipeline finalizado com sucesso!")
