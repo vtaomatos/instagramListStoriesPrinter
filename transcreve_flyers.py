@@ -359,6 +359,12 @@ def preparar_eventos_para_insert(eventos):
                 evento["instagram"] = partes[-2]
                 evento["linkInstagram"] = f"https://www.instagram.com/{evento['instagram']}/"
 
+            #Garante que o caminho da imagem seja salvo com a pasta na raiz
+            if caminho.startswith("."):
+                caminho = caminho[1:]
+            evento["flyer_imagem"] = caminho
+
+
         # Enriquecer com coordenadas se faltarem
         instagram_evento = evento.get("instagram", "").lower()
         if instagram_evento:
