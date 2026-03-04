@@ -6,8 +6,83 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 load_dotenv()
 
+
+def executar_migration(config, exec_id, conta, migrations_dir):
+    conn = None
+    cursor = None
+
+    try:
+        conn = mysql.connector.connect(**config)
+        cursor = conn.cursor()
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS migrations_sql (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            filename VARCHAR(255) NOT NULL UNIQUE,
+            executed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+        """)
+        conn.commit()
+
+        caminho_arquivo = os.path.join(migrations_dir, f"{exec_id}_{conta}.sql")
+
+        if not os.path.isfile(caminho_arquivo):
+            print(f"⚠️ Arquivo não encontrado: {caminho_arquivo}")
+            return False
+
+        nome_arquivo_para_registro = caminho_arquivo.replace("\\", "/")
+
+        cursor.execute(
+            "SELECT 1 FROM migrations_sql WHERE filename = %s",
+            (nome_arquivo_para_registro,)
+        )
+
+        if cursor.fetchone():
+            print(f"⏩ Já executado em {config['database']}")
+            return True
+
+        print(f"🚀 Executando em {config['database']}")
+
+        with open(caminho_arquivo, "r", encoding="utf-8") as f:
+            buffer = ""
+            for linha in f:
+                linha = linha.strip()
+
+                if not linha or linha.startswith("--"):
+                    continue
+
+                buffer += linha + " "
+
+                if ";" in linha:
+                    cursor.execute(buffer.strip())
+                    buffer = ""
+
+        conn.commit()
+
+        cursor.execute(
+            "INSERT INTO migrations_sql (filename) VALUES (%s)",
+            (nome_arquivo_para_registro,)
+        )
+        conn.commit()
+
+        print(f"✅ Finalizado em {config['database']}")
+        return True
+
+    except Exception as e:
+        print(f"❌ Erro no banco {config.get('database')}: {e}")
+        if conn:
+            conn.rollback()
+        return False
+
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+
 def main(exec_id, conta, migrations_dir="./migrations_sql"):
-    config = {
+    config_principal = {
         "host": os.getenv("DB_HOST"),
         "user": os.getenv("DB_USER"),
         "password": os.getenv("DB_PASSWORD"),
@@ -15,71 +90,31 @@ def main(exec_id, conta, migrations_dir="./migrations_sql"):
         "use_pure": True
     }
 
-    # Conecta ao banco
-    conn = mysql.connector.connect(**config)
-    cursor = conn.cursor()
+    config_secundario = {
+        "host": os.getenv("DB_HOST_DEV"),
+        "user": os.getenv("DB_USER_DEV"),
+        "password": os.getenv("DB_PASSWORD_DEV"),
+        "database": os.getenv("DB_NAME_DEV"),
+        "use_pure": True
+    }
 
-    # Cria a tabela de controle, se necessário
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS migrations_sql (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        filename VARCHAR(255) NOT NULL UNIQUE,
-        executed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    # 1️⃣ Executa no principal
+    print("\n=== Executando no banco principal ===")
+    sucesso_principal = executar_migration(
+        config_principal, exec_id, conta, migrations_dir
     )
-    """)
-    conn.commit()
 
-    # Caminho do arquivo específico da conta dentro do exec_id
-    caminho_arquivo = os.path.join(migrations_dir, f"{exec_id}_{conta}.sql")
-
-    if not os.path.isfile(caminho_arquivo):
-        print(f"⚠️ Arquivo não encontrado: {caminho_arquivo}")
+    if not sucesso_principal:
+        print("🛑 Migration falhou no principal. Secundário não será executado.")
         return False
 
-    # Verifica se já foi executado
-    if os.name == "nt":
-        nome_arquivo_para_registro = caminho_arquivo.replace("\\", "/")
-    else:
-        nome_arquivo_para_registro = caminho_arquivo
+    # 2️⃣ Só executa no secundário se o principal deu certo
+    print("\n=== Executando no banco secundário ===")
+    sucesso_secundario = executar_migration(
+        config_secundario, exec_id, conta, migrations_dir
+    )
 
-    cursor.execute("SELECT 1 FROM migrations_sql WHERE filename = %s", (nome_arquivo_para_registro,))
-    if cursor.fetchone():
-        print(f"⏩ Já executado: {caminho_arquivo}")
-        return False
+    if not sucesso_secundario:
+        print("⚠️ Principal executado, mas secundário falhou.")
 
-    print(f"🚀 Executando: {caminho_arquivo}")
-    try:
-        with open(caminho_arquivo, "r", encoding="utf-8") as f:
-            buffer = ""
-            for linha in f:
-                linha = linha.strip()
-
-                # Ignora comentários e linhas vazias
-                if not linha or linha.startswith("--"):
-                    continue
-
-                buffer += linha + " "
-
-                # Quando encontrar ;, é o fim da query
-                if ";" in linha:
-                    try:
-                        cursor.execute(buffer.strip())
-                    except Exception as e:
-                        print(f"❌ Erro ao executar:\n{buffer.strip()}\n→ {e}")
-                        raise
-                    buffer = ""
-
-        conn.commit()
-
-        # Marca como executado
-        cursor.execute("INSERT INTO migrations_sql (filename) VALUES (%s)", (nome_arquivo_para_registro,))
-        conn.commit()
-        print(f"✅ Finalizado: {caminho_arquivo}")
-        return True
-    except Exception as e:
-        print(f"❌ Erro geral: {e}")
-        conn.rollback()
-        return False
-    finally:
-        cursor.close()
-        conn.close()
+    return True
