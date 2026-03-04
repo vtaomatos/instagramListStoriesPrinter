@@ -144,7 +144,7 @@ finally:
     #apagar pasta de stories_capturados
     #Deixar apenas os 6 logs mais recentes na pasta de logs
 
-    shutil.rmtree(f"./stories_capturados/{EXEC_ID}/", ignore_errors=True)
+    # shutil.rmtree(f"./stories_capturados/{EXEC_ID}/", ignore_errors=True)
     shutil.rmtree(f"./migrations_sql/", ignore_errors=True)
     
     logs = sorted(
@@ -155,6 +155,18 @@ finally:
     # Deixar apenas os 6 logs mais recentes na pasta de logs
     for log_file in logs[:-6]:
         os.remove(os.path.join("./logs/", log_file))
+
+        
+
+    stories_capturados = sorted(
+        [f for f in os.listdir("./stories_capturados/") if f.startswith("2026")],
+        key=lambda x: os.path.getmtime(os.path.join("./stories_capturados/", x))
+    )
+
+    # Deixar apenas o ultimo stories capturados mais recentes na pasta de stories_capturados
+    for story_file in stories_capturados[:-1]:
+        os.remove(os.path.join("./stories_capturados/", story_file))
+
 
     
     #Chama link de conversao de base64 para imagens no servidor;

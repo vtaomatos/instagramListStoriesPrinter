@@ -18,3 +18,11 @@
 - Criar script para remover os eventos iguais. Se tiver o mesmo base64 e mesma data remove;
 - Adicionar descrição do ambiente ao glossario (como: Categoria do local [igreja, balada, cinema], Horario de encerramento do local, clima do local, alguma informação sobre publico);
 - Adicionar um glossario de bandas e artistas com inteligencia para cadastrar novos;
+
+
+
+- Resolver problema de não registrar a sessão por motivo de falta de localização;
+- Ajusta busca no site para trabalhar com as tags.
+- Adicionar preconceito no robo (informações sobre a c  asa e sobre o evento de outras fontes, como google e fonte interna. (pensar em como criar essa fonte de opniões)) 
+- Otimizar prompts do robo. (Mandar menos palavras, talvez pedir formato mais claro ex. Markdown ao inves de json, Tentar mandar menos fotos. Tentar utilizar a descrição que o instagram ja fornece.)
+- Criar parte administrativa, contas que fazem gestão dos eventos por instagram dentro do proprio sistema (editar visibilidade do evento, cadastrar flyer, corrigir informações (inclusive de localização), criar um evento.
