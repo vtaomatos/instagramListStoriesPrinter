@@ -5,13 +5,16 @@ from dotenv import load_dotenv
 from datetime import datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from zoneinfo import ZoneInfo
+
+TZ = ZoneInfo("America/Sao_Paulo")
 
 sys.stdout.reconfigure(encoding='utf-8')
 load_dotenv()
 
 USUARIO = os.getenv("INSTAGRAM_USUARIO")
 SENHA = os.getenv("INSTAGRAM_SENHA")
-EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
+EXEC_ID = datetime.now(TZ).strftime("%Y%m%d_%H%M%S")
 
 MANUAL_TIMEOUT = 300  # tempo em segundos para login manual
 AUTOMATIC_TIMEOUT = 60  # timeout para tentativa automática

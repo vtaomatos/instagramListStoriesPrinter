@@ -14,13 +14,17 @@ from selenium.webdriver.chrome.options import Options
 import shutil
 import os
 import requests
+from zoneinfo import ZoneInfo
+
+TZ = ZoneInfo("America/Sao_Paulo")
+datetime.now(ZoneInfo("America/Sao_Paulo"))
 
 sys.stdout.reconfigure(encoding='utf-8')
 
 driver = None  # 🆕 referência global
 
 def log(msg):
-    print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
+    print(f"[{datetime.now(TZ).strftime('%H:%M:%S')}] {msg}")
 
 # 🆕 HANDLER DE ENCERRAMENTO SEGURO
 def shutdown_handler(sig, frame):
@@ -58,7 +62,7 @@ def carregar_contas_do_glossario(caminho="glossario.json"):
         return []
 
 
-EXEC_ID = datetime.now().strftime("%Y%m%d_%H%M%S")
+EXEC_ID = datetime.now(TZ).strftime("%Y%m%d_%H%M%S")
 log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
 
 # Inicia o navegador
@@ -144,7 +148,7 @@ finally:
     #apagar pasta de stories_capturados
     #Deixar apenas os 6 logs mais recentes na pasta de logs
 
-    shutil.rmtree(f"./stories_capturados/{EXEC_ID}/", ignore_errors=True)
+    # shutil.rmtree(f"./stories_capturados/{EXEC_ID}/", ignore_errors=True)
     shutil.rmtree(f"./migrations_sql/", ignore_errors=True)
     
     logs = sorted(
@@ -155,6 +159,22 @@ finally:
     # Deixar apenas os 6 logs mais recentes na pasta de logs
     for log_file in logs[:-6]:
         os.remove(os.path.join("./logs/", log_file))
+
+        
+
+    base = "./stories_capturados"
+
+    stories_capturados = sorted(
+        [
+            f for f in os.listdir(base)
+            if f.startswith("2026") and os.path.isdir(os.path.join(base, f))
+        ],
+        key=lambda x: os.path.getmtime(os.path.join(base, x))
+    )
+
+    for pasta in stories_capturados[:-1]:
+        shutil.rmtree(os.path.join(base, pasta), ignore_errors=True)
+
 
     
     #Chama link de conversao de base64 para imagens no servidor;
