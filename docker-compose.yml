@@ -32,4 +32,5 @@ services:
       - SELENIUM_URL=http://selenium-chrome:4444/wd/hub
     volumes:
       - ./logs:/app/logs
+      - ./stories_capturados:/app/stories_capturados
     restart: "no"

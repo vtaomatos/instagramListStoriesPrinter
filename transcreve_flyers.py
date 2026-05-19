@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 import sys
 from collections import defaultdict
 import unicodedata
+from zoneinfo import ZoneInfo
+
+TZ = ZoneInfo("America/Sao_Paulo")
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -72,7 +75,7 @@ def gerar_prompt(str_palavras_certas, str_palavras_erradas, str_enderecos_coorde
     No campo descricao, escreva um texto atrativo e informativo com os estilos musicais, nomes de artistas ou DJs, promoções como "open bar", "mulher VIP", horário, clima do evento e o tipo de público. Retorne apenas o JSON solicitado, sem nenhuma informação extra. Se algum dado estiver ilegível ou ausente, retorne o campo como null ou string vazia.
     Use este glossário para interpretar nomes comuns de artistas, casas ou apelidos, mesmo que estejam com abreviações ou erros: {palavras certas:""" + str_palavras_certas + """, palavras erradas:""" + str_palavras_erradas + """}.
     Glossário de instagram correto, endereços e coordenadas: {enderecos coordenadas:""" + str_enderecos_coordenadas + """}.
-    Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
+    Para melhor precisão nas datas, saiba que o horario agora é: """ + datetime.now(TZ).strftime("%Y-%m-%d %H:%M:%S") + """ e que você usar a hora em que foi postado o story caso queira calcular imagens que contenham o texto "hoje", "amanhã" ou algo assim. Entender eventos que foram ontem.
     Os campos de titulo e data_evento são obrigatórios, se possível.
     Retorne nada além de um json válido solicitado. Caso necessário traga informações vazias.
     """
@@ -173,7 +176,7 @@ def salvar_inserts(inserts, data, slug="inserts_eventos"):
     print(f"💾 Salvando INSERTs no arquivo: {nome_arquivo}")
 
     # Timestamp interno no conteúdo (opcional)
-    timestamp = datetime.now().strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
+    timestamp = datetime.now(TZ).strftime("-- Inserção em %Y-%m-%d %H:%M:%S --")
 
     with open(nome_arquivo, "a", encoding="utf-8") as f:
         f.write(f"{timestamp}\n")
@@ -484,12 +487,14 @@ def gerar_insert_sql(evento):
     
 
     # Imagem base64 opcional
-    if evento.get("flyer_imagem") and os.path.exists(evento["flyer_imagem"]):
-        with open(evento["flyer_imagem"], "rb") as f:
+    if evento.get("flyer_imagem") and os.path.exists("./" + evento["flyer_imagem"]):
+        with open("./" + evento["flyer_imagem"], "rb") as f:
             imagem_base64 = base64.b64encode(f.read()).decode("utf-8")
 
         campos.append("imagem_base64")
         valores_escapados.append(f"'{imagem_base64}'")
+    else:
+        print(f"⚠️ Imagem para base64 não encontrada: {evento.get('flyer_imagem')}")
 
 
     insert = f"""
