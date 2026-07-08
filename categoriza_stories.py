@@ -44,9 +44,9 @@ def enviar_para_chatgpt(imagens):
         "Você receberá imagens com nomes fictícios como 'story_1', 'story_2' etc.\n"
         "Considere esses nomes ao retornar os resultados.\n\n"
         "Gere **exclusivamente** um JSON **válido** com a seguinte estrutura:\n"
-        '{ "data": [ { "imagem": "story_1", "isFlyer": true, "descricao": "..." } ] }\n'
-        "⚠️ Use **aspas duplas** em todas as chaves e valores string, conforme o padrão JSON.\n"
-        "❌ Não inclua ```json ou nenhum texto fora do JSON.\n"
+        '{ "data": [ { "imagem": "story_[numero]", "isFlyer": true, "descricao": "..." } ] }\n'
+        "Use **aspas duplas** em todas as chaves e valores string, conforme o padrão JSON.\n"
+        "Não inclua ```json ou nenhum texto fora do JSON.\n"
     )
 
 

@@ -70,8 +70,8 @@ def login_instagram(driver, manual_timeout=MANUAL_TIMEOUT, automatic_timeout=AUT
     try:
         time.sleep(3)
 
-        user_input = driver.find_element(By.NAME, "username")
-        pass_input = driver.find_element(By.NAME, "password")
+        user_input = driver.find_element(By.NAME, "email")
+        pass_input = driver.find_element(By.NAME, "pass")
 
         user_input.clear()
         user_input.send_keys(USUARIO)

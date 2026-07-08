@@ -36,29 +36,124 @@ DIRETORIO_IMAGENS = os.getenv("ROOT_DIR", "./stories_capturados")
 ARQUIVO_SAIDA = os.getenv("ARQUIVO_SQL_SAIDA", "inserts_eventos.sql")
 ARQUIVO_JSON_SAIDA = os.getenv("ARQUIVO_JSON_SAIDA", "eventos.json")
 TAMANHO_LOTE = int(os.getenv("TAMANHO_LOTE", 5))
-DIERTORIO_GLOSSARIO = os.getenv("GLOSSARIO", "./glossario.json")
 DIR_MIGRATIONS_SQL = os.getenv("DIR_MIGRATIONS_SQL", "./migrations_sql")
 
-GLOSSARIO = {}
+import mysql.connector
 
-# Carrega o glossário de artistas e casas de eventos
-with open(DIERTORIO_GLOSSARIO, "r", encoding="utf-8") as f:
-    GLOSSARIO_RAW = json.load(f)
+# =========================================================
+# MYSQL
+# =========================================================
 
-GLOSSARIO_DATA = GLOSSARIO_RAW.get("data", [])
+conn = mysql.connector.connect(
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT", "3306"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME")
+)
 
-# Busca as listas de palavras certas e erradas
-palavras_certas = next((item["conteudo"] for item in GLOSSARIO_DATA if item["id"] == "glossario_palavras_certas"), [])
-palavras_erradas = next((item["conteudo"] for item in GLOSSARIO_DATA if item["id"] == "glossario_palavras_erradas"), [])
-enderecos_coordenadas = next((item["conteudo"] for item in GLOSSARIO_DATA if item["id"] == "glossario_localizacao"), [])
+cursor = conn.cursor(dictionary=True)
 
-# Concatenação de strings para inserir no prompt
-str_palavras_certas = ", ".join(palavras_certas)
-str_palavras_erradas = ", ".join(palavras_erradas)
-str_enderecos_coordenadas_default = " \n ".join([
-    f"{item['instagram']} => {item['endereco']} (Lat: {item['latitude']}, Lng: {item['longitude']})"
-    for item in enderecos_coordenadas
-])
+# =========================================================
+# GLOSSARIO
+# =========================================================
+
+def carregar_glossario():
+
+    # =========================
+    # PALAVRAS
+    # =========================
+
+    cursor.execute("""
+        SELECT
+            gp.Id,
+            gp.Palavra,
+            gp.PalavraCorretaId,
+            correta.Palavra AS PalavraCorreta
+        FROM GlossarioPalavra gp
+        LEFT JOIN GlossarioPalavra correta
+            ON correta.Id = gp.PalavraCorretaId
+    """)
+
+    palavras_rows = cursor.fetchall()
+
+    palavras_certas = []
+    palavras_erradas = []
+
+    for row in palavras_rows:
+
+        palavra = row["Palavra"]
+
+        if row["PalavraCorretaId"]:
+            palavras_erradas.append({
+                "errada": palavra,
+                "correta": row["PalavraCorreta"]
+            })
+        else:
+            palavras_certas.append(palavra)
+
+    # =========================
+    # LOCALIZACOES
+    # =========================
+
+    cursor.execute("""
+        SELECT
+            Id,
+            Nome,
+            Descricao,
+            Instagram,
+            Endereco,
+            Latitude,
+            Longitude
+        FROM local
+    """)
+
+    localizacoes = cursor.fetchall()
+
+    # =========================
+    # STRINGS GPT
+    # =========================
+
+    str_palavras_certas = ", ".join(palavras_certas)
+
+    str_palavras_erradas = ", ".join([
+        f"{p['errada']} => {p['correta']}"
+        for p in palavras_erradas
+    ])
+
+    str_enderecos_coordenadas = "\n".join([
+        f"{item['Instagram']} => {item['Endereco']} (Lat: {item['Latitude']}, Lng: {item['Longitude']})"
+        for item in localizacoes
+    ])
+
+    return {
+        "palavras_certas": palavras_certas,
+        "palavras_erradas": palavras_erradas,
+        "localizacoes": localizacoes,
+
+        "str_palavras_certas": str_palavras_certas,
+        "str_palavras_erradas": str_palavras_erradas,
+        "str_enderecos_coordenadas": str_enderecos_coordenadas
+    }
+
+# =========================================================
+
+
+# carregar o local
+
+GLOSSARIO = carregar_glossario()
+
+palavras_certas = GLOSSARIO["palavras_certas"]
+
+palavras_erradas = GLOSSARIO["palavras_erradas"]
+
+enderecos_coordenadas = GLOSSARIO["localizacoes"]
+
+str_palavras_certas = GLOSSARIO["str_palavras_certas"]
+
+str_palavras_erradas = GLOSSARIO["str_palavras_erradas"]
+
+str_enderecos_coordenadas_default = GLOSSARIO["str_enderecos_coordenadas"]
 
 print("str_palavras_certas:", str_palavras_certas)
 print("str_palavras_erradas:", str_palavras_erradas)
@@ -236,11 +331,11 @@ def gerar_eventos_a_partir_de_imagens(imagens_lote):
     # Filtra o glossário com base nos instagrams presentes no lote
     enderecos_filtrados = [
         item for item in enderecos_coordenadas
-        if item["instagram"].lower() in instagrams_lote
+        if item["Instagram"].lower() in instagrams_lote
     ]
 
     str_enderecos_coordenadas = " \n ".join([
-        f"(instagram: {item['instagram']}, endereco: {item['endereco']}, Lat: {item['latitude']}, Lng: {item['longitude']})"
+        f"(instagram: {item['Instagram']}, endereco: {item['Endereco']}, Lat: {item['Latitude']}, Lng: {item['Longitude']})"
         for item in enderecos_filtrados
     ])
 
@@ -371,7 +466,7 @@ def preparar_eventos_para_insert(eventos):
         # Enriquecer com coordenadas se faltarem
         instagram_evento = evento.get("instagram", "").lower()
         if instagram_evento:
-            coord = next((item for item in enderecos_coordenadas if item["instagram"].lower() == instagram_evento), None)
+            coord = next((item for item in enderecos_coordenadas if item["Instagram"].lower() == instagram_evento), None)
             if coord:
                 if not evento.get("latitude"):
                     evento["latitude"] = coord.get("latitude")
@@ -548,3 +643,6 @@ def main(exec_id, conta_desejada):
 
 if __name__ == "__main__":
     main()
+    
+cursor.close()
+conn.close()

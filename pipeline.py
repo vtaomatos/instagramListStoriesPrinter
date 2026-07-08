@@ -15,6 +15,10 @@ import shutil
 import os
 import requests
 from zoneinfo import ZoneInfo
+import mysql.connector
+from dotenv import load_dotenv
+
+load_dotenv()
 
 TZ = ZoneInfo("America/Sao_Paulo")
 datetime.now(ZoneInfo("America/Sao_Paulo"))
@@ -43,24 +47,49 @@ signal.signal(signal.SIGINT, shutdown_handler)
 signal.signal(signal.SIGTERM, shutdown_handler)
 
 
-def carregar_contas_do_glossario(caminho="glossario.json"):
+def carregar_contas_do_glossario():
+
     try:
-        with open(caminho, "r", encoding="utf-8") as f:
-            glossario = json.load(f)
 
-        localizacao = next((item for item in glossario["data"] if item["id"] == "glossario_localizacao"), None)
-        if not localizacao:
-            log("⚠️ Nenhuma seção 'glossario_localizacao' encontrada no glossário.")
-            return []
+        conn = mysql.connector.connect(
+            host=os.getenv("DB_HOST"),
+            port=os.getenv("DB_PORT", "3306"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME")
+        )
 
-        contas = [obj["instagram"] for obj in localizacao.get("conteudo", []) if "instagram" in obj]
-        log(f"✅ {len(contas)} contas carregadas do glossário.")
+        cursor = conn.cursor(dictionary=True)
+
+        query = """
+            SELECT Instagram
+            FROM local
+            WHERE Instagram IS NOT NULL
+            AND Instagram <> ''
+            ORDER BY Instagram
+        """
+
+        cursor.execute(query)
+
+        rows = cursor.fetchall()
+
+        contas = [
+            row["Instagram"]
+            for row in rows
+        ]
+
+        log(f"✅ {len(contas)} contas carregadas do banco.")
+
+        cursor.close()
+        conn.close()
+
         return contas
 
     except Exception as e:
-        log(f"⚠️ Erro ao carregar contas do glossário: {e}")
-        return []
 
+        log(f"⚠️ Erro ao carregar contas do banco: {e}")
+
+        return []
 
 EXEC_ID = datetime.now(TZ).strftime("%Y%m%d_%H%M%S")
 log(f"📦 Iniciando pipeline completo... ({EXEC_ID})")
@@ -88,7 +117,9 @@ try:
     buscarCoordenadasMain()
     log(f"✅ Coordenadas buscadas em {time.time() - inicio_etapa:.1f}s")
 
+
     CONTAS = carregar_contas_do_glossario()
+    
 
     # Etapa: Login Instagram
     inicio_etapa = time.time()
@@ -101,6 +132,9 @@ try:
     # Etapas por conta
     for conta in CONTAS:
         log(f"\n🧩 Iniciando pipeline da conta: {conta}\n")
+
+        # carregar o local do banco (para deixar as caracteristicas do local disponíveis para as próximas etapas)
+        # local = carregar_local_do_banco(conta)
 
         # Captura stories
         inicio_etapa = time.time()
