@@ -40,11 +40,14 @@ def enviar_para_chatgpt(imagens):
     mapa, imagens_base64 = construir_mapa_de_imagens(imagens)
 
     prompt = (
-        "Você agora vai ler e descrever eventos muito bem.\n"
+        "Você agora vai identificar se as imagens contém informações sobre eventos sendo uteis como flyer ou não.\n"
         "Você receberá imagens com nomes fictícios como 'story_1', 'story_2' etc.\n"
-        "Considere esses nomes ao retornar os resultados.\n\n"
+        "Considere esses nomes originais de cada imagem ao retornar os resultados.\n\n"
         "Gere **exclusivamente** um JSON **válido** com a seguinte estrutura:\n"
         '{ "data": [ { "imagem": "story_[numero]", "isFlyer": true, "descricao": "..." } ] }\n'
+        "Sendo o campo imagem o nome original da imagem.\n"
+        "Se o evento não tem um titulo e nem data, já é um forte candidato a não ser o que estamos procurando. \n"
+        "A menos que tenha outras informações relevantes ou combinação relevante de informação do evento de outra imagem do grupo.\n"
         "Use **aspas duplas** em todas as chaves e valores string, conforme o padrão JSON.\n"
         "Não inclua ```json ou nenhum texto fora do JSON.\n"
     )

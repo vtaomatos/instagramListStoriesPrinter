@@ -13,7 +13,10 @@ def executar_migration(config, exec_id, conta, migrations_dir):
 
     try:
         conn = mysql.connector.connect(**config)
+        # Setar timezone do banco pra são paulo
+
         cursor = conn.cursor()
+        cursor.execute("SET time_zone = 'America/Sao_Paulo'")
 
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS migrations_sql (
